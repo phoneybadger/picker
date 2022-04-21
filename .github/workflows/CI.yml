@@ -1,0 +1,40 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  # try building the app
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    container:
+      image: elementary/docker:stable
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Install dependencies
+        env:
+          dependency_packages: libvala-dev valac meson libgtk-3-dev
+        run: apt update && apt -y install ${dependency_packages}
+
+      - name: Build
+        run: |
+          meson build
+          ninja -C build
+          ninja -C build install
+
+  # check for code style errors
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    container:
+      image: valalang/lint
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Lint
+        run: io.elementary.vala-lint -d .
