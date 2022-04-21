@@ -1,3 +1,5 @@
 picker_source_files = files(
-  'Main.vala'
+  'Main.vala',
+  'Application.vala',
+  'Widgets/Window.vala'
 )

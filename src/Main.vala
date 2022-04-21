@@ -1,5 +1,6 @@
 public int main (string[] args) {
-    print("Hello!");
+    var picker = new Picker.Application ();
+    int status = picker.run ();
 
-    return 0;
+    return status;
 }

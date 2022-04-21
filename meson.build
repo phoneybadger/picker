@@ -3,8 +3,9 @@ project('com.github.phoneybadger.picker', 'c', 'vala')
 subdir('src')
 
 glib_dep = dependency('glib-2.0')
+gtk_dep = dependency('gtk+-3.0')
 
-picker_dependencies = [glib_dep]
+picker_dependencies = [glib_dep, gtk_dep]
 
 executable(
   meson.project_name(),
