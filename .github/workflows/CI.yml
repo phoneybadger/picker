@@ -16,7 +16,7 @@ jobs:
 
       - name: Install dependencies
         env:
-          dependency_packages: libvala-dev valac meson libgtk-3-dev
+          dependency_packages: libvala-dev valac meson libgtk-3-dev libgranite-dev
         run: apt update && apt -y install ${dependency_packages}
 
       - name: Build

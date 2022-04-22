@@ -1,5 +1,7 @@
 namespace Picker {
     public class ColorArea : Gtk.DrawingArea {
+        public Gdk.RGBA color;
+
         public ColorArea (int size = 180) {
             Object (
                 height_request : size,
@@ -18,7 +20,7 @@ namespace Picker {
             double start_angle = 0;
             double end_angle = 2 * Math.PI;
 
-            var color = Gdk.RGBA ();
+            color = Gdk.RGBA ();
             color.parse ("#F37329");
 
             ctx.arc (center_x, center_y, radius, start_angle, end_angle);
