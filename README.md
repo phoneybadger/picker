@@ -28,3 +28,7 @@ to install use `ninja install`, execute with 'com.github.phoneybadger.picker'
 ninja install
 com.github.phoneybadger.picker
 ```
+
+## Credits
+- Directly inspired by and uses some code from the now unmaintained [ColorPicker](https://github.com/RonnyDo/ColorPicker)
+- [Palette](https://github.com/cassidyjames/palette) for code reference
