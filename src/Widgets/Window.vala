@@ -21,8 +21,13 @@ namespace Picker {
             set_titlebar (headerbar);
 
             var color_area = new Picker.ColorArea ();
-            var pick_button = new Gtk.Button.with_label ("Pick color");
+            var pick_button = new Gtk.Button.with_label ("Pick Color");
             pick_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+            pick_button.clicked.connect (() => {
+                var overlay = new Picker.ColorPicker ();
+                overlay.show ();
+            });
 
             var color_label = new Gtk.Label ("#EEEEEE");
             color_label.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
