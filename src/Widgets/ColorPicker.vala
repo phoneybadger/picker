@@ -5,17 +5,35 @@ namespace Picker {
             PICKER
         }
 
+        public Gdk.RGBA color {get; set;}
+
         construct {
             set_cursor (Cursor.PICKER);
             button_release_event.connect (on_mouse_clicked);
             cursor_moved.connect ((x, y) => {
-                print ("%f, %f\n", x, y);
+                color = get_color_at (x, y);
             });
+        }
+
+        private Gdk.RGBA get_color_at (int x, int y) {
+            var root_window = Gdk.get_default_root_window ();
+            var pixbuf = Gdk.pixbuf_get_from_window (root_window, x, y, 1, 1);
+
+            var color_string = "rgb(%f, %f, %f)".printf (
+                pixbuf.get_pixels ()[0],
+                pixbuf.get_pixels ()[1],
+                pixbuf.get_pixels ()[2]
+            );
+            var color = Gdk.RGBA ();
+            color.parse (color_string);
+
+            return color;
         }
 
         private bool on_mouse_clicked (Gdk.EventButton event) {
             if (event.button == 1) {
-                print ("pick color");
+                debug ("picked color %s", color.to_string ());
+                stop_picking ();
             } else if (event.button == 3) {
                 stop_picking ();
             }

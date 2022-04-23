@@ -24,9 +24,15 @@ namespace Picker {
             var pick_button = new Gtk.Button.with_label ("Pick Color");
             pick_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
+
             pick_button.clicked.connect (() => {
-                var overlay = new Picker.ColorPicker ();
-                overlay.show ();
+                var color_picker = new Picker.ColorPicker ();
+                color_picker.show ();
+
+                color_picker.notify ["color"].connect (() => {
+                    color_area.color = color_picker.color;
+                    color_area.queue_draw ();
+                });
             });
 
             var color_label = new Gtk.Label ("#EEEEEE");
