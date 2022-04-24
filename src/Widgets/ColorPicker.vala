@@ -5,7 +5,7 @@ namespace Picker {
             PICKER
         }
 
-        public Gdk.RGBA color {get; set;}
+        public Picker.Color color {get; set;}
 
         construct {
             set_cursor (Cursor.PICKER);
@@ -15,7 +15,7 @@ namespace Picker {
             });
         }
 
-        private Gdk.RGBA get_color_at (int x, int y) {
+        private Picker.Color get_color_at (int x, int y) {
             var root_window = Gdk.get_default_root_window ();
             var pixbuf = Gdk.pixbuf_get_from_window (root_window, x, y, 1, 1);
 
@@ -24,7 +24,7 @@ namespace Picker {
                 pixbuf.get_pixels ()[1],
                 pixbuf.get_pixels ()[2]
             );
-            var color = Gdk.RGBA ();
+            var color = Picker.Color ();
             color.parse (color_string);
 
             return color;
