@@ -23,7 +23,7 @@ run `meson` to set up the build environment and then use `ninja` to build
 meson build --prefix=/usr
 ninja -C build
 ```
-to install use `ninja install`, execute with 'com.github.phoneybadger.picker'
+to install use `ninja install`, execute with `com.github.phoneybadger.picker`
 ```
 ninja install
 com.github.phoneybadger.picker
