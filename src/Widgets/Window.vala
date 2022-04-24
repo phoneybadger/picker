@@ -40,19 +40,17 @@ namespace Picker {
 
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
                 margin = 10,
-                halign = Gtk.Align.CENTER,
-                expand = true
             };
-            vbox.pack_start (color_label, true, true, 0);
+            vbox.pack_start (color_label);
             vbox.pack_start (pick_button, true, false, 0);
 
-            var layout_grid = new Gtk.Grid () {
-                margin = 10,
+            var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+                margin = 10
             };
-            layout_grid.attach (color_area, 0, 0, 1, 1);
-            layout_grid.attach (vbox, 1, 0, 1, 1);
+            hbox.pack_start (color_area, false, false);
+            hbox.pack_start (vbox, true, true, 10);
 
-            add (layout_grid);
+            add (hbox);
         }
     }
 }
