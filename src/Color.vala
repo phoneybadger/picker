@@ -7,7 +7,7 @@ namespace Picker {
                 (uint) (this.red * 255),
                 (uint) (this.green * 255),
                 (uint) (this.blue * 255)
-            );
+            ).up ();
 
             return hex_string;
         }

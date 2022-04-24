@@ -11,7 +11,7 @@ namespace Picker {
 
         construct {
             // Using one of the elementary palette colors as default
-            color.parse ("#f37329");
+            color.parse ("#F37329");
         }
 
         public override bool draw (Cairo.Context ctx) {
