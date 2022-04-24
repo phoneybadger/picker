@@ -19,14 +19,12 @@ namespace Picker {
             var root_window = Gdk.get_default_root_window ();
             var pixbuf = Gdk.pixbuf_get_from_window (root_window, x, y, 1, 1);
 
-            var color_string = "rgb(%f, %f, %f)".printf (
-                pixbuf.get_pixels ()[0],
-                pixbuf.get_pixels ()[1],
-                pixbuf.get_pixels ()[2]
-            );
-            var color = Picker.Color ();
-            color.parse (color_string);
-
+            var color = Picker.Color () {
+                red = pixbuf.get_pixels ()[0] / 255.0,
+                green = pixbuf.get_pixels ()[1] / 255.0,
+                blue = pixbuf.get_pixels ()[2] / 255.0,
+                alpha = 1
+            };
             return color;
         }
 
