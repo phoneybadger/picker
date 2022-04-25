@@ -1,5 +1,9 @@
 namespace Picker {
     public class Window : Gtk.ApplicationWindow {
+        private Gtk.Button pick_button;
+        private Picker.ColorArea color_area;
+        private Gtk.Label color_label;
+
         public Window (Gtk.Application app) {
             Object (
                 application: app
@@ -7,25 +11,7 @@ namespace Picker {
         }
 
         construct {
-            default_width = 400;
-            default_height = 200;
-            resizable = false;
-
-            var headerbar = new Gtk.HeaderBar () {
-                show_close_button = true,
-                title = "Picker"
-            };
-
-            var header_style = headerbar.get_style_context ();
-            header_style.add_class (Gtk.STYLE_CLASS_FLAT);
-            set_titlebar (headerbar);
-
-            var color_area = new Picker.ColorArea ();
-            var pick_button = new Gtk.Button.with_label ("Pick Color");
-            pick_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
-            var color_label = new Gtk.Label (color_area.color.to_hex_string ());
-            color_label.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
+            create_layout ();
 
             pick_button.clicked.connect (() => {
                 var color_picker = new Picker.ColorPicker ();
@@ -37,6 +23,28 @@ namespace Picker {
                     color_label.set_text (color_picker.color.to_hex_string ());
                 });
             });
+        }
+
+        private void create_layout () {
+            default_width = 400;
+            default_height = 200;
+            resizable = false;
+
+            var headerbar = new Gtk.HeaderBar () {
+                show_close_button = true,
+                title = "Picker"
+            };
+            var header_style = headerbar.get_style_context ();
+            header_style.add_class (Gtk.STYLE_CLASS_FLAT);
+            set_titlebar (headerbar);
+
+            color_area = new Picker.ColorArea ();
+
+            pick_button = new Gtk.Button.with_label ("Pick Color");
+            pick_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+            color_label = new Gtk.Label (color_area.color.to_hex_string ());
+            color_label.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
 
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
                 margin = 10,
