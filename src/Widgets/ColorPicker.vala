@@ -7,8 +7,13 @@ namespace Picker {
 
         public Picker.Color color {get; set;}
 
+        public signal void cancelled ();
+        public signal void picked (Picker.Color color);
+
         construct {
-            set_cursor (Cursor.PICKER);
+            show.connect (() => {
+                set_cursor (Cursor.PICKER);
+            });
             button_release_event.connect (on_mouse_clicked);
             cursor_moved.connect ((x, y) => {
                 color = get_color_at (x, y);
@@ -31,8 +36,10 @@ namespace Picker {
         private bool on_mouse_clicked (Gdk.EventButton event) {
             if (event.button == 1) {
                 debug ("picked color %s", color.to_string ());
+                picked (color);
                 stop_picking ();
             } else if (event.button == 3) {
+                cancelled ();
                 stop_picking ();
             }
             return true;
@@ -41,7 +48,7 @@ namespace Picker {
         private void stop_picking () {
             debug ("Aborted picking");
             set_cursor (Cursor.DEFAULT);
-            destroy ();
+            hide ();
         }
 
         private void set_cursor (Cursor cursor) {

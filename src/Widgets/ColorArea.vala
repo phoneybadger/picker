@@ -1,6 +1,6 @@
 namespace Picker {
     public class ColorArea : Gtk.DrawingArea {
-        public Picker.Color color;
+        public Picker.Color color {get; set;}
 
         public ColorArea (int size = 180) {
             Object (
@@ -10,8 +10,7 @@ namespace Picker {
         }
 
         construct {
-            // Using one of the elementary palette colors as default
-            color.parse ("#F37329");
+            notify ["color"].connect (queue_draw);
         }
 
         public override bool draw (Cairo.Context ctx) {

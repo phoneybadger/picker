@@ -13,15 +13,38 @@ namespace Picker {
         construct {
             create_layout ();
 
-            pick_button.clicked.connect (() => {
-                var color_picker = new Picker.ColorPicker ();
-                color_picker.show ();
+            var color_controller = new ColorController ();
+            var color_picker = new ColorPicker ();
 
-                color_picker.notify ["color"].connect (() => {
-                    color_area.color = color_picker.color;
-                    color_area.queue_draw ();
-                    color_label.set_text (color_picker.color.to_hex_string ());
-                });
+            color_controller.bind_property (
+                "active-color",
+                color_area,
+                "color",
+                BindingFlags.DEFAULT
+            );
+
+            color_picker.bind_property (
+                "color",
+                color_controller,
+                "active-color",
+                BindingFlags.DEFAULT
+            );
+
+            color_picker.cancelled.connect (() => {
+                color_controller.active_color = color_controller.picked_color;
+            });
+
+            color_picker.picked.connect ((color) => {
+                color_controller.picked_color = color;
+            });
+
+
+            color_controller.notify ["active-color"].connect (() => {
+                color_label.set_text (color_controller.active_color.to_hex_string ());
+            });
+
+            pick_button.clicked.connect (() => {
+                color_picker.show ();
             });
         }
 
