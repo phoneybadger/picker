@@ -27,15 +27,15 @@ namespace Picker {
 
         public Format active_format {get; set;}
         private Gtk.ComboBoxText format_selector;
-        private Gtk.Entry entry;
+        private Gtk.Entry format_entry;
 
         construct {
             orientation = Gtk.Orientation.HORIZONTAL;
 
-            entry = new Gtk.Entry () {
+            format_entry = new Gtk.Entry () {
                 editable = false,
             };
-            entry.set_icon_from_icon_name (
+            format_entry.set_icon_from_icon_name (
                 Gtk.EntryIconPosition.SECONDARY,
                 "edit-copy-symbolic"
             );
@@ -55,25 +55,32 @@ namespace Picker {
             active_format = Format.RGB;
             format_selector.active = active_format;
 
-            pack_start (entry, true, false, 10);
+            format_entry.icon_press.connect (copy_to_clipboard);
+
+            pack_start (format_entry, true, false, 10);
             pack_start (format_selector, false, false);
         }
 
         private void update_entry () {
             switch (active_format) {
                 case Format.HEX:
-                    entry.text = color.to_hex_string ();
+                    format_entry.text = color.to_hex_string ();
                     break;
                 case Format.RGB:
-                    entry.text = color.to_rgb_string ();
+                    format_entry.text = color.to_rgb_string ();
                     break;
                 case Format.RGBA:
-                    entry.text = color.to_rgba_string ();
+                    format_entry.text = color.to_rgba_string ();
                     break;
                 default:
-                    entry.text = color.to_rgba_string ();
+                    format_entry.text = color.to_rgba_string ();
                     break;
             }
+        }
+
+        private void copy_to_clipboard () {
+            var clipboard = Gtk.Clipboard.get_default (this.get_display ());
+            clipboard.set_text (format_entry.text, -1);
         }
     }
 }
