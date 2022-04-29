@@ -1,5 +1,6 @@
 namespace Picker {
     public class Window : Gtk.ApplicationWindow {
+        private GLib.Settings settings;
         private Gtk.Button pick_button;
         private Picker.ColorArea color_area;
         private Gtk.Label color_label;
@@ -11,6 +12,7 @@ namespace Picker {
         }
 
         construct {
+            load_config_from_schema ();
             create_layout ();
 
             var color_controller = new ColorController ();
@@ -45,6 +47,10 @@ namespace Picker {
 
             pick_button.clicked.connect (() => {
                 color_picker.show ();
+            });
+
+            delete_event.connect (() => {
+                save_config_to_schema ();
             });
         }
 
@@ -82,6 +88,19 @@ namespace Picker {
             hbox.pack_start (vbox, true, true, 10);
 
             add (hbox);
+        }
+
+        private void load_config_from_schema () {
+            settings = new Settings ("com.github.phoneybadger.picker");
+            int pos_x, pos_y;
+            settings.get ("position", "(ii)", out pos_x, out pos_y);
+            move (pos_x, pos_y);
+        }
+
+        private void save_config_to_schema () {
+            int pos_x, pos_y;
+            get_position (out pos_x, out pos_y);
+            settings.set ("position", "(ii)", pos_x, pos_y);
         }
     }
 }
