@@ -13,7 +13,7 @@ namespace Picker {
         }
 
         public string to_rgba_string () {
-            var rgba_string = "rgba(%d, %d, %d, 255)".printf (
+            var rgba_string = "rgba(%d, %d, %d, 1)".printf (
                 (int) (this.red * 255),
                 (int) (this.green * 255),
                 (int) (this.blue * 255)
