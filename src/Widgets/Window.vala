@@ -59,8 +59,8 @@ namespace Picker {
         }
 
         private void create_layout () {
-            default_width = 400;
-            default_height = 200;
+            default_width = 440;
+            default_height = 240;
             resizable = false;
 
             var headerbar = new Gtk.HeaderBar () {

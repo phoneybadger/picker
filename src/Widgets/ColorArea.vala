@@ -2,7 +2,7 @@ namespace Picker {
     public class ColorArea : Gtk.DrawingArea {
         public Picker.Color color {get; set;}
 
-        public ColorArea (int size = 180) {
+        public ColorArea (int size = 220) {
             Object (
                 height_request : size,
                 width_request : size
