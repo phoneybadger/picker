@@ -52,8 +52,6 @@ namespace Picker {
                 active_format = (Format) format_selector.active;
             });
 
-            active_format = Format.RGB;
-            format_selector.active = active_format;
 
             format_entry.icon_press.connect (copy_to_clipboard);
 
@@ -81,6 +79,17 @@ namespace Picker {
         private void copy_to_clipboard () {
             var clipboard = Gtk.Clipboard.get_default (this.get_display ());
             clipboard.set_text (format_entry.text, -1);
+        }
+
+        public void load_format_from_config (GLib.Settings settings) {
+            Format format;
+            settings.get ("format", "i", out format);
+            active_format = format;
+            format_selector.active = active_format;
+        }
+
+        public void save_format_to_config (GLib.Settings settings) {
+            settings.set ("format", "i", active_format);
         }
     }
 }

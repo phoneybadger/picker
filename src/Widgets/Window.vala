@@ -113,6 +113,7 @@ namespace Picker {
             move (pos_x, pos_y);
 
             color_controller.load_color_from_config (settings);
+            format_area.load_format_from_config (settings);
         }
 
         private void save_config_to_schema () {
@@ -121,6 +122,7 @@ namespace Picker {
             settings.set ("position", "(ii)", pos_x, pos_y);
 
             color_controller.save_color_to_config (settings);
+            format_area.save_format_to_config (settings);
         }
     }
 }
