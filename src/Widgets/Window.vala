@@ -4,6 +4,7 @@ namespace Picker {
         private Gtk.Button pick_button;
         private Picker.ColorArea color_area;
         private Gtk.Label color_label;
+        private Picker.FormatArea format_area;
         private Picker.ColorController color_controller;
 
         public Window (Gtk.Application app) {
@@ -33,6 +34,14 @@ namespace Picker {
                 "active-color",
                 BindingFlags.DEFAULT
             );
+
+            color_controller.bind_property (
+                "active-color",
+                format_area,
+                "color",
+                BindingFlags.DEFAULT
+            );
+
 
             color_picker.cancelled.connect (() => {
                 color_controller.active_color = color_controller.picked_color;
@@ -79,7 +88,7 @@ namespace Picker {
             color_label = new Gtk.Label (color_area.color.to_hex_string ());
             color_label.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
 
-            var format_area = new Picker.FormatArea ();
+            format_area = new Picker.FormatArea ();
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
                 margin = 10,
                 halign = Gtk.Align.END,
