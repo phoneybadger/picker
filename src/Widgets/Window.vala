@@ -79,11 +79,14 @@ namespace Picker {
             color_label = new Gtk.Label (color_area.color.to_hex_string ());
             color_label.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
 
+            var format_area = new Picker.FormatArea ();
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
                 margin = 10,
+                halign = Gtk.Align.END,
             };
             vbox.pack_start (color_label);
             vbox.pack_start (pick_button, true, false, 0);
+            vbox.pack_start (format_area, true, false, 0);
 
             var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
                 margin = 10

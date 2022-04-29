@@ -6,5 +6,6 @@ picker_source_files = files(
   'Widgets/ColorArea.vala',
   'Widgets/OverlayWindow.vala',
   'Widgets/ColorPicker.vala',
+  'Widgets/FormatArea.vala',
   'Controllers/ColorController.vala'
 )
