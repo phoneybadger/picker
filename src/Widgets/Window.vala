@@ -4,6 +4,7 @@ namespace Picker {
         private Gtk.Button pick_button;
         private Picker.ColorArea color_area;
         private Gtk.Label color_label;
+        private Picker.ColorController color_controller;
 
         public Window (Gtk.Application app) {
             Object (
@@ -12,10 +13,11 @@ namespace Picker {
         }
 
         construct {
-            load_config_from_schema ();
             create_layout ();
 
-            var color_controller = new ColorController ();
+            color_controller = new ColorController ();
+
+
             var color_picker = new ColorPicker ();
 
             color_controller.bind_property (
@@ -52,6 +54,8 @@ namespace Picker {
             delete_event.connect (() => {
                 save_config_to_schema ();
             });
+
+            load_config_from_schema ();
         }
 
         private void create_layout () {
@@ -95,12 +99,16 @@ namespace Picker {
             int pos_x, pos_y;
             settings.get ("position", "(ii)", out pos_x, out pos_y);
             move (pos_x, pos_y);
+
+            color_controller.load_color_from_config (settings);
         }
 
         private void save_config_to_schema () {
             int pos_x, pos_y;
             get_position (out pos_x, out pos_y);
             settings.set ("position", "(ii)", pos_x, pos_y);
+
+            color_controller.save_color_to_config (settings);
         }
     }
 }

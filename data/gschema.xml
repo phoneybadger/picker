@@ -6,5 +6,11 @@
       <summary>Window position</summary>
       <description>The last saved window position (x,y)</description>
     </key>
+    <key name="color" type="(iii)">
+      <!-- Setting default to one of the colors from elementary palette -->
+      <default>(155, 219, 77)</default>
+      <summary>Color</summary>
+      <description>The rgb values for last picked color</description>
+    </key>
   </schema>
 </schemalist>
