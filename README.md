@@ -6,6 +6,9 @@
   <div align="center">A simple color picker for elementary OS</div>
 </div>
 
+## Screenshots
+| ![Screenshot of app window in dark mode](data/screenshots/window-dark.png) | ![Screenshot of app window in light mode](data/screenshots/window-light.png) |
+|----------------------------------------------------------------------------|------------------------------------------------------------------------------|
 ## Building and running
 Download or clone the repo
 ```
