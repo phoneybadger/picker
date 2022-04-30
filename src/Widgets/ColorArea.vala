@@ -28,6 +28,44 @@ namespace Picker {
             Gdk.cairo_set_source_rgba (ctx, color);
             ctx.fill ();
 
+            // Draw border
+            double border_width = 1;
+            var border_color = Gdk.RGBA () {
+                red = 0,
+                green = 0,
+                blue = 0,
+                alpha = 0.3
+            };
+            Gdk.cairo_set_source_rgba (ctx, border_color);
+            ctx.set_line_width (border_width);
+            ctx.arc (
+                center_x,
+                center_y,
+                radius - border_width / 2,
+                start_angle,
+                end_angle
+            );
+            ctx.stroke ();
+
+            // Draw highlight
+            double highlight_width = 2;
+            var highlight_color = Gdk.RGBA () {
+                red = 1,
+                green = 1,
+                blue = 1,
+                alpha = 0.15
+            };
+            Gdk.cairo_set_source_rgba (ctx, highlight_color);
+            ctx.set_line_width (highlight_width);
+            ctx.arc (
+                center_x,
+                center_y,
+                radius - (border_width + highlight_width / 2),
+                start_angle,
+                end_angle
+            );
+            ctx.stroke ();
+
             return true;
         }
     }
