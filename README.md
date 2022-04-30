@@ -9,6 +9,10 @@
 ## Screenshots
 | ![Screenshot of app window in dark mode](data/screenshots/window-dark.png) | ![Screenshot of app window in light mode](data/screenshots/window-light.png) |
 |----------------------------------------------------------------------------|------------------------------------------------------------------------------|
+
+## Demo
+![Demo gif of the app being used](data/demo/demo.gif)
+
 ## Building and running
 Download or clone the repo
 ```
