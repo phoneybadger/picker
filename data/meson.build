@@ -3,3 +3,11 @@ install_data (
     install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
     rename: meson.project_name() + '.gschema.xml'
 )
+
+gnome = import('gnome')
+
+picker_resources = gnome.compile_resources(
+    'picker-resources',
+    'gresource.xml',
+)
+

@@ -1,9 +1,8 @@
 namespace Picker {
-    public class Window : Gtk.ApplicationWindow {
+    public class Window : Hdy.ApplicationWindow {
         private GLib.Settings settings;
         private Gtk.Button pick_button;
         private Picker.ColorArea color_area;
-        private Gtk.Label color_label;
         private Picker.FormatArea format_area;
         private Picker.ColorController color_controller;
 
@@ -17,7 +16,6 @@ namespace Picker {
             create_layout ();
 
             color_controller = new ColorController ();
-
 
             var color_picker = new ColorPicker ();
 
@@ -51,11 +49,6 @@ namespace Picker {
                 color_controller.picked_color = color;
             });
 
-
-            color_controller.notify ["active-color"].connect (() => {
-                color_label.set_text (color_controller.active_color.to_hex_string ());
-            });
-
             pick_button.clicked.connect (() => {
                 color_picker.show ();
             });
@@ -68,42 +61,47 @@ namespace Picker {
         }
 
         private void create_layout () {
-            default_width = 440;
+            Hdy.init ();
+            var window_grid = new Gtk.Grid ();
+            default_width = 480;
             default_height = 240;
             resizable = false;
 
-            var headerbar = new Gtk.HeaderBar () {
+            var headerbar = new Hdy.HeaderBar () {
                 show_close_button = true,
                 title = "Picker"
             };
+
             var header_style = headerbar.get_style_context ();
             header_style.add_class (Gtk.STYLE_CLASS_FLAT);
-            set_titlebar (headerbar);
+
+            var window_handle = new Hdy.WindowHandle ();
+            window_handle.add (window_grid);
 
             color_area = new Picker.ColorArea ();
+
+            var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) {
+                vexpand = true,
+                valign = Gtk.Align.START,
+                margin = 10,
+            };
 
             pick_button = new Gtk.Button.with_label ("Pick Color");
             pick_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
-            color_label = new Gtk.Label (color_area.color.to_hex_string ());
-            color_label.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
-
+            var format_label = new Gtk.Label ("Format");
+            format_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+            format_label.xalign = 0;
             format_area = new Picker.FormatArea ();
-            var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-                margin = 10,
-                halign = Gtk.Align.END,
-            };
-            vbox.pack_start (color_label);
-            vbox.pack_start (pick_button, true, false, 0);
-            vbox.pack_start (format_area, true, false, 0);
 
-            var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
-                margin = 10
-            };
-            hbox.pack_start (color_area, false, false);
-            hbox.pack_start (vbox, true, true, 10);
+            vbox.add (format_label);
+            vbox.add (format_area);
+            vbox.add (pick_button);
 
-            add (hbox);
+            window_grid.attach (headerbar, 0, 0);
+            window_grid.attach (vbox, 0, 1);
+            window_grid.attach (color_area, 1, 0, 1, 2);
+            add (window_handle);
         }
 
         private void load_config_from_schema () {
