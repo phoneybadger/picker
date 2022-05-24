@@ -1,72 +1,48 @@
 namespace Picker {
-    public class ColorArea : Gtk.DrawingArea {
+    public class ColorArea : Gtk.Box {
         public Picker.Color color {get; set;}
+        private string color_definition = "@define-color area_color %s;";
+        private Gtk.CssProvider css_provider;
 
-        public ColorArea (int size = 220) {
+        public ColorArea () {
             Object (
-                height_request : size,
-                width_request : size
+                orientation: Gtk.Orientation.HORIZONTAL,
+                spacing: 0,
+                expand: true
             );
         }
 
         construct {
-            notify ["color"].connect (queue_draw);
+            var style = get_style_context ();
+            style.add_class ("color-area");
+
+            css_provider = new Gtk.CssProvider ();
+
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (),
+                css_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
+
+            notify ["color"].connect (() => {
+                update_color (color);
+            });
         }
 
-        public override bool draw (Cairo.Context ctx) {
-            int width = get_allocated_width ();
-            int height = get_allocated_height ();
+        private void update_color (Color color) {
+            var color_css = color_definition.printf (color.to_hex_string ());
+            try {
+                css_provider.load_from_data (color_css, color_css.length);
 
-            // Draw circle:
-            double center_x = width / 2.0;
-            double center_y = height / 2.0;
-            double radius = (int.min (width, height) / 2.0);
-            double start_angle = 0;
-            double end_angle = 2 * Math.PI;
-
-            ctx.arc (center_x, center_y, radius, start_angle, end_angle);
-            Gdk.cairo_set_source_rgba (ctx, color);
-            ctx.fill ();
-
-            // Draw border
-            double border_width = 1;
-            var border_color = Gdk.RGBA () {
-                red = 0,
-                green = 0,
-                blue = 0,
-                alpha = 0.3
-            };
-            Gdk.cairo_set_source_rgba (ctx, border_color);
-            ctx.set_line_width (border_width);
-            ctx.arc (
-                center_x,
-                center_y,
-                radius - border_width / 2,
-                start_angle,
-                end_angle
-            );
-            ctx.stroke ();
-
-            // Draw highlight
-            double highlight_width = 2;
-            var highlight_color = Gdk.RGBA () {
-                red = 1,
-                green = 1,
-                blue = 1,
-                alpha = 0.15
-            };
-            Gdk.cairo_set_source_rgba (ctx, highlight_color);
-            ctx.set_line_width (highlight_width);
-            ctx.arc (
-                center_x,
-                center_y,
-                radius - (border_width + highlight_width / 2),
-                start_angle,
-                end_angle
-            );
-            ctx.stroke ();
-
-            return true;
+                Gtk.StyleContext.add_provider_for_screen (
+                    Gdk.Screen.get_default (),
+                    css_provider,
+                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+                );
+            } catch (Error e) {
+                debug (e.message);
+                return;
+            }
         }
     }
 }
