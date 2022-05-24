@@ -58,6 +58,7 @@ namespace Picker {
             });
 
             load_config_from_schema ();
+            load_css ();
         }
 
         private void create_layout () {
@@ -121,6 +122,17 @@ namespace Picker {
 
             color_controller.save_color_to_config (settings);
             format_area.save_format_to_config (settings);
+        }
+
+        private void load_css () {
+            var css_provider = new Gtk.CssProvider ();
+            css_provider.load_from_resource ("/com/github/phoneybadger/picker/application.css");
+
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (),
+                css_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
         }
     }
 }
