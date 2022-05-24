@@ -55,8 +55,8 @@ namespace Picker {
 
             format_entry.icon_press.connect (copy_to_clipboard);
 
-            pack_start (format_entry, true, false, 10);
-            pack_start (format_selector, false, false);
+            pack_start (format_entry, true, false);
+            pack_start (format_selector, false, false, 10);
         }
 
         private void update_entry () {
