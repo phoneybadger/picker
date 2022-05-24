@@ -24,6 +24,7 @@ You'll need the following dependencies
 - meson
 - libgtk-3-dev
 - libgranite-dev
+- libhandy-1-dev
 
 run `meson` to set up the build environment and then use `ninja` to build
 ```
