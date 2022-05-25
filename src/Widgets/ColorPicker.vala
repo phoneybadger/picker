@@ -24,10 +24,10 @@ namespace Picker {
             var root_window = Gdk.get_default_root_window ();
             var pixbuf = Gdk.pixbuf_get_from_window (root_window, x, y, 1, 1);
 
-            var color = Picker.Color () {
-                red = pixbuf.get_pixels ()[0] / 255.0,
-                green = pixbuf.get_pixels ()[1] / 255.0,
-                blue = pixbuf.get_pixels ()[2] / 255.0,
+            var color = new Color () {
+                red = pixbuf.get_pixels ()[0],
+                green = pixbuf.get_pixels ()[1],
+                blue = pixbuf.get_pixels ()[2],
                 alpha = 1
             };
             return color;
@@ -35,7 +35,7 @@ namespace Picker {
 
         private bool on_mouse_clicked (Gdk.EventButton event) {
             if (event.button == 1) {
-                debug ("picked color %s", color.to_string ());
+                debug ("picked color %s", color.to_hex_string ());
                 picked (color);
                 stop_picking ();
             } else if (event.button == 3) {

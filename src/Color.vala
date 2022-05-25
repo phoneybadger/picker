@@ -1,33 +1,24 @@
 namespace Picker {
-    public struct Color : Gdk.RGBA {
-        /* Extended RGBA struct with added utility functions for printing 
-        out colors in different formats */
+    public class Color : Object {
+        public uint8 red {get; set;}
+        public uint8 green {get; set;}
+        public uint8 blue {get; set;}
+        public double alpha {get; set;}
+
         public string to_hex_string () {
-            var hex_string = "#%02x%02x%02x".printf (
-                (uint) (this.red * 255),
-                (uint) (this.green * 255),
-                (uint) (this.blue * 255)
-            ).up ();
+            var hex_string = "#%02x%02x%02x".printf (red, green, blue).up ();
 
             return hex_string;
         }
 
         public string to_rgba_string () {
-            var rgba_string = "rgba(%d, %d, %d, 1)".printf (
-                (int) (this.red * 255),
-                (int) (this.green * 255),
-                (int) (this.blue * 255)
-            );
+            var rgba_string = "rgba(%d, %d, %d, 1)".printf (red, green, blue);
 
             return rgba_string;
         }
 
         public string to_rgb_string () {
-            var rgb_string = "rgb(%d, %d, %d)".printf (
-                (int) (this.red * 255),
-                (int) (this.green * 255),
-                (int) (this.blue * 255)
-            );
+            var rgb_string = "rgb(%d, %d, %d)".printf (red, green, blue);
 
             return rgb_string;
         }

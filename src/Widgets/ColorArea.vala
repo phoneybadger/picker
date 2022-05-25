@@ -25,11 +25,11 @@ namespace Picker {
             );
 
             notify ["color"].connect (() => {
-                update_color (color);
+                update_color ();
             });
         }
 
-        private void update_color (Color color) {
+        public void update_color () {
             var color_css = color_definition.printf (color.to_hex_string ());
             try {
                 css_provider.load_from_data (color_css, color_css.length);

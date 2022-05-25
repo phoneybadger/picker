@@ -19,13 +19,6 @@ namespace Picker {
 
             var color_picker = new ColorPicker ();
 
-            color_controller.bind_property (
-                "active-color",
-                color_area,
-                "color",
-                BindingFlags.DEFAULT
-            );
-
             color_picker.bind_property (
                 "color",
                 color_controller,
@@ -40,6 +33,12 @@ namespace Picker {
                 BindingFlags.DEFAULT
             );
 
+            color_controller.bind_property (
+                "active-color",
+                color_area,
+                "color",
+                BindingFlags.DEFAULT
+            );
 
             color_picker.cancelled.connect (() => {
                 color_controller.active_color = color_controller.picked_color;
