@@ -15,39 +15,9 @@ namespace Picker {
         construct {
             create_layout ();
 
-            color_controller = new ColorController ();
+            color_controller = ColorController.get_instance ();
 
             var color_picker = new ColorPicker ();
-
-            color_picker.bind_property (
-                "color",
-                color_controller,
-                "active-color",
-                BindingFlags.DEFAULT
-            );
-
-            color_controller.bind_property (
-                "active-color",
-                format_area,
-                "color",
-                BindingFlags.DEFAULT
-            );
-
-            color_controller.bind_property (
-                "active-color",
-                color_area,
-                "color",
-                BindingFlags.DEFAULT
-            );
-
-            color_picker.cancelled.connect (() => {
-                color_controller.active_color = color_controller.picked_color;
-            });
-
-            color_picker.picked.connect ((color) => {
-                color_controller.picked_color = color;
-                color_controller.color_history.append (color);
-            });
 
             pick_button.clicked.connect (() => {
                 color_picker.show ();

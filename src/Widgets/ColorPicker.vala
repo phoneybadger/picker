@@ -11,6 +11,21 @@ namespace Picker {
         public signal void picked (Picker.Color color);
 
         construct {
+            var color_controller = ColorController.get_instance ();
+
+            notify ["color"].connect (() => {
+                color_controller.preview_color = color;
+            });
+
+            cancelled.connect (() => {
+                color_controller.preview_color = color_controller.last_picked_color;
+            });
+
+            picked.connect ((picked_color) => {
+                color_controller.last_picked_color = picked_color;
+                color_controller.color_history.append (picked_color);
+            });
+
             show.connect (() => {
                 set_cursor (Cursor.PICKER);
             });

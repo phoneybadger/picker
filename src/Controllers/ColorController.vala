@@ -1,16 +1,27 @@
 namespace Picker {
     public class ColorController : Object {
-        public Picker.Color active_color {get; set;}
-        public Picker.Color picked_color {get; set;}
+        private static ColorController? instance;
+
+        public Picker.Color preview_color {get; set;}
+        public Picker.Color last_picked_color {get; set;}
         public Picker.ColorHistory color_history {get; set;}
 
         private const int HISTORY_SIZE = 5;
 
+        public static ColorController get_instance () {
+            if (instance == null) {
+                instance = new ColorController ();
+            }
+            return instance;
+        }
+
+        private ColorController () {}
+
         construct {
             color_history = new ColorHistory (HISTORY_SIZE);
 
-            notify ["picked-color"].connect (() => {
-                active_color = picked_color;
+            notify ["last-picked-color"].connect (() => {
+                preview_color = last_picked_color;
             });
         }
 
@@ -21,7 +32,7 @@ namespace Picker {
                 color.parse (hex_code);
                 color_history.append (color);
             }
-            picked_color = color_history[color_history.size - 1];
+            last_picked_color = color_history[color_history.size - 1];
         }
 
         public void save_history_to_config (GLib.Settings settings) {

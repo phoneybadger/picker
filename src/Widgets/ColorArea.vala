@@ -1,6 +1,5 @@
 namespace Picker {
     public class ColorArea : Gtk.Box {
-        public Picker.Color color {get; set;}
         private string color_definition = "@define-color area_color %s;";
         private Gtk.CssProvider css_provider;
 
@@ -13,6 +12,12 @@ namespace Picker {
         }
 
         construct {
+            var color_controller = ColorController.get_instance ();
+
+            color_controller.notify ["preview-color"].connect (() => {
+                set_color (color_controller.preview_color);
+            });
+
             var style = get_style_context ();
             style.add_class ("color-area");
 
@@ -23,13 +28,9 @@ namespace Picker {
                 css_provider,
                 Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
-
-            notify ["color"].connect (() => {
-                update_color ();
-            });
         }
 
-        public void update_color () {
+        private void set_color (Color color) {
             var color_css = color_definition.printf (color.to_hex_string ());
             try {
                 css_provider.load_from_data (color_css, color_css.length);

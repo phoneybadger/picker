@@ -38,6 +38,13 @@ namespace Picker {
 
         construct {
             create_layout ();
+
+            var color_controller = ColorController.get_instance ();
+
+            color_controller.notify ["preview-color"].connect (() => {
+                color = color_controller.preview_color;
+            });
+
             notify ["color"].connect (update_entry);
             notify ["active-format"].connect (update_entry);
 
