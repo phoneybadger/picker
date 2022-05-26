@@ -1,6 +1,5 @@
 namespace Picker {
     public class Window : Hdy.ApplicationWindow {
-        private GLib.Settings settings;
         private Gtk.Button pick_button;
         private Picker.ColorArea color_area;
         private Picker.FormatArea format_area;
@@ -24,10 +23,10 @@ namespace Picker {
             });
 
             delete_event.connect (() => {
-                save_config_to_schema ();
+                save_state_to_gsettings ();
             });
 
-            load_config_from_schema ();
+            load_state_from_gsettings ();
             load_css ();
         }
 
@@ -75,23 +74,24 @@ namespace Picker {
             add (window_handle);
         }
 
-        private void load_config_from_schema () {
-            settings = new Settings ("com.github.phoneybadger.picker");
+        private void load_state_from_gsettings () {
+            var settings = Settings.get_instance ();
             int pos_x, pos_y;
             settings.get ("position", "(ii)", out pos_x, out pos_y);
             move (pos_x, pos_y);
 
-            color_controller.load_history_from_config (settings);
-            format_area.load_format_from_config (settings);
+            color_controller.load_history_from_gsettings ();
+            format_area.load_format_from_gsettings ();
         }
 
-        private void save_config_to_schema () {
+        private void save_state_to_gsettings () {
+            var settings = Settings.get_instance ();
             int pos_x, pos_y;
             get_position (out pos_x, out pos_y);
             settings.set ("position", "(ii)", pos_x, pos_y);
 
-            color_controller.save_history_to_config (settings);
-            format_area.save_format_to_config (settings);
+            color_controller.save_history_to_gsettings ();
+            format_area.save_format_to_gsettings ();
         }
 
         private void load_css () {
