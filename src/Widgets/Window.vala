@@ -46,6 +46,7 @@ namespace Picker {
 
             color_picker.picked.connect ((color) => {
                 color_controller.picked_color = color;
+                color_controller.color_history.append (color);
             });
 
             pick_button.clicked.connect (() => {
@@ -110,7 +111,7 @@ namespace Picker {
             settings.get ("position", "(ii)", out pos_x, out pos_y);
             move (pos_x, pos_y);
 
-            color_controller.load_color_from_config (settings);
+            color_controller.load_history_from_config (settings);
             format_area.load_format_from_config (settings);
         }
 
@@ -119,7 +120,7 @@ namespace Picker {
             get_position (out pos_x, out pos_y);
             settings.set ("position", "(ii)", pos_x, pos_y);
 
-            color_controller.save_color_to_config (settings);
+            color_controller.save_history_to_config (settings);
             format_area.save_format_to_config (settings);
         }
 

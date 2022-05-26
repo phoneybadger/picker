@@ -6,11 +6,11 @@
       <summary>Window position</summary>
       <description>The last saved window position (x,y)</description>
     </key>
-    <key name="color" type="(iii)">
-      <!-- Setting default to one of the colors from elementary palette -->
-      <default>(155, 219, 77)</default>
-      <summary>Color</summary>
-      <description>The rgb values for last picked color</description>
+    <key name="color-history" type="as">
+      <!-- Setting default to some of the colors from elementary palette -->
+      <default>["#f9c440", "#68b723", "#3689e6", "#a56de2", "#de3e80"]</default>
+      <summary>Color history</summary>
+      <description>The hex values for last selected colors</description>
     </key>
     <key name="format" type="i">
       <default>0</default>

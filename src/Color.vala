@@ -22,5 +22,16 @@ namespace Picker {
 
             return rgb_string;
         }
+
+        public void parse (string color_code) {
+            /* Parse a color code to set values. Wraps Gdk.RGBA.parse, so
+            supports all formats that supports */
+            var rgba = Gdk.RGBA ();
+            rgba.parse (color_code);
+            red = (uint8) (255 * rgba.red);
+            green = (uint8) (255 * rgba.green);
+            blue = (uint8) (255 * rgba.blue);
+            alpha = 1;
+        }
     }
 }
