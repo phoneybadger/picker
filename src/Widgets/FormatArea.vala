@@ -29,9 +29,26 @@ namespace Picker {
         private Gtk.ComboBoxText format_selector;
         private Gtk.Entry format_entry;
 
-        construct {
-            orientation = Gtk.Orientation.HORIZONTAL;
+        public FormatArea () {
+            Object (
+                orientation: Gtk.Orientation.HORIZONTAL,
+                spacing: 10
+            );
+        }
 
+        construct {
+            create_layout ();
+            notify ["color"].connect (update_entry);
+            notify ["active-format"].connect (update_entry);
+
+            format_selector.changed.connect (() => {
+                active_format = (Format) format_selector.active;
+            });
+
+            format_entry.icon_press.connect (copy_to_clipboard);
+        }
+
+        private void create_layout () {
             format_entry = new Gtk.Entry () {
                 editable = false,
             };
@@ -45,18 +62,8 @@ namespace Picker {
                 format_selector.append_text (format.to_string ());
             }
 
-            notify ["color"].connect (update_entry);
-            notify ["active-format"].connect (update_entry);
-
-            format_selector.changed.connect (() => {
-                active_format = (Format) format_selector.active;
-            });
-
-
-            format_entry.icon_press.connect (copy_to_clipboard);
-
-            pack_start (format_entry, true, false);
-            pack_start (format_selector, false, false, 10);
+            pack_start (format_entry);
+            pack_start (format_selector);
         }
 
         private void update_entry () {
