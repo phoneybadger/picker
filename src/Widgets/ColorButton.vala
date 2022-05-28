@@ -18,6 +18,7 @@ namespace Picker {
         }
 
         construct {
+            relief = Gtk.ReliefStyle.HALF;
             css_provider = new Gtk.CssProvider ();
             get_style_context ().add_class (css_name);
 
