@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+
+Name=Picker
+Comment=A simple color picker
+Categories=Graphics;Utility;
+
+Icon=com.github.phoneybadger.picker
+Exec=com.github.phoneybadger.picker
+Terminal=false
+Keywords=Color;Pick;Eyedropper;Picker;

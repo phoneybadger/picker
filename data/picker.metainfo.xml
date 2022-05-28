@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.github.phoneybadger.picker</id>
+
+  <name>Picker</name>
+  <summary>A simple color picker</summary>
+
+  <metadata_license>CC-BY-4.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <description>
+    <p>A simple color picker</p>
+    <p>Features:</p>
+    <ul>
+      <li>Pick a color from anywhere on your screen</li>
+      <li>Choose different output formats (RGB, RGBA, HEX)</li>
+      <li>Remembers your last picked colors</li>
+    </ul>
+  </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>
+        https://github.com/phoneybadger/picker/blob/main/data/screenshots/window-dark.png?raw=true
+      </image>
+    </screenshot>
+    <screenshot>
+      <image>
+        https://github.com/phoneybadger/picker/blob/main/data/screenshots/window-light.png?raw=true
+      </image>
+    </screenshot>
+  </screenshots>
+
+  <launchable type="desktop-id">com.github.phoneybadger.picker.desktop</launchable>
+
+  <developer_name>Phoney Badger</developer_name>
+  <url type="homepage">https://github.com/phoneybadger/picker</url>
+  <url type="bugtracker">https://github.com/phoneybadger/picker/issues</url>
+  <url type="help">https://github.com/phoneybadger/picker/issues</url>
+
+  <content_rating type="oars-1.1" />
+</component>
