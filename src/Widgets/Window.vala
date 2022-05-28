@@ -62,10 +62,19 @@ namespace Picker {
             var format_label = new Gtk.Label ("Format");
             format_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
             format_label.xalign = 0;
+
             format_area = new Picker.FormatArea ();
+
+            var history_label = new Gtk.Label ("History");
+            history_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+            history_label.xalign = 0;
+
+            var history_buttons = new HistoryButtons ();
 
             vbox.add (format_label);
             vbox.add (format_area);
+            vbox.add (history_label);
+            vbox.add (history_buttons);
             vbox.add (pick_button);
 
             window_grid.attach (headerbar, 0, 0);

@@ -2,6 +2,7 @@ namespace Picker {
     public class ColorHistory: Object, Gee.Traversable<Color>, Gee.Iterable<Color> {
         private Gee.LinkedList<Color> colors = new Gee.LinkedList<Color> ();
         public int size {get; set construct;}
+        public signal void changed ();
 
         public ColorHistory (int size) {
             Object (
@@ -18,6 +19,7 @@ namespace Picker {
             }
             colors.remove_at (0);
             colors.add (color);
+            changed ();
         }
 
         public new Color get (int index) {

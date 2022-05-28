@@ -8,6 +8,8 @@ picker_source_files = files(
   'Widgets/OverlayWindow.vala',
   'Widgets/ColorPicker.vala',
   'Widgets/FormatArea.vala',
+  'Widgets/HistoryButtons.vala',
+  'Widgets/ColorButton.vala',
   'Services/Settings.vala',
   'Controllers/ColorController.vala'
 )
