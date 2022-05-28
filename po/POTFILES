@@ -1,0 +1,3 @@
+src/Widgets/Window.vala
+data/picker.desktop.in
+data/picker.metainfo.xml.in

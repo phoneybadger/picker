@@ -38,7 +38,7 @@ namespace Picker {
 
             var headerbar = new Hdy.HeaderBar () {
                 show_close_button = true,
-                title = "Picker"
+                title = _("Picker")
             };
 
             var header_style = headerbar.get_style_context ();
@@ -55,16 +55,16 @@ namespace Picker {
                 margin = 10,
             };
 
-            pick_button = new Gtk.Button.with_label ("Pick Color");
+            pick_button = new Gtk.Button.with_label (_("Pick Color"));
             pick_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
-            var format_label = new Gtk.Label ("Format");
+            var format_label = new Gtk.Label (_("Format"));
             format_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
             format_label.xalign = 0;
 
             format_area = new Picker.FormatArea ();
 
-            var history_label = new Gtk.Label ("History");
+            var history_label = new Gtk.Label (_("History"));
             history_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
             history_label.xalign = 0;
 
