@@ -23,6 +23,8 @@ namespace Picker {
             notify ["last-picked-color"].connect (() => {
                 preview_color = last_picked_color;
             });
+
+            load_history_from_gsettings ();
         }
 
         public void load_history_from_gsettings () {

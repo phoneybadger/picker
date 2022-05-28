@@ -38,6 +38,7 @@ namespace Picker {
 
         construct {
             create_layout ();
+            load_format_from_gsettings ();
 
             var color_controller = ColorController.get_instance ();
 
@@ -50,6 +51,14 @@ namespace Picker {
 
             format_selector.changed.connect (() => {
                 active_format = (Format) format_selector.active;
+            });
+
+            realize.connect (() => {
+                color = color_controller.preview_color;
+            });
+
+            delete_event.connect (() => {
+                save_format_to_gsettings ();
             });
 
             format_entry.icon_press.connect (copy_to_clipboard);
@@ -74,6 +83,9 @@ namespace Picker {
         }
 
         private void update_entry () {
+            if (color == null) {
+                return;
+            }
             switch (active_format) {
                 case Format.HEX:
                     format_entry.text = color.to_hex_string ();

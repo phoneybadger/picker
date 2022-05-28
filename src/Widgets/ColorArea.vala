@@ -14,6 +14,10 @@ namespace Picker {
         construct {
             var color_controller = ColorController.get_instance ();
 
+            realize.connect (() => {
+                set_color (color_controller.preview_color);
+            });
+
             color_controller.notify ["preview-color"].connect (() => {
                 set_color (color_controller.preview_color);
             });

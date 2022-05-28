@@ -79,9 +79,6 @@ namespace Picker {
             int pos_x, pos_y;
             settings.get ("position", "(ii)", out pos_x, out pos_y);
             move (pos_x, pos_y);
-
-            color_controller.load_history_from_gsettings ();
-            format_area.load_format_from_gsettings ();
         }
 
         private void save_state_to_gsettings () {
@@ -90,8 +87,8 @@ namespace Picker {
             get_position (out pos_x, out pos_y);
             settings.set ("position", "(ii)", pos_x, pos_y);
 
+            var color_controller = ColorController.get_instance ();
             color_controller.save_history_to_gsettings ();
-            format_area.save_format_to_gsettings ();
         }
 
         private void load_css () {
