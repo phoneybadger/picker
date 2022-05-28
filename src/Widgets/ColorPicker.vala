@@ -5,16 +5,24 @@ namespace Picker {
             PICKER
         }
 
-        public Picker.Color color {get; set;}
-
         public signal void cancelled ();
         public signal void picked (Picker.Color color);
 
         construct {
+            show.connect (() => {
+                set_cursor (Cursor.PICKER);
+            });
+
+            sync_with_controller ();
+        }
+
+        private void sync_with_controller () {
             var color_controller = ColorController.get_instance ();
 
-            notify ["color"].connect (() => {
-                color_controller.preview_color = color;
+            button_release_event.connect (on_mouse_clicked);
+
+            cursor_moved.connect ((x, y) => {
+                color_controller.preview_color = get_color_at (x, y);
             });
 
             cancelled.connect (() => {
@@ -24,14 +32,6 @@ namespace Picker {
             picked.connect ((picked_color) => {
                 color_controller.last_picked_color = picked_color;
                 color_controller.color_history.append (picked_color);
-            });
-
-            show.connect (() => {
-                set_cursor (Cursor.PICKER);
-            });
-            button_release_event.connect (on_mouse_clicked);
-            cursor_moved.connect ((x, y) => {
-                color = get_color_at (x, y);
             });
         }
 
@@ -49,14 +49,15 @@ namespace Picker {
         }
 
         private bool on_mouse_clicked (Gdk.EventButton event) {
+            /* Pick color on left click and cancel pick on right click */
             if (event.button == 1) {
+                var color = get_color_at ((int) event.x, (int) event.y);
                 debug ("picked color %s", color.to_hex_string ());
                 picked (color);
-                stop_picking ();
             } else if (event.button == 3) {
                 cancelled ();
-                stop_picking ();
             }
+            stop_picking ();
             return true;
         }
 
