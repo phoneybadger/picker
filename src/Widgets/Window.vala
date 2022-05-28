@@ -1,7 +1,7 @@
 namespace Picker {
     public class Window : Hdy.ApplicationWindow {
         private Gtk.Button pick_button;
-        private Picker.ColorArea color_area;
+        private Picker.ColorPreview color_preview;
         private Picker.FormatArea format_area;
         private Picker.ColorController color_controller;
 
@@ -48,7 +48,7 @@ namespace Picker {
             var window_handle = new Hdy.WindowHandle ();
             window_handle.add (window_grid);
 
-            color_area = new Picker.ColorArea ();
+            color_preview = new Picker.ColorPreview ();
 
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) {
                 vexpand = true,
@@ -79,7 +79,7 @@ namespace Picker {
 
             window_grid.attach (headerbar, 0, 0);
             window_grid.attach (vbox, 0, 1);
-            window_grid.attach (color_area, 1, 0, 1, 2);
+            window_grid.attach (color_preview, 1, 0, 1, 2);
             add (window_handle);
         }
 

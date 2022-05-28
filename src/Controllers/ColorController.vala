@@ -1,5 +1,9 @@
 namespace Picker {
     public class ColorController : Object {
+        /* Controlls the state of the color picker. UI elements derive their
+           state from the controller. Implemented as a singleton for ease
+           of access from multiple UI components */
+
         private static ColorController? instance;
 
         public Picker.Color preview_color {get; set;}
