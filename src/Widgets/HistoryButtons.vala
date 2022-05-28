@@ -1,3 +1,7 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
+ */
 namespace Picker {
     class HistoryButtons: Gtk.Box {
         private Gee.ArrayList<ColorButton> color_buttons;
