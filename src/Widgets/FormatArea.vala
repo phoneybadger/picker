@@ -39,29 +39,31 @@ namespace Picker {
         construct {
             create_layout ();
             load_format_from_gsettings ();
+            sync_ui_with_controller ();
+            handle_active_format ();
 
-            var color_controller = ColorController.get_instance ();
+            format_entry.icon_press.connect (copy_to_clipboard);
+        }
 
-            color_controller.notify ["preview-color"].connect (() => {
-                color = color_controller.preview_color;
-            });
-
-            notify ["color"].connect (update_entry);
+        private void handle_active_format () {
             notify ["active-format"].connect (update_entry);
 
             format_selector.changed.connect (() => {
                 active_format = (Format) format_selector.active;
             });
+        }
+
+        private void sync_ui_with_controller () {
+            var color_controller = ColorController.get_instance ();
+
+            color_controller.notify ["preview-color"].connect (() => {
+                color = color_controller.preview_color;
+            });
+            notify ["color"].connect (update_entry);
 
             realize.connect (() => {
                 color = color_controller.preview_color;
             });
-
-            delete_event.connect (() => {
-                save_format_to_gsettings ();
-            });
-
-            format_entry.icon_press.connect (copy_to_clipboard);
         }
 
         private void create_layout () {

@@ -1,9 +1,7 @@
 namespace Picker {
     public class Window : Hdy.ApplicationWindow {
         private Gtk.Button pick_button;
-        private Picker.ColorPreview color_preview;
-        private Picker.FormatArea format_area;
-        private Picker.ColorController color_controller;
+        private FormatArea format_area;
 
         public Window (Gtk.Application app) {
             Object (
@@ -13,8 +11,8 @@ namespace Picker {
 
         construct {
             create_layout ();
-
-            color_controller = ColorController.get_instance ();
+            load_css ();
+            load_state_from_gsettings ();
 
             var color_picker = new ColorPicker ();
 
@@ -25,9 +23,6 @@ namespace Picker {
             delete_event.connect (() => {
                 save_state_to_gsettings ();
             });
-
-            load_state_from_gsettings ();
-            load_css ();
         }
 
         private void create_layout () {
@@ -48,7 +43,7 @@ namespace Picker {
             var window_handle = new Hdy.WindowHandle ();
             window_handle.add (window_grid);
 
-            color_preview = new Picker.ColorPreview ();
+            var color_preview = new Picker.ColorPreview ();
 
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) {
                 vexpand = true,
@@ -98,6 +93,7 @@ namespace Picker {
 
             var color_controller = ColorController.get_instance ();
             color_controller.save_history_to_gsettings ();
+            format_area.save_format_to_gsettings ();
         }
 
         private void load_css () {
