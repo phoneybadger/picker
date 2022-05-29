@@ -25,6 +25,37 @@ jobs:
           ninja -C build
           ninja -C build install
 
+  # build a flatpak
+  flatpak:
+    name: Flatpak
+    runs-on: ubuntu-latest
+    # no point in running flatpak packaging if normal build has failed
+    needs: build
+
+    # This job runs in a special container designed for building Flatpaks for AppCenter
+    container:
+      image: ghcr.io/elementary/flatpak-platform/runtime:6
+      options: --privileged
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+      # Builds flatpak manifest using the Flatpak Builder action
+    - name: Flatpak
+      uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
+      with:
+        # This is the name of the Bundle file we're building
+        bundle: Picker.flatpak
+        manifest-path: com.github.phoneybadger.picker.yml
+
+        run-tests: false
+
+        # These lines specify the location of the elementary Runtime and Sdk
+        repository-name: appcenter
+        repository-url: https://flatpak.elementary.io/repo.flatpakrepo
+        cache-key: "flatpak-builder-${{ github.sha }}"
+
   # check for code style errors
   lint:
     name: Lint
