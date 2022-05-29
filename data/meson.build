@@ -38,3 +38,21 @@ picker_resources = gnome.compile_resources(
     'gresource.xml',
 )
 
+# Install our icons in all the required sizes
+icon_sizes = ['16', '24', '32', '48', '64', '128']
+
+foreach i : icon_sizes
+    # Since we're using pngs, need to install separate files for low and high DPI
+    # LoDPI
+    install_data(
+        'icons' / 'png' / i + '.png',
+        install_dir: get_option('datadir') / 'icons' / 'hicolor' / i + 'x' + i / 'apps',
+        rename: meson.project_name() + '.png'
+    )
+    # HiDPI
+    install_data(
+        'icons' / 'png' / i + '@2x' + '.png',
+        install_dir: get_option('datadir') / 'icons' / 'hicolor' / i + 'x' + i + '@2' / 'apps',
+        rename: meson.project_name() + '.png'
+    )
+endforeach
