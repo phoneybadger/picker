@@ -19,12 +19,26 @@ Download or clone the repo
 git clone https://github.com/phoneybadger/picker.git
 cd picker
 ```
+### Build with Flatpak
+
+Run `flatpak-builder` to build and install as flatpak for the current user
+```
+flatpak-builder build com.github.phoneybadger.picker.yml --user --install --force-clean
+```
+the program should now be installed and can be run using
+```
+flatpak run com.github.phoneybadger.trimmer
+```
+it should also be visible in your launcher/application menu.
+
+### Without flatpak
+
 You'll need the following dependencies
-- valac
-- meson
-- libgtk-3-dev
-- libgranite-dev
-- libhandy-1-dev
+- `valac`
+- `meson`
+- `libgtk-3-dev`
+- `libgranite-dev`
+- `libhandy-1-dev`
 
 run `meson` to set up the build environment and then use `ninja` to build
 ```
