@@ -34,6 +34,11 @@
   </screenshots>
 
   <releases>
+    <release date="2022-05-30" version="1.0.2">
+      <description>
+        <p>Fix inaccuracies in metadata</p>
+      </description>
+    </release>
     <release date="2022-05-29" version="1.0.1">
       <description>
         <p>Add stripe key</p>
