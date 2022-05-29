@@ -3,6 +3,8 @@
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
 namespace Picker {
+    /* This class was directly inspired by and uses some code from
+    https://github.com/RonnyDo/ColorPicker/blob/master/src/Widgets/Picker.vala */
     public class OverlayWindow : Gtk.Window {
         /* Transparent composited window that stays on top */
         public signal void cursor_moved (int x, int y);

@@ -55,3 +55,4 @@ com.github.phoneybadger.picker
 - Directly inspired by and uses some code from the now unmaintained [ColorPicker](https://github.com/RonnyDo/ColorPicker)
 - [Palette](https://github.com/cassidyjames/palette) for code reference
 - [Harvey](https://github.com/danrabbit/harvey) for code reference and design inspiration.
+- [Codecard](https://github.com/manexim/codecard) for code reference.
