@@ -21,6 +21,14 @@ namespace Picker {
             stick ();
             set_visual (get_screen ().get_rgba_visual ());
 
+            show.connect (() => {
+                grab_input ();
+            });
+
+            hide.connect (() => {
+                release_input ();
+            });
+
             var display = Gdk.Display.get_default ();
             var monitor = display.get_primary_monitor ();
             var geometry = monitor.get_geometry ();
@@ -29,16 +37,27 @@ namespace Picker {
             default_width = geometry.width;
 
             add_events (
-                Gdk.EventMask.POINTER_MOTION_MASK
+                Gdk.EventMask.POINTER_MOTION_MASK | Gdk.EventMask.KEY_RELEASE_MASK
             );
 
+            motion_notify_event.connect ((event) => {
+                on_mouse_moved (event);
+                return true;
+            });
         }
 
-        /* Overriding events instead of listening to them because we are using
-        a POPUP window and some events don't always work properly with that */
-        public override bool motion_notify_event (Gdk.EventMotion event) {
-            on_mouse_moved (event);
-            return true;
+        private void grab_input () {
+            /* As we are using a POPUP window, need to grab input capabilities
+               when window is shown */
+            var display = Gdk.Display.get_default ();
+            var seat = display.get_default_seat ();
+            seat.grab (get_window (), Gdk.SeatCapabilities.ALL, true, null, null, null);
+        }
+
+        private void release_input () {
+            var display = Gdk.Display.get_default ();
+            var seat = display.get_default_seat ();
+            seat.ungrab ();
         }
 
         private void on_mouse_moved (Gdk.Event event) {

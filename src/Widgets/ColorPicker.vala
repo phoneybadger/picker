@@ -29,6 +29,11 @@ namespace Picker {
                 color_controller.preview_color = get_color_at (x, y);
             });
 
+            key_release_event.connect ((event) => {
+                on_key_pressed (event);
+                return true;
+            });
+
             cancelled.connect (() => {
                 debug ("Pick cancelled");
                 stop_picking ();
@@ -65,6 +70,12 @@ namespace Picker {
                 cancelled ();
             }
             return true;
+        }
+
+        private void on_key_pressed (Gdk.EventKey event) {
+            if (event.keyval == Gdk.Key.Escape) {
+                cancelled ();
+            }
         }
 
         private void stop_picking () {

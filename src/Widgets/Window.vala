@@ -24,12 +24,6 @@ namespace Picker {
                 color_picker.show ();
             });
 
-            key_release_event.connect ((event) => {
-                if (event.keyval == Gdk.Key.Escape) {
-                    color_picker.cancelled ();
-                }
-            });
-
             delete_event.connect (() => {
                 save_state_to_gsettings ();
             });
