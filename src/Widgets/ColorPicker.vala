@@ -30,10 +30,13 @@ namespace Picker {
             });
 
             cancelled.connect (() => {
+                debug ("Pick cancelled");
+                stop_picking ();
                 color_controller.preview_color = color_controller.last_picked_color;
             });
 
             picked.connect ((picked_color) => {
+                stop_picking ();
                 color_controller.last_picked_color = picked_color;
                 color_controller.color_history.append (picked_color);
             });
@@ -61,12 +64,10 @@ namespace Picker {
             } else if (event.button == 3) {
                 cancelled ();
             }
-            stop_picking ();
             return true;
         }
 
         private void stop_picking () {
-            debug ("Aborted picking");
             set_cursor (Cursor.DEFAULT);
             hide ();
         }
