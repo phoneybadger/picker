@@ -51,7 +51,10 @@ namespace Picker {
                when window is shown */
             var display = Gdk.Display.get_default ();
             var seat = display.get_default_seat ();
-            seat.grab (get_window (), Gdk.SeatCapabilities.ALL, true, null, null, null);
+            var status = seat.grab (get_window (), Gdk.SeatCapabilities.ALL, true, null, null, null);
+            if (status != Gdk.GrabStatus.SUCCESS) {
+                seat.ungrab ();
+            }
         }
 
         private void release_input () {
