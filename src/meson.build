@@ -1,8 +1,8 @@
 picker_source_files = files(
   'Main.vala',
   'Application.vala',
-  'Color.vala',
-  'ColorHistory.vala',
+  'Models/Color.vala',
+  'Models/ColorHistory.vala',
   'Widgets/Window.vala',
   'Widgets/ColorPreview.vala',
   'Widgets/OverlayWindow.vala',
