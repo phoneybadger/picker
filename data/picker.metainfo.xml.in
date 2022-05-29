@@ -18,6 +18,8 @@
     </ul>
   </description>
 
+  <launchable type="desktop-id">com.github.phoneybadger.picker.desktop</launchable>
+
   <screenshots>
     <screenshot type="default">
       <image>
@@ -31,7 +33,13 @@
     </screenshot>
   </screenshots>
 
-  <launchable type="desktop-id">com.github.phoneybadger.picker.desktop</launchable>
+  <releases>
+    <release date="2022-06-29" version="1.0.0">
+      <description>
+        <p>Initial release</p>
+      </description>
+    </release>
+  </releases>
 
   <developer_name>Phoney Badger</developer_name>
   <url type="homepage">https://github.com/phoneybadger/picker</url>

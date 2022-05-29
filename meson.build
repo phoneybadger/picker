@@ -1,4 +1,4 @@
-project('com.github.phoneybadger.picker', 'c', 'vala')
+project('com.github.phoneybadger.picker', 'c', 'vala', version: '1.0.0')
 
 subdir('src')
 subdir('data')
