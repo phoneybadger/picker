@@ -34,12 +34,26 @@
   </screenshots>
 
   <releases>
+    <release date="2022-06-29" version="1.0.1">
+      <description>
+        <p>Add stripe key</p>
+      </description>
+    </release>
     <release date="2022-06-29" version="1.0.0">
       <description>
         <p>Initial release</p>
       </description>
     </release>
   </releases>
+
+  <custom>
+    <value key="x-appcenter-color-primary">#FAFAFA</value>
+    <value key="x-appcenter-color-primary-text">#333333</value>
+    <value key="x-appcenter-suggested-price">2</value>
+    <value key="x-appcenter-stripe">
+      pk_live_51K6UjqSJM8FG91Z9v5HoIdFE7Cd3oeXFoZeKDWXOf2lgRfkcEXYj9a3kSKp0XIlyCEi6f41rG4Cit8w4sinYWbNz00UFNdbVTx
+    </value>
+  </custom>
 
   <developer_name>Phoney Badger</developer_name>
   <url type="homepage">https://github.com/phoneybadger/picker</url>
