@@ -109,6 +109,10 @@ namespace Picker {
         }
 
         private void copy_to_clipboard () {
+            /* send a toast notification to give visual feedback to user */
+            var toast_overlay = ToastOverlay.get_instance ();
+            toast_overlay.show_toast (_("Copied to clipboard"));
+
             var clipboard = Gtk.Clipboard.get_default (this.get_display ());
             clipboard.set_text (format_entry.text, -1);
         }

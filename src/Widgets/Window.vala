@@ -76,8 +76,11 @@ namespace Picker {
             vbox.add (history_buttons);
             vbox.add (pick_button);
 
+            var toast_overlay = ToastOverlay.get_instance ();
+            toast_overlay.add (vbox);
+
             window_grid.attach (headerbar, 0, 0);
-            window_grid.attach (vbox, 0, 1);
+            window_grid.attach (toast_overlay, 0, 1);
             window_grid.attach (color_preview, 1, 0, 1, 2);
             add (window_handle);
         }
