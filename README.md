@@ -3,7 +3,12 @@
     <img src="data/icons/png/64.png" width="64">
   </div>
   <h1 align="center">Picker</h1>
-  <div align="center">A simple color picker for elementary OS</div>
+  <p align="center">
+    A simple color picker for elementary OS
+  </p>
+  <a href="https://appcenter.elementary.io/com.github.phoneybadger.picker">
+    <img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter"/>
+  </a>
 </div>
 
 ## Screenshots
@@ -12,6 +17,20 @@
 
 ## Demo
 ![Demo gif of the app being used](data/demo/demo.gif)
+
+## Installation
+
+### On elementary OS
+On elementary OS you can get Picker from the app center.
+
+### On other distros
+Picker has been designed for and tested on elementary OS. However you can always
+install Picker as a flatpak on any distro with flatpak support from the elementary flatpak repository
+```
+flatpak install https://flatpak.elementary.io/repo/appstream/com.github.phoneybadger.picker.flatpakref
+```
+Flatpak is the recommended method of installation, however if you don't want
+to use flatpak you can always build from source using the build instructions.
 
 ## Building and running
 Download or clone the repo
