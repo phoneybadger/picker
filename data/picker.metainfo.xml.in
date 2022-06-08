@@ -9,12 +9,12 @@
   <project_license>GPL-3.0-or-later</project_license>
 
   <description>
-    <p>A simple color picker</p>
+    <p>A minimal color picker that lets you pick colors from anywhere on your screen</p>
     <p>Features:</p>
     <ul>
-      <li>Pick a color from anywhere on your screen</li>
       <li>Choose different output formats (RGB, RGBA, HEX)</li>
-      <li>Remembers your last picked colors</li>
+      <li>Remembers your prefered format</li>
+      <li>Color history remembers your last picked colors</li>
     </ul>
   </description>
 
@@ -34,6 +34,14 @@
   </screenshots>
 
   <releases>
+    <release date="2022-06-08" version="1.0.3">
+      <description>
+        <ul>
+          <li>Update to elementary platform 7</li>
+          <li>Minor change to app description</li>
+        </ul>
+      </description>
+    </release>
     <release date="2022-05-30" version="1.0.2">
       <description>
         <p>Fix inaccuracies in metadata</p>
