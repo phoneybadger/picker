@@ -1,0 +1,44 @@
+name: Bug Report
+description: File a bug report
+title: "Bug:"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to fill out this bug report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Please provide a clear and concise description of the bug.
+        Provide step by step instructions to reproduce the bug if possible. Also
+        give a short description of what you expected to happen.
+      placeholder: The program crashed
+        1. Go to ...
+        2. Click on ...
+        3. Scroll down to ...
+        4. See error
+        Expected the program to not crash.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem
+  - type: input
+    attributes:
+      label: OS name and version
+      placeholder: elementary OS 6.1 Jólnir
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Version
+      description: The version of picker you are using
+      placeholder: 1.0.2
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Add any additional context about the problem here
