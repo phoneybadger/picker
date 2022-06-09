@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
+  <enum id="com.github.phoneybadger.picker.format">
+    <value value="0" nick="hex"/>
+    <value value="1" nick="rgb"/>
+    <value value="2" nick="rgba"/>
+  </enum>
+
   <schema path="/com/github/phoneybadger/picker/" id="com.github.phoneybadger.picker">
     <key name="position" type="(ii)">
       <default>(-1,-1)</default>
@@ -12,9 +18,9 @@
       <summary>Color history</summary>
       <description>The hex values for last selected colors</description>
     </key>
-    <key name="format" type="i">
-      <default>0</default>
-      <summary>Format</summary>
+    <key name="color-format" enum="com.github.phoneybadger.picker.format">
+      <default>"hex"</default>
+      <summary>Color format</summary>
       <description>Last selected color format</description>
     </key>
   </schema>

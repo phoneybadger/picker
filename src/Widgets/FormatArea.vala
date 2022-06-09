@@ -119,15 +119,14 @@ namespace Picker {
 
         public void load_format_from_gsettings () {
             var settings = Settings.get_instance ();
-            Format format;
-            settings.get ("format", "i", out format);
-            active_format = format;
+            var format = settings.get_enum ("color-format");
+            active_format = (Format) format;
             format_selector.active = active_format;
         }
 
         public void save_format_to_gsettings () {
             var settings = Settings.get_instance ();
-            settings.set ("format", "i", active_format);
+            settings.set_enum ("color-format", active_format);
         }
     }
 }
