@@ -1,0 +1,27 @@
+name: Feature request
+description: Suggest an idea for this project
+labels: ["feature request"]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to propose a feature!
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Description
+      description: Is your feature request related to a problem? then give a
+        clear and concise description of what the problem is. Also describe your
+        proposed solution. Feel free to go into as much detail as necessary.
+      placeholder: I'm always having trouble with... it would be nice to have...
+  - type: textarea
+    attributes:
+      label: Reference and prior art
+      description: If there are other apps, websites etc. that implement a
+        solution to your problem or your proposed solution, mention them.
+        Include screenshots, videos, links or any other helpful information.
+      placeholder: app X implements a similar feature and you can find some
+        images of how app Y does it here...
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: provide any other additional context
