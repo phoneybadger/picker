@@ -5,31 +5,8 @@
 namespace Picker {
     public class FormatArea : Gtk.Box {
         public Picker.Color color {get; set;}
+        public Format color_format {get; set;}
 
-        public enum Format {
-            HEX,
-            RGB,
-            RGBA;
-
-            public string to_string () {
-                switch (this) {
-                    case HEX:
-                        return "HEX";
-                    case RGB:
-                        return "RGB";
-                    case RGBA:
-                        return "RGBA";
-                    default:
-                        assert_not_reached ();
-                }
-            }
-
-            public static Format[] all () {
-                return {HEX, RGB, RGBA};
-            }
-        }
-
-        public Format active_format {get; set;}
         private Gtk.ComboBoxText format_selector;
         private Gtk.Entry format_entry;
 
@@ -50,10 +27,10 @@ namespace Picker {
         }
 
         private void handle_active_format () {
-            notify ["active-format"].connect (update_entry);
+            notify ["color-format"].connect (update_entry);
 
             format_selector.changed.connect (() => {
-                active_format = (Format) format_selector.active;
+                color_format = (Format) format_selector.active;
             });
         }
 
@@ -92,7 +69,7 @@ namespace Picker {
             if (color == null) {
                 return;
             }
-            switch (active_format) {
+            switch (color_format) {
                 case Format.HEX:
                     format_entry.text = color.to_hex_string ();
                     break;
@@ -120,13 +97,13 @@ namespace Picker {
         public void load_format_from_gsettings () {
             var settings = Settings.get_instance ();
             var format = settings.get_enum ("color-format");
-            active_format = (Format) format;
-            format_selector.active = active_format;
+            color_format = (Format) format;
+            format_selector.active = color_format;
         }
 
         public void save_format_to_gsettings () {
             var settings = Settings.get_instance ();
-            settings.set_enum ("color-format", active_format);
+            settings.set_enum ("color-format", color_format);
         }
     }
 }
