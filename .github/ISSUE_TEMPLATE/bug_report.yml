@@ -1,6 +1,5 @@
 name: Bug Report
 description: File a bug report
-title: "Bug:"
 labels: ["bug"]
 body:
   - type: markdown
@@ -14,10 +13,15 @@ body:
         Provide step by step instructions to reproduce the bug if possible. Also
         give a short description of what you expected to happen.
       placeholder: The program crashed
+
         1. Go to ...
+
         2. Click on ...
+
         3. Scroll down to ...
+
         4. See error
+
         Expected the program to not crash.
     validations:
       required: true
