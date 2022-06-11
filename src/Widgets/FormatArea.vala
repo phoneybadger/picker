@@ -23,6 +23,8 @@ namespace Picker {
             sync_ui_with_controller ();
             handle_active_format ();
 
+            notify ["color-format"].connect (save_format_to_gsettings);
+
             format_entry.icon_press.connect (copy_to_clipboard);
         }
 

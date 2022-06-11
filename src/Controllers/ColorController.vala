@@ -33,6 +33,8 @@ namespace Picker {
             });
 
             load_history_from_gsettings ();
+
+            color_history.changed.connect (save_history_to_gsettings);
         }
 
         public void load_history_from_gsettings () {

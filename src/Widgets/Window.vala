@@ -97,10 +97,6 @@ namespace Picker {
             int pos_x, pos_y;
             get_position (out pos_x, out pos_y);
             settings.set ("position", "(ii)", pos_x, pos_y);
-
-            var color_controller = ColorController.get_instance ();
-            color_controller.save_history_to_gsettings ();
-            format_area.save_format_to_gsettings ();
         }
 
         private void load_css () {
