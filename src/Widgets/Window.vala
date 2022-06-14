@@ -44,7 +44,9 @@ namespace Picker {
             headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
             var color_preview = new Picker.ColorPreview ();
-            pick_button = new Gtk.Button.with_label (_("Pick Color"));
+            pick_button = new Gtk.Button.with_label (_("Pick Color")) {
+                can_default = true
+            };
             pick_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
             var format_label = new Gtk.Label (_("Format")) {
@@ -89,6 +91,12 @@ namespace Picker {
                more convenient to be able to move the window from anywhere */
             var window_handle = new Hdy.WindowHandle ();
             window_handle.add (window_grid);
+
+            /* when the app is opened the user probably wants to pick the color
+               straight away. So setting the pick button as focused default
+               action so that pressing Return or Space starts the pick */
+            set_default (pick_button);
+            set_focus (pick_button);
 
             add (window_handle);
         }
