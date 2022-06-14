@@ -4,6 +4,8 @@
  */
 namespace Picker {
     public class Application : Gtk.Application {
+        private Window? window;
+
         public Application () {
             Object (
                 application_id: "com.github.phoneybadger.picker",
@@ -12,10 +14,19 @@ namespace Picker {
         }
 
         public override void activate () {
-            var window = new Picker.Window (this);
-            window.show_all ();
-
             set_prefered_color_scheme ();
+
+            /* Restricting to only one open instance of the application window.
+               It doesn't make much sense to have multiple instances as there
+               are no real valid use cases. And with the current architecture
+               the state is global and would be shared between multiple
+               instances anyway. */
+            if (window == null) {
+                window = new Picker.Window (this);
+                window.show_all ();
+            } else {
+                window.present ();
+            }
         }
 
         private void set_prefered_color_scheme () {
