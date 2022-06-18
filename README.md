@@ -70,6 +70,9 @@ ninja install
 com.github.phoneybadger.picker
 ```
 
+## Support Me
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X7D99T6)
+
 ## Credits
 - Directly inspired by and uses some code from the now unmaintained [ColorPicker](https://github.com/RonnyDo/ColorPicker)
 - [Palette](https://github.com/cassidyjames/palette) for code reference
