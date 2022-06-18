@@ -34,6 +34,15 @@
   </screenshots>
 
   <releases>
+    <release date="2022-06-18" version="1.0.4">
+      <description>
+        <ul>
+          <li>Fix layout bug when opening multiple instances</li>
+          <li>Make pick color button the default focused widget</li>
+          <li>Remove payment option from appcenter</li>
+        </ul>
+      </description>
+    </release>
     <release date="2022-06-08" version="1.0.3">
       <description>
         <ul>
