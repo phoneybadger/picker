@@ -10,10 +10,14 @@ body:
     attributes:
       label: What happened?
       description: Please provide a clear and concise description of the bug.
-        Provide step by step instructions to reproduce the bug if possible. Also
-        give a short description of what you expected to happen.
       placeholder: The program crashed
-
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Provide step by step instructions to reproduce the bug if possible
+      placeholder:
         1. Go to ...
 
         2. Click on ...
@@ -21,8 +25,11 @@ body:
         3. Scroll down to ...
 
         4. See error
-
-        Expected the program to not crash.
+  - type: textarea
+    attributes:
+      label: What was expected?
+      description: Explain what you expected the program to do and why?
+      placeholder: The program should not have crashed. Cos duh!
     validations:
       required: true
   - type: textarea
