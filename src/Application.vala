@@ -6,6 +6,13 @@ namespace Picker {
     public class Application : Gtk.Application {
         private Window? window;
 
+        public const string ACTION_PREFIX = "app.";
+        public const string ACTION_START_PICK = "action-start-pick";
+
+        private const ActionEntry[] ACTION_ENTRIES = {
+            {ACTION_START_PICK, action_start_pick}
+        };
+
         public Application () {
             Object (
                 application_id: "com.github.phoneybadger.picker",
@@ -27,6 +34,11 @@ namespace Picker {
             } else {
                 window.present ();
             }
+        }
+
+        private void action_start_pick () {
+            window.color_picker.start_picking ();
+            lookup_action (ACTION_START_PICK).activate (null);
         }
 
         private void set_prefered_color_scheme () {

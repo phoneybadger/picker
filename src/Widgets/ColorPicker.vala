@@ -13,10 +13,6 @@ namespace Picker {
         public signal void picked (Picker.Color color);
 
         construct {
-            show.connect (() => {
-                set_cursor (Cursor.PICKER);
-            });
-
             sync_with_controller ();
         }
 
@@ -81,6 +77,11 @@ namespace Picker {
         private void stop_picking () {
             set_cursor (Cursor.DEFAULT);
             hide ();
+        }
+
+        public void start_picking () {
+            set_cursor (Cursor.PICKER);
+            show ();
         }
 
         private void set_cursor (Cursor cursor) {
