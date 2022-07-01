@@ -22,6 +22,7 @@ namespace Picker {
 
         public override void activate () {
             set_prefered_color_scheme ();
+            add_action_entries (ACTION_ENTRIES, this);
 
             /* Restricting to only one open instance of the application window.
                It doesn't make much sense to have multiple instances as there
@@ -38,7 +39,6 @@ namespace Picker {
 
         private void action_start_pick () {
             window.color_picker.start_picking ();
-            lookup_action (ACTION_START_PICK).activate (null);
         }
 
         private void set_prefered_color_scheme () {

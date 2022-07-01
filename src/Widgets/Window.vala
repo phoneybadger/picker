@@ -24,7 +24,7 @@ namespace Picker {
             color_picker = new ColorPicker ();
 
             pick_button.clicked.connect (() => {
-                color_picker.start_picking ();
+                application.lookup_action (Application.ACTION_START_PICK).activate (null);
             });
 
             delete_event.connect (() => {
