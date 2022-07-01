@@ -4,7 +4,7 @@
  */
 public int main (string[] args) {
     var picker = new Picker.Application ();
-    int status = picker.run ();
+    int status = picker.run (args);
 
     return status;
 }

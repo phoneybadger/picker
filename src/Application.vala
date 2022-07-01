@@ -13,11 +13,19 @@ namespace Picker {
             {ACTION_START_PICK, action_start_pick}
         };
 
+        private const OptionEntry[] CMD_OPTION_ENTRIES = {
+            {"pick-color", 'p', OptionFlags.NONE, OptionArg.NONE, null, N_("Pick color"), null}
+        };
+
         public Application () {
             Object (
                 application_id: "com.github.phoneybadger.picker",
-                flags: ApplicationFlags.FLAGS_NONE
+                flags: ApplicationFlags.HANDLES_COMMAND_LINE
             );
+        }
+
+        construct {
+            add_main_option_entries (CMD_OPTION_ENTRIES);
         }
 
         public override void activate () {
@@ -35,6 +43,19 @@ namespace Picker {
             } else {
                 window.present ();
             }
+        }
+
+        public override int command_line (ApplicationCommandLine command) {
+            activate ();
+
+            /* Opens and immediately starts picking color if the --pick-color
+               flag is passed when launching from the command line. This could
+               be helpful for the user to set up keybindings and stuff */
+            var options = command.get_options_dict ();
+            if (options.contains ("pick-color")) {
+                lookup_action (ACTION_START_PICK).activate (null);
+            }
+            return 0;
         }
 
         private void action_start_pick () {

@@ -32,6 +32,18 @@ flatpak install https://flatpak.elementary.io/repo/appstream/com.github.phoneyba
 Flatpak is the recommended method of installation, however if you don't want
 to use flatpak you can always build from source using the build instructions.
 
+## Usage
+If installed as flatpak the program can be launched using
+```
+flatpak run com.github.phoneybadger.picker
+```
+the app can be launched directly in color picking mode using the command line
+option `--pick-color`. This could be perhaps be used to set up a keybinding.
+```
+flatpak run com.github.phoneybadger.picker --pick-color
+```
+and the program should also be visible in your launcher/application menu
+
 ## Building and running
 Download or clone the repo
 ```
@@ -48,7 +60,6 @@ the program should now be installed and can be run using
 ```
 flatpak run com.github.phoneybadger.trimmer
 ```
-it should also be visible in your launcher/application menu.
 
 ### Without flatpak
 
