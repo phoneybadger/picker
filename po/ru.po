@@ -1,5 +1,5 @@
 # Russian translation for com.github.phoneybadger.picker
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2022 THE com.github.phoneybadger.picker'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.phoneybadger.picker package.
 # lenemter <lenemter@gmail.com>, 2022.
 #
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.phoneybadger.picker\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-27 20:42+0900\n"
+"POT-Creation-Date: 2022-09-28 22:58+0900\n"
 "PO-Revision-Date: 2022-09-27 20:44+0900\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none\n"
@@ -51,7 +51,8 @@ msgstr "Цвет;Выбрать;Пипетка;Выбор"
 msgid ""
 "A minimal color picker that lets you pick colors from anywhere on your screen"
 msgstr ""
-"Минималистичная палитра, которая позволяет вам выбирать цвет с любой точки вашего экрана"
+"Минималистичная палитра, которая позволяет вам выбирать цвет с любой точки "
+"вашего экрана"
 
 #: data/picker.metainfo.xml.in:13
 msgid "Features:"
@@ -62,7 +63,7 @@ msgid "Choose different output formats (RGB, RGBA, HEX)"
 msgstr "Выбор различные форматы цветов (RGB, RGBA, HEX)"
 
 #: data/picker.metainfo.xml.in:16
-msgid "Remembers your prefered format"
+msgid "Remembers your preferred format"
 msgstr "Запоминание вашего предпочитаемого формата"
 
 #: data/picker.metainfo.xml.in:17
@@ -71,7 +72,8 @@ msgstr "История последних выбранных цветов"
 
 #: data/picker.metainfo.xml.in:38
 msgid "Add command line flag to open directly in color picking mode"
-msgstr "Добавлен флаг командной строки для открытия сразу в режиме выбора цвета"
+msgstr ""
+"Добавлен флаг командной строки для открытия сразу в режиме выбора цвета"
 
 #: data/picker.metainfo.xml.in:45
 msgid "Fix layout bug when opening multiple instances"
