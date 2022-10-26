@@ -5,11 +5,11 @@ subdir('data')
 subdir('po')
 
 glib_dep = dependency('glib-2.0')
-gtk_dep = dependency('gtk+-3.0')
-granite_dep = dependency('granite')
-handy_dep = dependency('libhandy-1')
+gtk_dep = dependency('gtk4')
+granite_dep = dependency('granite-7')
+adw_dep = dependency('libadwaita-1')
 
-picker_dependencies = [glib_dep, gtk_dep, granite_dep, handy_dep]
+picker_dependencies = [glib_dep, gtk_dep, granite_dep, adw_dep]
 
 executable(
     meson.project_name(),
