@@ -38,6 +38,7 @@ namespace Picker {
                 hexpand = true,
                 title_widget = title
             };
+            headerbar.get_style_context ().add_class ("flat");
 
             // var color_preview = new Picker.ColorPreview ();
             pick_button = new Gtk.Button.with_label (_("Pick Color"));
@@ -48,7 +49,7 @@ namespace Picker {
             };
             format_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 
-            // var format_area = new Picker.FormatArea ();
+            var format_area = new Picker.FormatArea ();
 
             var history_label = new Gtk.Label (_("History")) {
                 xalign = 0
@@ -58,12 +59,13 @@ namespace Picker {
             // var history_buttons = new HistoryButtons ();
 
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) {
-                vexpand = true,
                 hexpand = true,
-                valign = Gtk.Align.START,
+                margin_start = 10,
+                margin_end = 10,
+                margin_bottom = 10,
             };
             vbox.append (format_label);
-            // vbox.append (format_area);
+            vbox.append (format_area);
             vbox.append (history_label);
             // vbox.append (history_buttons);
             vbox.append (pick_button);
