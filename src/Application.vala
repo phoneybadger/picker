@@ -29,7 +29,7 @@ namespace Picker {
         // }
 
         public override void activate () {
-            // set_prefered_color_scheme ();
+            set_prefered_color_scheme ();
             // add_action_entries (ACTION_ENTRIES, this);
 
             /* Restricting to only one open instance of the application window.
@@ -63,18 +63,18 @@ namespace Picker {
         //     print ("pick color");
         // }
         //
-        // private void set_prefered_color_scheme () {
-        //     var gtk_settings = Gtk.Settings.get_default ();
-        //     var granite_settings = Granite.Settings.get_default ();
-        //     gtk_settings.gtk_application_prefer_dark_theme = is_prefer_dark ();
-        //     granite_settings.notify["prefers-color-scheme"].connect (() => {
-        //         gtk_settings.gtk_application_prefer_dark_theme = is_prefer_dark ();
-        //     });
-        // }
-        //
-        // private bool is_prefer_dark () {
-        //     var granite_settings = Granite.Settings.get_default ();
-        //     return granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-        // }
+        private void set_prefered_color_scheme () {
+            var gtk_settings = Gtk.Settings.get_default ();
+            var granite_settings = Granite.Settings.get_default ();
+            gtk_settings.gtk_application_prefer_dark_theme = is_prefer_dark ();
+            granite_settings.notify["prefers-color-scheme"].connect (() => {
+                gtk_settings.gtk_application_prefer_dark_theme = is_prefer_dark ();
+            });
+        }
+
+        private bool is_prefer_dark () {
+            var granite_settings = Granite.Settings.get_default ();
+            return granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        }
     }
 }
