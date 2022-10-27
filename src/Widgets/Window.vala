@@ -20,16 +20,11 @@ namespace Picker {
             // Adw.init ();
             create_layout ();
             load_css ();
-            // load_state_from_gsettings ();
 
             // color_picker = new ColorPicker ();
 
             // pick_button.clicked.connect (() => {
                 // application.lookup_action (Application.ACTION_START_PICK).activate (null);
-            // });
-            //
-            // delete_event.connect (() => {
-            //     save_state_to_gsettings ();
             // });
         }
 
@@ -92,20 +87,6 @@ namespace Picker {
 
             content = window_handle;
         }
-
-        // private void load_state_from_gsettings () {
-        //     var settings = Settings.get_instance ();
-        //     int pos_x, pos_y;
-        //     settings.get ("position", "(ii)", out pos_x, out pos_y);
-        //     move (pos_x, pos_y);
-        // }
-
-        // private void save_state_to_gsettings () {
-        //     var settings = Settings.get_instance ();
-        //     int pos_x, pos_y;
-        //     get_position (out pos_x, out pos_y);
-        //     settings.set ("position", "(ii)", pos_x, pos_y);
-        // }
 
         private void load_css () {
             var css_provider = new Gtk.CssProvider ();
