@@ -17,6 +17,7 @@ namespace Picker {
         }
 
         construct {
+            // Adw.init ();
             create_layout ();
             load_css ();
             // load_state_from_gsettings ();
@@ -69,11 +70,6 @@ namespace Picker {
             vbox.append (history_label);
             vbox.append (history_buttons);
             vbox.append (pick_button);
-
-            /* The toasts coming up over the half with the controls looks nicer
-               than coming up over the middle of the whole window */
-            // var toast_overlay = ToastOverlay.get_instance ();
-            // toast_overlay.add (vbox);
 
             /* We want the color preview area to span the entire height of the
                window, so using a custom grid layout for the entire window
