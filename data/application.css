@@ -1,9 +1,14 @@
-.color-preview {
-    /* preview_color defined in code */
-    background-color: @preview_color;
-    border-left: 1px solid @menu_separator;
-    box-shadow:
-        inset 1px 0 0 0 shade (@preview_color, 1.07),
-        inset -1px 0 0 0 shade (@preview_color, 1.07),
-        inset 0 -1px 0 0 shade (@preview_color, 1.1);
+/* .color-preview { */
+/*     /* preview_color defined in code */
+/*     background-color: @preview_color; */
+/*     border-left: 1px solid @menu_separator; */
+/*     box-shadow: */
+/*         inset 1px 0 0 0 shade (@preview_color, 1.07), */
+/*         inset -1px 0 0 0 shade (@preview_color, 1.07), */
+/*         inset 0 -1px 0 0 shade (@preview_color, 1.1); */
+/* } */
+
+.color-button {
+    padding: 0px;
+    border: none;
 }

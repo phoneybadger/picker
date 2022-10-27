@@ -18,13 +18,13 @@ namespace Picker {
 
         construct {
             create_layout ();
-            // load_css ();
+            load_css ();
             // load_state_from_gsettings ();
 
             // color_picker = new ColorPicker ();
 
             // pick_button.clicked.connect (() => {
-            //     application.lookup_action (Application.ACTION_START_PICK).activate (null);
+                // application.lookup_action (Application.ACTION_START_PICK).activate (null);
             // });
             //
             // delete_event.connect (() => {
@@ -56,7 +56,7 @@ namespace Picker {
             };
             history_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 
-            // var history_buttons = new HistoryButtons ();
+            var history_buttons = new HistoryButtons ();
 
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) {
                 hexpand = true,
@@ -67,7 +67,7 @@ namespace Picker {
             vbox.append (format_label);
             vbox.append (format_area);
             vbox.append (history_label);
-            // vbox.append (history_buttons);
+            vbox.append (history_buttons);
             vbox.append (pick_button);
 
             /* The toasts coming up over the half with the controls looks nicer
@@ -111,15 +111,15 @@ namespace Picker {
         //     settings.set ("position", "(ii)", pos_x, pos_y);
         // }
 
-        // private void load_css () {
-        //     var css_provider = new Gtk.CssProvider ();
-        //     css_provider.load_from_resource ("/com/github/phoneybadger/picker/application.css");
-        //
-        //     Gtk.StyleContext.add_provider_for_screen (
-        //         Gdk.Screen.get_default (),
-        //         css_provider,
-        //         Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        //     );
-        // }
+        private void load_css () {
+            var css_provider = new Gtk.CssProvider ();
+            css_provider.load_from_resource ("/com/github/phoneybadger/picker/application.css");
+
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (),
+                css_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
+        }
     }
 }
