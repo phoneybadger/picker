@@ -29,7 +29,7 @@ namespace Picker {
         public Gdk.RGBA to_rgba () {
             var rgba = Gdk.RGBA ();
             rgba.red = ((float) red) / 255;
-            rgba.green = ((float) green)/ 255;
+            rgba.green = ((float) green) / 255;
             rgba.blue = ((float) blue) / 255;
             rgba.alpha = 1;
             return rgba;
