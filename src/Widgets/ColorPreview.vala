@@ -11,11 +11,13 @@ namespace Picker {
             Object (
                 orientation: Gtk.Orientation.HORIZONTAL,
                 spacing: 0,
-                expand: true
+                hexpand: true,
+                vexpand: true
             );
         }
 
         construct {
+            width_request = 220;
             create_style ();
             sync_color_with_controller ();
         }
@@ -26,8 +28,8 @@ namespace Picker {
 
             css_provider = new Gtk.CssProvider ();
 
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (),
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (),
                 css_provider,
                 Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
@@ -47,18 +49,13 @@ namespace Picker {
 
         private void set_color (Color color) {
             var color_css = color_definition.printf (color.to_hex_string ());
-            try {
-                css_provider.load_from_data (color_css, color_css.length);
+            css_provider.load_from_data (color_css.data);
 
-                Gtk.StyleContext.add_provider_for_screen (
-                    Gdk.Screen.get_default (),
-                    css_provider,
-                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-                );
-            } catch (Error e) {
-                debug (e.message);
-                return;
-            }
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (),
+                css_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
         }
     }
 }

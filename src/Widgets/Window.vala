@@ -17,7 +17,6 @@ namespace Picker {
         }
 
         construct {
-            // Adw.init ();
             create_layout ();
             load_css ();
 
@@ -36,7 +35,7 @@ namespace Picker {
             };
             headerbar.get_style_context ().add_class ("flat");
 
-            // var color_preview = new Picker.ColorPreview ();
+            var color_preview = new Picker.ColorPreview ();
             pick_button = new Gtk.Button.with_label (_("Pick Color"));
             pick_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
@@ -72,7 +71,7 @@ namespace Picker {
             var window_grid = new Gtk.Grid ();
             window_grid.attach (headerbar, 0, 0);
             window_grid.attach (vbox, 0, 1);
-            // window_grid.attach (color_preview, 1, 0, 1, 2);
+            window_grid.attach (color_preview, 1, 0, 1, 2);
 
             /* As the headerbar spans only half the window, it would be
                more convenient to be able to move the window from anywhere */

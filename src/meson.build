@@ -5,7 +5,7 @@ picker_source_files = files(
   'Models/Format.vala',
   'Models/ColorHistory.vala',
   'Widgets/Window.vala',
-  # 'Widgets/ColorPreview.vala',
+  'Widgets/ColorPreview.vala',
   # 'Widgets/OverlayWindow.vala',
   # 'Widgets/ColorPicker.vala',
   'Widgets/FormatArea.vala',

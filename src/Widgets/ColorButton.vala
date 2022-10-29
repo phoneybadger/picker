@@ -24,9 +24,9 @@ namespace Picker {
             //     }
             // });
 
-            // clicked.connect (() => {
-            //     color_controller.preview_color = color;
-            // });
+            clicked.connect (() => {
+                color_controller.preview_color = color;
+            });
         }
 
         private void create_layout () {
