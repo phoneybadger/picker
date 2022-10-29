@@ -31,7 +31,8 @@ namespace Picker {
             var title = new Gtk.Label (_("Picker"));
             var headerbar = new Adw.HeaderBar () {
                 hexpand = true,
-                title_widget = title
+                title_widget = title,
+                valign = Gtk.Align.START
             };
             headerbar.get_style_context ().add_class ("flat");
 
@@ -55,6 +56,7 @@ namespace Picker {
 
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) {
                 hexpand = true,
+                vexpand = true,
                 margin_start = 10,
                 margin_end = 10,
                 margin_bottom = 10,
