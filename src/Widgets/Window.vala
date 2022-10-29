@@ -82,8 +82,8 @@ namespace Picker {
             /* when the app is opened the user probably wants to pick the color
                straight away. So setting the pick button as focused default
                action so that pressing Return or Space starts the pick */
-            // set_default (pick_button);
-            // set_focus (pick_button);
+            default_widget = pick_button;
+            set_focus (pick_button);
 
             content = window_handle;
         }
