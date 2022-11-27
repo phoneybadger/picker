@@ -8,7 +8,6 @@ namespace Picker {
            Using libhandy so that we get rounded corners on the window. */
 
         private Gtk.Button pick_button;
-        // public ColorPicker color_picker;
 
         public Window (Gtk.Application app) {
             Object (
@@ -20,11 +19,12 @@ namespace Picker {
             create_layout ();
             load_css ();
 
-            // color_picker = new ColorPicker ();
+            var color_picker = new ColorPicker ();
 
-            // pick_button.clicked.connect (() => {
+            pick_button.clicked.connect (() => {
                 // application.lookup_action (Application.ACTION_START_PICK).activate (null);
-            // });
+                color_picker.pick.begin ();
+            });
         }
 
         private void create_layout () {
