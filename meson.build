@@ -9,7 +9,7 @@ gtk_dep = dependency('gtk+-3.0')
 granite_dep = dependency('granite')
 handy_dep = dependency('libhandy-1')
 
-picker_dependencies = [glib_dep, gtk_dep, granite_dep, handy_dep]
+picker_dependencies = [glib_dep, gtk_dep, granite_dep, handy_dep, meson.get_compiler('c').find_library('m', required: true)]
 
 executable(
     meson.project_name(),
