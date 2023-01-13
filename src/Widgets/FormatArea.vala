@@ -81,6 +81,9 @@ namespace Picker {
                 case Format.RGBA:
                     format_entry.text = color.to_rgba_string ();
                     break;
+                 case Format.CMYK:
+                    format_entry.text = color.to_cmyk_string ();
+                    break;
                 default:
                     format_entry.text = color.to_rgba_string ();
                     break;

@@ -6,7 +6,8 @@ namespace Picker {
     public enum Format {
         HEX,
         RGB,
-        RGBA;
+        RGBA,
+        CMYK;
 
         public string to_string () {
             switch (this) {
@@ -16,13 +17,15 @@ namespace Picker {
                     return "RGB";
                 case RGBA:
                     return "RGBA";
+                case CMYK:
+                    return "CMYK";
                 default:
                     assert_not_reached ();
             }
         }
 
         public static Format[] all () {
-            return {HEX, RGB, RGBA};
+            return {HEX, RGB, RGBA,CMYK};
         }
     }
 }
