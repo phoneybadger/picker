@@ -23,14 +23,10 @@ namespace Picker {
             });
 
             for (var i = 0; i < color_controller.color_history.size; i++) {
-                var button_name = "color-button-%d".printf (i);
                 var color = color_controller.color_history[i];
-                var color_button = new ColorButton (color, button_name) {
-                    width_request = 45,
-                    height_request = 30
-                };
+                var color_button = new ColorButton (color);
                 color_buttons.add (color_button);
-                add (color_button);
+                append (color_button);
             }
         }
 

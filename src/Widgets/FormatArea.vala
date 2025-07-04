@@ -52,6 +52,7 @@ namespace Picker {
         private void create_layout () {
             format_entry = new Gtk.Entry () {
                 editable = false,
+                hexpand = true,
             };
             format_entry.set_icon_from_icon_name (
                 Gtk.EntryIconPosition.SECONDARY,
@@ -63,8 +64,8 @@ namespace Picker {
                 format_selector.append_text (format.to_string ());
             }
 
-            pack_start (format_entry);
-            pack_start (format_selector);
+            append (format_entry);
+            append (format_selector);
         }
 
         private void update_entry () {
@@ -89,11 +90,12 @@ namespace Picker {
 
         private void copy_to_clipboard () {
             /* send a toast notification to give visual feedback to user */
-            var toast_overlay = ToastOverlay.get_instance ();
-            toast_overlay.show_toast (_("Copied to clipboard"));
+            // var toast_overlay = ToastOverlay.get_instance ();
+            // toast_overlay.show_toast (_("Copied to clipboard"));
 
-            var clipboard = Gtk.Clipboard.get_default (this.get_display ());
-            clipboard.set_text (format_entry.text, -1);
+            var display = Gdk.Display.get_default ();
+            var clipboard = display.get_clipboard ();
+            clipboard.set_text (format_entry.text);
         }
 
         public void load_format_from_gsettings () {

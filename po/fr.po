@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.phoneybadger.picker\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-28 22:58+0900\n"
+"POT-Creation-Date: 2022-05-29 18:49+0530\n"
 "PO-Revision-Date: 2022-05-29 02:15+0530\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,38 +17,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: src/Widgets/Window.vala:43 data/picker.desktop.in:6
+#: src/Widgets/Window.vala:41 data/picker.desktop.in:6
 #: data/picker.metainfo.xml.in:5
 msgid "Picker"
 msgstr ""
 
-#: src/Widgets/Window.vala:48
+#: src/Widgets/Window.vala:58
 msgid "Pick Color"
 msgstr ""
 
-#: src/Widgets/Window.vala:53
+#: src/Widgets/Window.vala:61
 msgid "Format"
 msgstr ""
 
-#: src/Widgets/Window.vala:60
+#: src/Widgets/Window.vala:67
 msgid "History"
 msgstr ""
 
-#: src/Widgets/FormatArea.vala:93
+#: src/Widgets/FormatArea.vala:114
 msgid "Copied to clipboard"
 msgstr ""
 
 #: data/picker.desktop.in:7 data/picker.metainfo.xml.in:6
+#: data/picker.metainfo.xml.in:12
 msgid "A simple color picker"
+msgstr ""
+
+#: data/picker.desktop.in:10
+msgid "com.github.phoneybadger.picker"
 msgstr ""
 
 #: data/picker.desktop.in:13
 msgid "Color;Pick;Eyedropper;Picker;"
-msgstr ""
-
-#: data/picker.metainfo.xml.in:12
-msgid ""
-"A minimal color picker that lets you pick colors from anywhere on your screen"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:13
@@ -56,53 +56,17 @@ msgid "Features:"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:15
-msgid "Choose different output formats (RGB, RGBA, HEX)"
+msgid "Pick a color from anywhere on your screen"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:16
-msgid "Remembers your preferred format"
+msgid "Choose different output formats (RGB, RGBA, HEX)"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:17
-msgid "Color history remembers your last picked colors"
+msgid "Remembers your last picked colors"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:38
-msgid "Add command line flag to open directly in color picking mode"
-msgstr ""
-
-#: data/picker.metainfo.xml.in:45
-msgid "Fix layout bug when opening multiple instances"
-msgstr ""
-
-#: data/picker.metainfo.xml.in:46
-msgid "Make pick color button the default focused widget"
-msgstr ""
-
-#: data/picker.metainfo.xml.in:47
-msgid "Remove payment option from appcenter"
-msgstr ""
-
-#: data/picker.metainfo.xml.in:54
-msgid "Update to elementary platform 7"
-msgstr ""
-
-#: data/picker.metainfo.xml.in:55
-msgid "Minor change to app description"
-msgstr ""
-
-#: data/picker.metainfo.xml.in:61
-msgid "Fix inaccuracies in metadata"
-msgstr ""
-
-#: data/picker.metainfo.xml.in:66
-msgid "Add stripe key"
-msgstr ""
-
-#: data/picker.metainfo.xml.in:71
-msgid "Initial release"
-msgstr ""
-
-#: data/picker.metainfo.xml.in:81
+#: data/picker.metainfo.xml.in:36
 msgid "Phoney Badger"
 msgstr ""
