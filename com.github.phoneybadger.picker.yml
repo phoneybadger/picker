@@ -1,7 +1,7 @@
 app-id: com.github.phoneybadger.picker
 
 runtime: io.elementary.Platform
-runtime-version: '7'
+runtime-version: '8'
 sdk: io.elementary.Sdk
 
 command: com.github.phoneybadger.picker
@@ -10,6 +10,19 @@ finish-args:
   - '--share=ipc'
   - '--socket=fallback-x11'
   - '--socket=wayland'
+  - '--device=dri'
+
+cleanup:
+  -  '/include'
+  -  '/lib/pkgconfig'
+  -  '/man'
+  -  '/share/doc'
+  -  '/share/gtk-doc'
+  -  '/share/man'
+  -  '/share/pkgconfig'
+  -  '/share/installed-tests'
+  -  '*.la'
+  -  '*.a'
 
 modules:
   - name: picker

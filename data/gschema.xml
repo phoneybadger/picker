@@ -4,6 +4,7 @@
     <value value="0" nick="hex"/>
     <value value="1" nick="rgb"/>
     <value value="2" nick="rgba"/>
+    <value value="3" nick="cmyk"/>
   </enum>
 
   <schema path="/com/github/phoneybadger/picker/" id="com.github.phoneybadger.picker">

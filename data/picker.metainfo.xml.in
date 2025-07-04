@@ -12,7 +12,7 @@
     <p>A minimal color picker that lets you pick colors from anywhere on your screen</p>
     <p>Features:</p>
     <ul>
-      <li>Choose different output formats (RGB, RGBA, HEX)</li>
+      <li>Choose different output formats (RGB, RGBA, HEX, CMYK)</li>
       <li>Remembers your preferred format</li>
       <li>Color history remembers your last picked colors</li>
     </ul>

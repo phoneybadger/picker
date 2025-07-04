@@ -15,7 +15,7 @@ add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), la
 i18n.merge_file(
     input: 'picker.desktop.in',
     output: meson.project_name() + '.desktop',
-    po_dir: meson.source_root() / 'po',
+    po_dir: meson.project_source_root() / 'po',
     type: 'desktop',
     install: true,
     install_dir: get_option('datadir') / 'applications'
@@ -25,7 +25,7 @@ i18n.merge_file(
 i18n.merge_file(
     input: 'picker.metainfo.xml.in',
     output: meson.project_name() + '.metainfo.xml',
-    po_dir: meson.source_root() / 'po',
+    po_dir: meson.project_source_root() / 'po',
     install: true,
     install_dir: get_option('datadir') / 'metainfo'
 )
@@ -33,10 +33,10 @@ i18n.merge_file(
 # Compile and install custom css file
 gnome = import('gnome')
 
-picker_resources = gnome.compile_resources(
-    'picker-resources',
-    'gresource.xml',
-)
+#picker_resources = gnome.compile_resources(
+#    'picker-resources',
+#    'gresource.xml',
+#)
 
 # Install our icons in all the required sizes
 icon_sizes = ['16', '24', '32', '48', '64', '128']

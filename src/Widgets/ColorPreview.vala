@@ -4,27 +4,36 @@
  */
 namespace Picker {
     public class ColorPreview : Gtk.Box {
-        private string color_definition = "@define-color preview_color %s;";
+        private string color_definition = "
+@define-color preview_color %s;
+
+            .color-preview {
+    /* preview_color defined in code */
+    background-color: @preview_color;
+    border-left: 1px solid @menu_separator;
+    box-shadow:
+        inset 1px 0 0 0 shade(@preview_color, 1.07),
+        inset -1px 0 0 0 shade(@preview_color, 1.07),
+        inset 0 -1px 0 0 shade(@preview_color, 1.1);
+}
+";
         private Gtk.CssProvider css_provider;
 
         public ColorPreview () {
             Object (
                 orientation: Gtk.Orientation.HORIZONTAL,
                 spacing: 0,
-                hexpand: true,
-                vexpand: true
+                hexpand: true
             );
         }
 
         construct {
-            width_request = 220;
             create_style ();
             sync_color_with_controller ();
         }
 
         private void create_style () {
-            var style = get_style_context ();
-            style.add_class ("color-preview");
+            add_css_class ("color-preview");
 
             css_provider = new Gtk.CssProvider ();
 
@@ -49,7 +58,7 @@ namespace Picker {
 
         private void set_color (Color color) {
             var color_css = color_definition.printf (color.to_hex_string ());
-            css_provider.load_from_data (color_css.data);
+            css_provider.load_from_string (color_css);
 
             Gtk.StyleContext.add_provider_for_display (
                 Gdk.Display.get_default (),

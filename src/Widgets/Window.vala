@@ -3,69 +3,76 @@
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
 namespace Picker {
-    public class Window : Adw.ApplicationWindow {
-        /* The main window for the application containing all the controls.
-           Using libhandy so that we get rounded corners on the window. */
-
+    public class Window : Gtk.Window {
         private Gtk.Button pick_button;
+        private Granite.Toast toast;
 
         public Window (Gtk.Application app) {
             Object (
-                application: app
+                application: app,
+                title: _("Picker"),
+                default_width: 480,
+                default_height: 240,
+                resizable: false
             );
         }
 
         construct {
-            create_layout ();
-            load_css ();
 
-            var color_picker = new ColorPicker ();
-
-            pick_button.clicked.connect (() => {
-                // application.lookup_action (Application.ACTION_START_PICK).activate (null);
-                color_picker.pick.begin ();
-            });
-        }
-
-        private void create_layout () {
-            var title = new Gtk.Label (_("Picker"));
-            var headerbar = new Adw.HeaderBar () {
-                hexpand = true,
-                title_widget = title,
-                valign = Gtk.Align.START
+            // We need to hide the title area for the split headerbar
+            var null_title = new Gtk.Grid () {
+                visible = false
             };
-            headerbar.get_style_context ().add_class ("flat");
+            set_titlebar (null_title);
+
+            toast = new Granite.Toast ("");
+            toast.hide ();
+
+            var titlelabel = new Gtk.Label (_("Picker"));
+            titlelabel.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
+
+            var headerbar = new Gtk.HeaderBar () {
+                title_widget = titlelabel
+            };
+            headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
+            //headerbar.pack_start (new Gtk.WindowControls (Gtk.PackType.START));
 
             var color_preview = new Picker.ColorPreview ();
-            pick_button = new Gtk.Button.with_label (_("Pick Color"));
-            pick_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+
 
             var format_label = new Gtk.Label (_("Format")) {
-                xalign = 0
+                xalign = 0f,
+                margin_top = 6
             };
-            format_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+            format_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
 
             var format_area = new Picker.FormatArea ();
 
             var history_label = new Gtk.Label (_("History")) {
-                xalign = 0
+                xalign = 0f,
+                margin_top = 6
             };
-            history_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+            history_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
 
             var history_buttons = new HistoryButtons ();
 
+            pick_button = new Gtk.Button.with_label (_("Pick Color")) {
+                margin_top = 6
+            };
+            pick_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+
+
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) {
-                hexpand = true,
                 vexpand = true,
-                margin_start = 10,
-                margin_end = 10,
-                margin_bottom = 10,
+                valign = Gtk.Align.START,
+                margin_top = margin_bottom = margin_end = margin_start = 10,
             };
             vbox.append (format_label);
             vbox.append (format_area);
             vbox.append (history_label);
             vbox.append (history_buttons);
             vbox.append (pick_button);
+
 
             /* We want the color preview area to span the entire height of the
                window, so using a custom grid layout for the entire window
@@ -77,27 +84,32 @@ namespace Picker {
 
             /* As the headerbar spans only half the window, it would be
                more convenient to be able to move the window from anywhere */
-            var window_handle = new Gtk.WindowHandle ();
-            window_handle.child = window_grid;
+            var window_handle = new Gtk.WindowHandle () {
+                child = window_grid
+            };
 
             /* when the app is opened the user probably wants to pick the color
                straight away. So setting the pick button as focused default
                action so that pressing Return or Space starts the pick */
-            default_widget = pick_button;
             set_focus (pick_button);
 
-            content = window_handle;
+            child = window_handle;
+
+
+                        /* The toasts coming up over the half with the controls looks nicer
+               than coming up over the middle of the whole window */
+            //toast. = vbox;
+            //toast.show ();
+            pick_button.clicked.connect (() => {
+                application.lookup_action (Application.ACTION_START_PICK).activate (null);
+            });
         }
 
-        private void load_css () {
-            var css_provider = new Gtk.CssProvider ();
-            css_provider.load_from_resource ("/com/github/phoneybadger/picker/application.css");
-
-            Gtk.StyleContext.add_provider_for_display (
-                Gdk.Display.get_default (),
-                css_provider,
-                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-            );
+        public void show_toast (string message) {
+            toast.title = message;
+            toast.send_notification ();
         }
+
+
     }
 }

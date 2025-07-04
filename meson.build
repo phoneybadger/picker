@@ -7,16 +7,19 @@ subdir('po')
 glib_dep = dependency('glib-2.0')
 gtk_dep = dependency('gtk4')
 granite_dep = dependency('granite-7')
-adw_dep = dependency('libadwaita-1')
 portal_dep = dependency('libportal')
 
-picker_dependencies = [glib_dep, gtk_dep, granite_dep, adw_dep, portal_dep]
+picker_dependencies = [glib_dep, gtk_dep, granite_dep, portal_dep, meson.get_compiler('c').find_library('m', required: true)]
 
 executable(
     meson.project_name(),
-    sources: [picker_source_files, picker_resources],
+    sources: [picker_source_files],
     dependencies: picker_dependencies,
     install: true
 )
 
-meson.add_install_script('meson/post_install.py')
+gnome.post_install(
+  glib_compile_schemas: true,
+  gtk_update_icon_cache: true,
+  update_desktop_database: true
+  )
