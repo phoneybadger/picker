@@ -100,8 +100,12 @@ namespace Picker {
                than coming up over the middle of the whole window */
             //toast. = vbox;
             //toast.show ();
+
+            var color_picker = new ColorPicker ();
+
             pick_button.clicked.connect (() => {
-                application.lookup_action (Application.ACTION_START_PICK).activate (null);
+                //application.lookup_action (Application.ACTION_START_PICK).activate (null);
+                color_picker.pick.begin ();
             });
         }
 
