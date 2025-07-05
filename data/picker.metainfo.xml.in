@@ -3,7 +3,7 @@
   <id>io.github.ellie_commons.cherrypick</id>
 
   <name>Cherrypick</name>
-  <summary>Cherry pick pixel colors!</summary>
+  <summary>Cherry pick pixel colors on your screen</summary>
 
   <metadata_license>CC-BY-4.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
