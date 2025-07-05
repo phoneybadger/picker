@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
 namespace Picker {
-    class ColorButton: Gtk.Button {
+    class ColorButton: Gtk.ColorDialogButton {
         public Color color {get; set construct;}
         public new string css_name {get; set construct;}
         private Gtk.CssProvider css_provider;
@@ -37,7 +37,7 @@ namespace Picker {
 
             notify ["color"].connect (() => {
                 if (color != null) {
-                    color_button.rgba = color.to_rgba ();
+                    color_button.rgba.parse (color.to_rgba_string ());
                 }
             });
 
@@ -63,10 +63,10 @@ namespace Picker {
 
             get_style_context ().add_class ("color-button");
 
-            var color_button = new Gtk.ColorButton.with_rgba (color.to_rgba ()) {
-            color_button = new Gtk.ColorButton.with_rgba (color.to_rgba ()) {
+            color_button = new Gtk.ColorButton () {
                 hexpand = true
             };
+            color_button.rgba.parse (color.to_rgba_string ());
 
             child = color_button;
         }
