@@ -10,6 +10,8 @@ namespace Picker {
         private Gtk.ComboBoxText format_selector;
         private Gtk.Entry format_entry;
 
+        public signal void copied ();
+
         public FormatArea () {
             Object (
                 orientation: Gtk.Orientation.HORIZONTAL,
@@ -63,6 +65,8 @@ namespace Picker {
                 format_selector.append_text (format.to_string ());
             }
 
+            format_entry.icon_press.connect (copy_to_clipboard);
+
             append (format_entry);
             append (format_selector);
         }
@@ -95,9 +99,12 @@ namespace Picker {
             //var toast_overlay = ToastOverlay.get_instance ();
             //toast_overlay.show_toast (_("Copied to clipboard"));
 
-            //var clipboard = new Gdk.Clipboard.get_default (this.get_display ());
-            //clipboard.set_text (format_entry.text, -1);
+            var clipboard = Gdk.Display.get_default ().get_clipboard ();
+            clipboard.set_text (format_entry.text);
+
+            this.copied ();
         }
+
 
         public void load_format_from_gsettings () {
             var settings = Settings.get_instance ();
