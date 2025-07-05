@@ -29,15 +29,21 @@ namespace Picker {
                     width_request = 45,
                     height_request = 30
                 };
+                color_button.button.clicked.connect (() => {
+                    update_buttons ();
+                });
+
                 color_buttons.add (color_button);
                 append (color_button);
             }
         }
 
         private void update_buttons () {
+            print ("\n\n#########################");
             for (var i = 0; i < color_buttons.size; i++) {
                 var button = color_buttons[i];
-                button.color = color_controller.color_history[i];
+                button.update_color (color_controller.color_history[i]);
+                print ( "\n" + i.to_string () + ": has color " + button.color.to_rgb_string ());
             }
         }
     }

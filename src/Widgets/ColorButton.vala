@@ -3,77 +3,50 @@
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
 namespace Picker {
-    class ColorButton: Gtk.ColorDialogButton {
-        public Color color {get; set construct;}
-        public new string css_name {get; set construct;}
+    class ColorButton: Gtk.Box {
+        public Picker.Color color;
+        public Gtk.Button button;
+        new string css_name;
         private Gtk.CssProvider css_provider;
-        private Gtk.ColorButton color_button;
 
         private const string BUTTON_CSS = """
-            .%s {
+            .%s * {
                 background-color: %s;
             }
         """;
 
-        public ColorButton (Color color, string name) {
-            Object (
-                css_name: name,
-                color: color
-            );
-        }
 
-        construct {
+        public ColorButton (Color newcolor, string name) {
             //var relief = Gtk.ReliefStyle.HALF;
+            orientation = Gtk.Orientation.HORIZONTAL;
+            spacing = 0;
+
             css_provider = new Gtk.CssProvider ();
-            add_css_class (css_name);
+
+            this.color = newcolor;
+            css_name = name;
+            add_css_class (name);
 
             var color_controller = ColorController.get_instance ();
 
-            Gtk.StyleContext.add_provider_for_display (
-                Gdk.Display.get_default (),
-                css_provider,
-                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-            );
-
-            notify ["color"].connect (() => {
-                if (color != null) {
-                    color_button.rgba.parse (color.to_rgba_string ());
-                }
-            });
-
-            clicked.connect (() => {
-                color_controller.preview_color = color;
-            });
-        }
-
-
-
-
-        private void create_layout () {
-            /* Wrapping a Gtk.ColorButton to actually display the color. Wrapping
-               inside this button instead of directly using Gtk.ColorButton to
-               override the color selection dialogue functionality that comes
-               with the Gtk.ColorButton, and also we need to use the 'clicked'
-               signal that comes with Gtk.Button which is not available with
-               Gtk.ColorButton. Not using a Gtk.Button with custom styles for
-               background color for better compatibility. Custom stylesheet could
-               be broken when using on some distros and their stylesheets, but
-               Gtk.ColorButton being a native Gtk widget should get rendered
-               properly */
-
-            get_style_context ().add_class ("color-button");
-
-            color_button = new Gtk.ColorButton () {
-                hexpand = true
+            button = new Gtk.Button (){
+                width_request = 42
             };
-            color_button.rgba.parse (color.to_rgba_string ());
 
-            child = color_button;
+            update_color (newcolor);
+
+            button.clicked.connect (() => {
+                color_controller.color_history.append (this.color);
+                color_controller.preview_color = this.color;
+            });
+
+            append (button);
+
         }
 
-
-        private void update_color () {
-                var css = BUTTON_CSS.printf (css_name, color.to_hex_string ());
+        public void update_color (Color newcolor) {
+                remove_css_class (css_name);
+                var css = BUTTON_CSS.printf (css_name, newcolor.to_hex_string ());
                 css_provider.load_from_string (css);
 
                 Gtk.StyleContext.add_provider_for_display (
@@ -81,6 +54,8 @@ namespace Picker {
                     css_provider,
                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
                 );
+                add_css_class (css_name);
+
         }
     }
 }
