@@ -2,7 +2,7 @@
   <div align="center">
     <img src="data/icons/png/64.png" width="64">
   </div>
-  <h1 align="center">Picker</h1>
+  <h1 align="center">Cherrypick</h1>
   <p align="center">
     A simple color picker for elementary OS
   </p>
@@ -21,11 +21,11 @@
 ## Installation
 
 ### On elementary OS
-On elementary OS you can get Picker from the app center.
+On elementary OS you can get Cherrypick from the app center.
 
 ### On other distros
-Picker has been designed for and tested on elementary OS. However you can always
-install Picker as a flatpak on any distro with flatpak support from the elementary flatpak repository
+Cherrypick has been designed for and tested on elementary OS. However you can always
+install Cherrypick as a flatpak on any distro with flatpak support from the elementary flatpak repository
 ```
 flatpak install https://flatpak.elementary.io/repo/appstream/io.github.ellie_commons.cherrypick.flatpakref
 ```

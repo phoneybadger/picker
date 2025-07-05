@@ -2,9 +2,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
-namespace Picker {
+namespace Cherrypick {
     class ColorButton: Gtk.Box {
-        public Picker.Color color;
+        public Cherrypick.Color color;
         public Gtk.Button button;
         new string css_name;
         private Gtk.CssProvider css_provider;

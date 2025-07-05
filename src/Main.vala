@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
 public int main (string[] args) {
-    var picker = new Picker.Application ();
+    var picker = new Cherrypick.Application ();
     int status = picker.run (args);
 
     return status;

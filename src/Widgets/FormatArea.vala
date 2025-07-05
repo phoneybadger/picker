@@ -2,9 +2,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
-namespace Picker {
+namespace Cherrypick {
     public class FormatArea : Gtk.Box {
-        public Picker.Color color {get; set;}
+        public Cherrypick.Color color {get; set;}
         public Format color_format {get; set;}
 
         private Gtk.ComboBoxText format_selector;

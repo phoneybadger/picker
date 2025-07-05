@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
-namespace Picker {
+namespace Cherrypick {
     public class ColorHistory: Object, Gee.Traversable<Color>, Gee.Iterable<Color> {
         private Gee.LinkedList<Color> colors = new Gee.LinkedList<Color> ();
         public int size {get; set construct;}

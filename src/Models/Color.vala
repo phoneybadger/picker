@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
-namespace Picker {
+namespace Cherrypick {
     public class Color : Object {
         public uint8 red {get; set;}
         public uint8 green {get; set;}

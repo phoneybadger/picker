@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
-namespace Picker {
+namespace Cherrypick {
     public class Application : Gtk.Application {
         private Window? window;
         private Xdp.Portal portal;
@@ -45,7 +45,7 @@ namespace Picker {
                the state is global and would be shared between multiple
                instances anyway. */
             if (window == null) {
-                window = new Picker.Window (this);
+                window = new Cherrypick.Window (this);
 
                 var provider = new Gtk.CssProvider ();
                 provider.load_from_resource ("/io/github/ellie_commons/cherrypick/Application.css");

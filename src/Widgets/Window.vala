@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
  */
-namespace Picker {
+namespace Cherrypick {
     public class Window : Gtk.Window {
         private Gtk.Button pick_button;
         private Granite.Toast toast;
@@ -10,7 +10,7 @@ namespace Picker {
         public Window (Gtk.Application app) {
             Object (
                 application: app,
-                title: _("Picker"),
+                title: _("Cherrypick"),
                 default_width: 480,
                 default_height: 240,
                 resizable: false
@@ -28,7 +28,7 @@ namespace Picker {
             toast = new Granite.Toast ("");
             toast.hide ();
 
-            var titlelabel = new Gtk.Label (_("Picker"));
+            var titlelabel = new Gtk.Label (_("Cherrypick"));
             titlelabel.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
             var headerbar = new Gtk.HeaderBar () {
@@ -37,7 +37,7 @@ namespace Picker {
             headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
             //headerbar.pack_start (new Gtk.WindowControls (Gtk.PackType.START));
 
-            var color_preview = new Picker.ColorPreview ();
+            var color_preview = new Cherrypick.ColorPreview ();
 
 
             var format_label = new Gtk.Label (_("Format")) {
@@ -46,7 +46,7 @@ namespace Picker {
             };
             format_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
 
-            var format_area = new Picker.FormatArea ();
+            var format_area = new Cherrypick.FormatArea ();
 
             var history_label = new Gtk.Label (_("History")) {
                 xalign = 0f,

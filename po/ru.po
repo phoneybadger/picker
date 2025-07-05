@@ -20,8 +20,8 @@ msgstr ""
 
 #: src/Widgets/Window.vala:43 data/picker.desktop.in:6
 #: data/picker.metainfo.xml.in:5
-msgid "Picker"
-msgstr "Picker"
+msgid "Cherrypick"
+msgstr "Cherrypick"
 
 #: src/Widgets/Window.vala:48
 msgid "Pick Color"
@@ -44,7 +44,7 @@ msgid "A simple color picker"
 msgstr "Простая палитра цветов"
 
 #: data/picker.desktop.in:13
-msgid "Color;Pick;Eyedropper;Picker;"
+msgid "Color;Pick;Eyedropper;Cherrypick;"
 msgstr "Цвет;Выбрать;Пипетка;Выбор"
 
 #: data/picker.metainfo.xml.in:12
