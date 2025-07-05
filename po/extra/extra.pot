@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-05 15:03+0200\n"
+"POT-Creation-Date: 2025-07-05 15:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,17 +21,20 @@ msgstr ""
 msgid "Cherrypick"
 msgstr ""
 
-#: data/picker.desktop.in:7 data/picker.metainfo.xml.in:6
-msgid "A simple color picker"
+#: data/picker.desktop.in:7
+msgid "Pick any color"
 msgstr ""
 
 #: data/picker.desktop.in:13
-msgid "Color;Pick;Eyedropper;Cherrypick;"
+msgid "Color;Pick;Eyedropper;Picker;"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:6
+msgid "Cherry pick pixel colors!"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:12
-msgid ""
-"A minimal color picker that lets you pick colors from anywhere on your screen"
+msgid "A modern and trusty color picker"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:13
@@ -51,15 +54,15 @@ msgid "Color history remembers your last picked colors"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:38
-msgid "2.0.0: The reboot!"
+msgid "2.0.0: The revival!"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:40
-msgid "Port to modern tech (GTK4), compatible with wayland"
+msgid "Port to modern tech (GTK4, Wayland, portals)"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:41
-msgid "CMYK model available thanks to DSLitvinov"
+msgid "CMYK model available thanks to @DSLitvinov"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:46
@@ -98,6 +101,6 @@ msgstr ""
 msgid "Initial release"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:89
-msgid "Phoney Badger"
+#: data/picker.metainfo.xml.in:93
+msgid "PhoneyBadger + Stella"
 msgstr ""

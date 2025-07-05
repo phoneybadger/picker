@@ -3,10 +3,10 @@ Version=1.0
 Type=Application
 
 Name=Cherrypick
-Comment=A simple color picker
+Comment=Pick any color
 Categories=Graphics;Utility;
 
 Icon=io.github.ellie_commons.cherrypick
 Exec=io.github.ellie_commons.cherrypick
 Terminal=false
-Keywords=Color;Pick;Eyedropper;Cherrypick;
+Keywords=Color;Pick;Eyedropper;Picker;

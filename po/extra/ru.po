@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-05 15:03+0200\n"
+"POT-Creation-Date: 2025-07-05 15:32+0200\n"
 "PO-Revision-Date: 2022-09-27 20:44+0900\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none\n"
@@ -22,20 +22,24 @@ msgstr ""
 msgid "Cherrypick"
 msgstr "Cherrypick"
 
-#: data/picker.desktop.in:7 data/picker.metainfo.xml.in:6
-msgid "A simple color picker"
-msgstr "Простая палитра цветов"
+#: data/picker.desktop.in:7
+#, fuzzy
+msgid "Pick any color"
+msgstr "Выбрать цвет"
 
 #: data/picker.desktop.in:13
-msgid "Color;Pick;Eyedropper;Cherrypick;"
+#, fuzzy
+msgid "Color;Pick;Eyedropper;Picker;"
 msgstr "Цвет;Выбрать;Пипетка;Выбор"
 
-#: data/picker.metainfo.xml.in:12
-msgid ""
-"A minimal color picker that lets you pick colors from anywhere on your screen"
+#: data/picker.metainfo.xml.in:6
+msgid "Cherry pick pixel colors!"
 msgstr ""
-"Минималистичная палитра, которая позволяет вам выбирать цвет с любой точки "
-"вашего экрана"
+
+#: data/picker.metainfo.xml.in:12
+#, fuzzy
+msgid "A modern and trusty color picker"
+msgstr "Простая палитра цветов"
 
 #: data/picker.metainfo.xml.in:13
 msgid "Features:"
@@ -55,15 +59,15 @@ msgid "Color history remembers your last picked colors"
 msgstr "История последних выбранных цветов"
 
 #: data/picker.metainfo.xml.in:38
-msgid "2.0.0: The reboot!"
+msgid "2.0.0: The revival!"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:40
-msgid "Port to modern tech (GTK4), compatible with wayland"
+msgid "Port to modern tech (GTK4, Wayland, portals)"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:41
-msgid "CMYK model available thanks to DSLitvinov"
+msgid "CMYK model available thanks to @DSLitvinov"
 msgstr ""
 
 #: data/picker.metainfo.xml.in:46
@@ -103,18 +107,23 @@ msgstr "Добавлен ключ Stripe"
 msgid "Initial release"
 msgstr "Начальный релиз"
 
-#: data/picker.metainfo.xml.in:89
-msgid "Phoney Badger"
+#: data/picker.metainfo.xml.in:93
+#, fuzzy
+msgid "PhoneyBadger + Stella"
 msgstr "Phoney Badger"
+
+#~ msgid ""
+#~ "A minimal color picker that lets you pick colors from anywhere on your "
+#~ "screen"
+#~ msgstr ""
+#~ "Минималистичная палитра, которая позволяет вам выбирать цвет с любой "
+#~ "точки вашего экрана"
 
 #~ msgid "Format"
 #~ msgstr "Формат"
 
 #~ msgid "History"
 #~ msgstr "История"
-
-#~ msgid "Pick Color"
-#~ msgstr "Выбрать цвет"
 
 #, fuzzy
 #~ msgid "Copied to clipboard!"

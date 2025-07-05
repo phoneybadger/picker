@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-05 15:03+0200\n"
+"POT-Creation-Date: 2025-07-05 15:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,14 +25,14 @@ msgstr ""
 msgid "Format"
 msgstr ""
 
-#: src/Widgets/Window.vala:51
+#: src/Widgets/Window.vala:52
 msgid "History"
 msgstr ""
 
-#: src/Widgets/Window.vala:59
+#: src/Widgets/Window.vala:61
 msgid "Pick Color"
 msgstr ""
 
-#: src/Widgets/Window.vala:81
+#: src/Widgets/Window.vala:83
 msgid "Copied to clipboard!"
 msgstr ""
