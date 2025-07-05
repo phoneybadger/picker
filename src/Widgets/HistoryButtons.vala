@@ -30,6 +30,8 @@ namespace Picker {
                     height_request = 30
                 };
                 color_button.button.clicked.connect (() => {
+                    color_controller.preview_color = color_button.color;
+                    color_controller.color_history.append (color_button.color);
                     update_buttons ();
                 });
 

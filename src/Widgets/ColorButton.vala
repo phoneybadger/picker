@@ -29,23 +29,18 @@ namespace Picker {
 
             var color_controller = ColorController.get_instance ();
 
-            button = new Gtk.Button (){
-                width_request = 42
+            button = new Gtk.Button () {
+                width_request = 44
             };
 
             update_color (newcolor);
-
-            button.clicked.connect (() => {
-                color_controller.color_history.append (this.color);
-                color_controller.preview_color = this.color;
-            });
-
             append (button);
 
         }
 
         public void update_color (Color newcolor) {
                 remove_css_class (css_name);
+                color = newcolor;
                 var css = BUTTON_CSS.printf (css_name, newcolor.to_hex_string ());
                 css_provider.load_from_string (css);
 
