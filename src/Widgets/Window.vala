@@ -65,7 +65,8 @@ namespace Picker {
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) {
                 vexpand = true,
                 valign = Gtk.Align.START,
-                margin_top = margin_bottom = margin_end = margin_start = 10,
+                margin_start = margin_bottom = margin_end = 10,
+                margin_top = 0
             };
 
             var overlay = new Gtk.Overlay ();

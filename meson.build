@@ -11,8 +11,15 @@ portal_dep = dependency('libportal')
 
 picker_dependencies = [glib_dep, gtk_dep, granite_dep, portal_dep, meson.get_compiler('c').find_library('m', required: true)]
 
+gresource = gnome.compile_resources(
+    'gresource',
+    'data' / 'gresource.xml',
+    source_dir: 'data'
+)
+
 executable(
     meson.project_name(),
+    gresource,
     sources: [picker_source_files],
     dependencies: picker_dependencies,
     install: true

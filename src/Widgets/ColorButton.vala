@@ -18,8 +18,6 @@ namespace Picker {
 
         public ColorButton (Color newcolor, string name) {
             //var relief = Gtk.ReliefStyle.HALF;
-            orientation = Gtk.Orientation.HORIZONTAL;
-            spacing = 0;
 
             css_provider = new Gtk.CssProvider ();
 
@@ -27,7 +25,9 @@ namespace Picker {
             css_name = name;
             add_css_class (name);
 
-            button = new Gtk.Button ();
+            button = new Gtk.Button () {
+                width_request = 48
+            };
 
             update_color (newcolor);
             append (button);

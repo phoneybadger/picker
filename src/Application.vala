@@ -32,7 +32,6 @@ namespace Picker {
             set_accels_for_action ("app.quit", {"<Control>q"});
             quit_action.activate.connect (quit);
 
-
             add_main_option_entries (CMD_OPTION_ENTRIES);
         }
 
@@ -47,6 +46,15 @@ namespace Picker {
                instances anyway. */
             if (window == null) {
                 window = new Picker.Window (this);
+
+                var provider = new Gtk.CssProvider ();
+                provider.load_from_resource ("/com/github/phoneybadger/picker/Application.css");
+                Gtk.StyleContext.add_provider_for_display (
+                    Gdk.Display.get_default (),
+                    provider,
+                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+                );
+
                 window.show ();
             } else {
                 window.present ();
