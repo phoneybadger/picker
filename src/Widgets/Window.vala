@@ -67,11 +67,23 @@ namespace Picker {
                 valign = Gtk.Align.START,
                 margin_top = margin_bottom = margin_end = margin_start = 10,
             };
+
+            var overlay = new Gtk.Overlay ();
+
+            vbox.append (overlay);
             vbox.append (format_label);
             vbox.append (format_area);
             vbox.append (history_label);
             vbox.append (history_buttons);
             vbox.append (pick_button);
+
+            toast = new Granite.Toast (_("Copied to clipboard!"));
+            overlay.add_overlay (toast);
+
+            format_area.copied.connect (() => {
+                toast.send_notification ();
+            });
+
 
 
             /* We want the color preview area to span the entire height of the
@@ -108,12 +120,5 @@ namespace Picker {
                 color_picker.pick.begin ();
             });
         }
-
-        public void show_toast (string message) {
-            toast.title = message;
-            toast.send_notification ();
-        }
-
-
     }
 }

@@ -27,11 +27,7 @@ namespace Picker {
             css_name = name;
             add_css_class (name);
 
-            var color_controller = ColorController.get_instance ();
-
-            button = new Gtk.Button () {
-                width_request = 44
-            };
+            button = new Gtk.Button ();
 
             update_color (newcolor);
             append (button);
