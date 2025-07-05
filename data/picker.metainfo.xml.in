@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>com.github.phoneybadger.picker</id>
+  <id>io.github.ellie_commons.cherrypick</id>
 
   <name>Picker</name>
   <summary>A simple color picker</summary>
@@ -18,7 +18,7 @@
     </ul>
   </description>
 
-  <launchable type="desktop-id">com.github.phoneybadger.picker.desktop</launchable>
+  <launchable type="desktop-id">io.github.ellie_commons.cherrypick.desktop</launchable>
 
   <screenshots>
     <screenshot type="default">

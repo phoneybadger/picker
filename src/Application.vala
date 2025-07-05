@@ -20,7 +20,7 @@ namespace Picker {
 
         public Application () {
             Object (
-                application_id: "com.github.phoneybadger.picker",
+                application_id: "io.github.ellie_commons.cherrypick",
                 flags: ApplicationFlags.HANDLES_COMMAND_LINE
             );
         }
@@ -48,7 +48,7 @@ namespace Picker {
                 window = new Picker.Window (this);
 
                 var provider = new Gtk.CssProvider ();
-                provider.load_from_resource ("/com/github/phoneybadger/picker/Application.css");
+                provider.load_from_resource ("/io/github/ellie_commons/cherrypick/Application.css");
                 Gtk.StyleContext.add_provider_for_display (
                     Gdk.Display.get_default (),
                     provider,

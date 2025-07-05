@@ -15,7 +15,7 @@ namespace Picker {
 
         private Settings () {
             Object (
-                schema_id: "com.github.phoneybadger.picker"
+                schema_id: "io.github.ellie_commons.cherrypick"
             );
         }
     }

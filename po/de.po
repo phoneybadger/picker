@@ -1,11 +1,11 @@
-# German translations for com.github.phoneybadger.picker package.
-# Copyright (C) 2022 THE com.github.phoneybadger.picker'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the com.github.phoneybadger.picker package.
+# German translations for io.github.ellie_commons.cherrypick package.
+# Copyright (C) 2022 THE io.github.ellie_commons.cherrypick'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.github.ellie_commons.cherrypick package.
 # Automatically generated, 2022.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: com.github.phoneybadger.picker\n"
+"Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-09-28 22:58+0900\n"
 "PO-Revision-Date: 2022-05-29 02:15+0530\n"

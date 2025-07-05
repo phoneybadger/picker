@@ -47,7 +47,7 @@ jobs:
       with:
         # This is the name of the Bundle file we're building
         bundle: Picker.flatpak
-        manifest-path: com.github.phoneybadger.picker.yml
+        manifest-path: io.github.ellie_commons.cherrypick.yml
 
         run-tests: false
 

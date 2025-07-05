@@ -6,7 +6,7 @@ Name=Picker
 Comment=A simple color picker
 Categories=Graphics;Utility;
 
-Icon=com.github.phoneybadger.picker
-Exec=com.github.phoneybadger.picker
+Icon=io.github.ellie_commons.cherrypick
+Exec=io.github.ellie_commons.cherrypick
 Terminal=false
 Keywords=Color;Pick;Eyedropper;Picker;

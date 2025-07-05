@@ -1,10 +1,10 @@
-app-id: com.github.phoneybadger.picker
+app-id: io.github.ellie_commons.cherrypick
 
 runtime: io.elementary.Platform
 runtime-version: '8'
 sdk: io.elementary.Sdk
 
-command: com.github.phoneybadger.picker
+command: io.github.ellie_commons.cherrypick
 
 finish-args:
   - '--share=ipc'
