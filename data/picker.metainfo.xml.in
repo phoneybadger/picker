@@ -3,7 +3,7 @@
   <id>io.github.ellie_commons.cherrypick</id>
 
   <name>Cherrypick</name>
-  <summary>A simple color picker</summary>
+  <summary>A modern and elegant color picker</summary>
 
   <metadata_license>CC-BY-4.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
@@ -23,22 +23,22 @@
   <screenshots>
     <screenshot type="default">
       <image>
-        https://github.com/phoneybadger/picker/blob/main/data/screenshots/window-dark.png?raw=true
+        https://github.com/ellie-commons/cherrypick/blob/main/data/screenshots/window-dark.png?raw=true
       </image>
     </screenshot>
     <screenshot>
       <image>
-        https://github.com/phoneybadger/picker/blob/main/data/screenshots/window-light.png?raw=true
+        https://github.com/ellie-commons/cherrypick/blob/main/data/screenshots/window-light.png?raw=true
       </image>
     </screenshot>
   </screenshots>
   <releases>
     <release date="2025-07-03" version="2.0.0">
       <description>
-        <p>2.0.0: The reboot!</p>
+        <p>2.0.0: The revival!</p>
         <ul>
-          <li>Port to modern tech (GTK4), compatible with wayland</li>
-          <li>CMYK model available thanks to DSLitvinov</li>
+          <li>Port to modern tech (GTK4, Wayland, portals)</li>
+          <li>CMYK model available thanks to @DSLitvinov</li>
         </ul>
       </description>
     </release>
@@ -81,15 +81,22 @@
     </release>
   </releases>
 
-  <custom>
-    <value key="x-appcenter-color-primary">#FAFAFA</value>
-    <value key="x-appcenter-color-primary-text">#333333</value>
-  </custom>
+    <content_rating type="oars-1.1"/>
+    <translation type="gettext" source_locale="en_GB">io.github.ellie_commons.cherrypick</translation>
+    <recommends>
+      <control>pointing</control>
+      <control>touch</control>
+    </recommends>
 
-  <developer_name>Phoney Badger</developer_name>
-  <url type="homepage">https://github.com/phoneybadger/picker</url>
-  <url type="bugtracker">https://github.com/phoneybadger/picker/issues</url>
-  <url type="help">https://github.com/phoneybadger/picker/issues</url>
+    <launchable type="desktop-id">io.github.ellie_commons.reminduck.desktop</launchable>
+    <developer id="io.github.ellie-commons">
+        <name>PhoneyBadger + Stella</name>
+    </developer>
+    <project_group>ellie-commons</project_group>
+    <url type="homepage">https://github.com/ellie-commons/cherrypick</url>
+    <url type="bugtracker">https://github.com/ellie-commons/cherrypick/issues</url>
+    <url type="help">https://github.com/ellie-commons/cherrypick/issues</url>
+    <url type="donation">https://ko-fi.com/teamcons</url>
 
   <content_rating type="oars-1.1" />
 </component>

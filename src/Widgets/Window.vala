@@ -45,6 +45,7 @@ namespace Cherrypick {
                 margin_top = 6
             };
             format_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
+            format_label.add_css_class ("title-4");
 
             var format_area = new Cherrypick.FormatArea ();
 
@@ -53,6 +54,7 @@ namespace Cherrypick {
                 margin_top = 6
             };
             history_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
+            history_label.add_css_class ("title-4");
 
             var history_buttons = new HistoryButtons ();
 
