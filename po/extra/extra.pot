@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-05 15:03+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/picker.desktop.in:6 data/picker.metainfo.xml.in:5
+msgid "Cherrypick"
+msgstr ""
+
+#: data/picker.desktop.in:7 data/picker.metainfo.xml.in:6
+msgid "A simple color picker"
+msgstr ""
+
+#: data/picker.desktop.in:13
+msgid "Color;Pick;Eyedropper;Cherrypick;"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:12
+msgid ""
+"A minimal color picker that lets you pick colors from anywhere on your screen"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:13
+msgid "Features:"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:15
+msgid "Choose different output formats (RGB, RGBA, HEX, CMYK)"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:16
+msgid "Remembers your preferred format"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:17
+msgid "Color history remembers your last picked colors"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:38
+msgid "2.0.0: The reboot!"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:40
+msgid "Port to modern tech (GTK4), compatible with wayland"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:41
+msgid "CMYK model available thanks to DSLitvinov"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:46
+msgid "Add command line flag to open directly in color picking mode"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:53
+msgid "Fix layout bug when opening multiple instances"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:54
+msgid "Make pick color button the default focused widget"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:55
+msgid "Remove payment option from appcenter"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:62
+msgid "Update to elementary platform 7"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:63
+msgid "Minor change to app description"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:69
+msgid "Fix inaccuracies in metadata"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:74
+msgid "Add stripe key"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:79
+msgid "Initial release"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:89
+msgid "Phoney Badger"
+msgstr ""

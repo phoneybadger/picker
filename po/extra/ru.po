@@ -1,0 +1,121 @@
+# Russian translation for io.github.ellie_commons.cherrypick
+# Copyright (C) 2022 THE io.github.ellie_commons.cherrypick'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.github.ellie_commons.cherrypick package.
+# lenemter <lenemter@gmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: io.github.ellie_commons.cherrypick\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-05 15:03+0200\n"
+"PO-Revision-Date: 2022-09-27 20:44+0900\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
+"Language-Team: none\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: data/picker.desktop.in:6 data/picker.metainfo.xml.in:5
+msgid "Cherrypick"
+msgstr "Cherrypick"
+
+#: data/picker.desktop.in:7 data/picker.metainfo.xml.in:6
+msgid "A simple color picker"
+msgstr "Простая палитра цветов"
+
+#: data/picker.desktop.in:13
+msgid "Color;Pick;Eyedropper;Cherrypick;"
+msgstr "Цвет;Выбрать;Пипетка;Выбор"
+
+#: data/picker.metainfo.xml.in:12
+msgid ""
+"A minimal color picker that lets you pick colors from anywhere on your screen"
+msgstr ""
+"Минималистичная палитра, которая позволяет вам выбирать цвет с любой точки "
+"вашего экрана"
+
+#: data/picker.metainfo.xml.in:13
+msgid "Features:"
+msgstr "Функции:"
+
+#: data/picker.metainfo.xml.in:15
+#, fuzzy
+msgid "Choose different output formats (RGB, RGBA, HEX, CMYK)"
+msgstr "Выбор различные форматы цветов (RGB, RGBA, HEX)"
+
+#: data/picker.metainfo.xml.in:16
+msgid "Remembers your preferred format"
+msgstr "Запоминание вашего предпочитаемого формата"
+
+#: data/picker.metainfo.xml.in:17
+msgid "Color history remembers your last picked colors"
+msgstr "История последних выбранных цветов"
+
+#: data/picker.metainfo.xml.in:38
+msgid "2.0.0: The reboot!"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:40
+msgid "Port to modern tech (GTK4), compatible with wayland"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:41
+msgid "CMYK model available thanks to DSLitvinov"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:46
+msgid "Add command line flag to open directly in color picking mode"
+msgstr ""
+"Добавлен флаг командной строки для открытия сразу в режиме выбора цвета"
+
+#: data/picker.metainfo.xml.in:53
+msgid "Fix layout bug when opening multiple instances"
+msgstr "Исправлен баг интерфейса при открытии нескольких окон"
+
+#: data/picker.metainfo.xml.in:54
+msgid "Make pick color button the default focused widget"
+msgstr "Кнопка выбора цвета теперь сфокусирована по умолчанию"
+
+#: data/picker.metainfo.xml.in:55
+msgid "Remove payment option from appcenter"
+msgstr "Убрана опция покупки из AppCenter"
+
+#: data/picker.metainfo.xml.in:62
+msgid "Update to elementary platform 7"
+msgstr "Обновлено до elementary platform 7"
+
+#: data/picker.metainfo.xml.in:63
+msgid "Minor change to app description"
+msgstr "Небольшое изменение описания приложения"
+
+#: data/picker.metainfo.xml.in:69
+msgid "Fix inaccuracies in metadata"
+msgstr "Исправлены неаккуратности в метаданных"
+
+#: data/picker.metainfo.xml.in:74
+msgid "Add stripe key"
+msgstr "Добавлен ключ Stripe"
+
+#: data/picker.metainfo.xml.in:79
+msgid "Initial release"
+msgstr "Начальный релиз"
+
+#: data/picker.metainfo.xml.in:89
+msgid "Phoney Badger"
+msgstr "Phoney Badger"
+
+#~ msgid "Format"
+#~ msgstr "Формат"
+
+#~ msgid "History"
+#~ msgstr "История"
+
+#~ msgid "Pick Color"
+#~ msgstr "Выбрать цвет"
+
+#, fuzzy
+#~ msgid "Copied to clipboard!"
+#~ msgstr "Скопировано в буфер обмена"
