@@ -87,8 +87,6 @@ namespace Cherrypick {
                 toast.send_notification ();
             });
 
-
-
             /* We want the color preview area to span the entire height of the
                window, so using a custom grid layout for the entire window
                including the headerbar */
@@ -109,12 +107,6 @@ namespace Cherrypick {
             set_focus (pick_button);
 
             child = window_handle;
-
-
-                        /* The toasts coming up over the half with the controls looks nicer
-               than coming up over the middle of the whole window */
-            //toast. = vbox;
-            //toast.show ();
 
             var color_picker = new ColorPicker ();
 

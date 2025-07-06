@@ -54,6 +54,8 @@ namespace Cherrypick {
             color_controller.notify ["preview-color"].connect (() => {
                 set_color (color_controller.preview_color);
             });
+
+            set_color (color_controller.preview_color);
         }
 
         private void set_color (Color color) {
