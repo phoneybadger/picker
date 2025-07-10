@@ -13,7 +13,6 @@ namespace Cherrypick {
         Cherrypick.ColorController color_controller;
 
         public signal void copied ();
-        public signal string pasted (string pasted_text);
 
         public FormatArea () {
             Object (
@@ -60,9 +59,14 @@ namespace Cherrypick {
             };
 
             format_entry.primary_icon_name = "edit-copy-symbolic";
-            format_entry.secondary_icon_name = "edit-paste-symbolic";
+            format_entry.primary_icon_tooltip_text = _("Click to copy this colour to your clipboard");
 
-            format_selector = new Gtk.ComboBoxText ();
+            format_entry.secondary_icon_name = "edit-paste-symbolic";
+            format_entry.secondary_icon_tooltip_text = _("Click to paste a colour if you have one saved up");
+
+            format_selector = new Gtk.ComboBoxText () {
+                tooltip_text = _("Choose your preferred format to display picked colours")
+            };
             foreach (var format in Format.all ()) {
                 format_selector.append_text (format.to_string ());
             }
@@ -99,6 +103,9 @@ namespace Cherrypick {
                 case Format.HSL:
                     format_entry.text = color.to_hsl_string ();
                     break;
+                case Format.HSLA:
+                    format_entry.text = color.to_hsla_string ();
+                    break;
                 default:
                     format_entry.text = color.to_rgba_string ();
                     break;
@@ -131,9 +138,6 @@ namespace Cherrypick {
                     picked_color.parse (pasted_text);
                     color_controller.last_picked_color = picked_color;
                     color_controller.color_history.append (picked_color);
-
-                    this.pasted (pasted_text);
-
 
                 } catch (Error e) {
                     print ("Cannot access clipboard: " + e.message);

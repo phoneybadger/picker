@@ -41,11 +41,9 @@ namespace Cherrypick {
         }
 
         private void update_buttons () {
-            print ("\n\n#########################");
             for (var i = 0; i < color_buttons.size; i++) {
                 var button = color_buttons[i];
                 button.update_color (color_controller.color_history[i]);
-                print ( "\n" + i.to_string () + ": has color " + button.color.to_rgb_string ());
             }
         }
     }

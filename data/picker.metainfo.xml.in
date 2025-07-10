@@ -43,6 +43,7 @@
           <li>A new name, Cherrypick! And a new icon by the lovely @</li>
           <li>CMYK model available thanks to @DSLitvinov</li>
           <li>HSL model available thanks to @ckruse's work on ColorMate</li>
+          <li>Also apparently HSLA is a thing so i added it</li>
           <li>New feature: You can now paste a color from clipboard to preview it</li>
         </ul>
       </description>

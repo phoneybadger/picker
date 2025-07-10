@@ -6,6 +6,7 @@
     <value value="2" nick="rgba"/>
     <value value="3" nick="cmyk"/>
     <value value="4" nick="hsl"/>
+    <value value="5" nick="hsla"/>
   </enum>
 
   <schema path="/io/github/ellie_commons/cherrypick/" id="io.github.ellie_commons.cherrypick">

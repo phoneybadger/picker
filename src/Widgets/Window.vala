@@ -42,7 +42,7 @@ namespace Cherrypick {
 
             var format_label = new Gtk.Label (_("Format")) {
                 xalign = 0f,
-                margin_top = 9
+                margin_top = 8
             };
             format_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
             format_label.add_css_class ("title-4");
@@ -51,7 +51,7 @@ namespace Cherrypick {
 
             var history_label = new Gtk.Label (_("History")) {
                 xalign = 0f,
-                margin_top = 9
+                margin_top = 8
             };
             history_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
             history_label.add_css_class ("title-4");
@@ -59,7 +59,8 @@ namespace Cherrypick {
             var history_buttons = new HistoryButtons ();
 
             pick_button = new Gtk.Button.with_label (_("Pick Color")) {
-                margin_top = 9
+                margin_top = 8,
+                tooltip_text = _("Allows you to click on a colour on the screen to get its code in the preferred format")
             };
             pick_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
