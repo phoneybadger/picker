@@ -56,9 +56,9 @@ namespace Cherrypick {
             format_entry = new Gtk.Entry () {
                 editable = false,
             };
-            format_entry.secondary_icon_name = "edit-copy-symbolic";
 
-            format_entry.primary_icon_name = "edit-paste-symbolic";
+            format_entry.primary_icon_name = "edit-copy-symbolic";
+            format_entry.secondary_icon_name = "edit-paste-symbolic";
 
             format_selector = new Gtk.ComboBoxText ();
             foreach (var format in Format.all ()) {
@@ -66,7 +66,7 @@ namespace Cherrypick {
             }
 
             format_entry.primary_icon_press.connect (copy_to_clipboard);
-            format_entry.secondary_icon_press.connect (copy_to_clipboard);
+            format_entry.secondary_icon_press.connect (paste_from_clipboard);
 
             append (format_entry);
             append (format_selector);
