@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-05 15:32+0200\n"
+"POT-Creation-Date: 2025-07-10 20:30+0200\n"
 "PO-Revision-Date: 2022-05-29 02:15+0530\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -33,6 +33,24 @@ msgstr ""
 msgid "Pick Color"
 msgstr ""
 
-#: src/Widgets/Window.vala:83
+#: src/Widgets/Window.vala:63
+msgid ""
+"Allows you to click on a colour on the screen to get its code in the "
+"preferred format"
+msgstr ""
+
+#: src/Widgets/Window.vala:88
 msgid "Copied to clipboard!"
+msgstr ""
+
+#: src/Widgets/FormatArea.vala:62
+msgid "Click to copy this colour to your clipboard"
+msgstr ""
+
+#: src/Widgets/FormatArea.vala:65
+msgid "Click to paste a colour if you have one saved up"
+msgstr ""
+
+#: src/Widgets/FormatArea.vala:68
+msgid "Choose your preferred format to display picked colours"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-05 15:32+0200\n"
+"POT-Creation-Date: 2025-07-10 20:30+0200\n"
 "PO-Revision-Date: 2022-09-27 20:44+0900\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none\n"
@@ -34,10 +34,29 @@ msgstr "История"
 msgid "Pick Color"
 msgstr "Выбрать цвет"
 
-#: src/Widgets/Window.vala:83
+#: src/Widgets/Window.vala:63
+msgid ""
+"Allows you to click on a colour on the screen to get its code in the "
+"preferred format"
+msgstr ""
+
+#: src/Widgets/Window.vala:88
 #, fuzzy
 msgid "Copied to clipboard!"
 msgstr "Скопировано в буфер обмена"
+
+#: src/Widgets/FormatArea.vala:62
+msgid "Click to copy this colour to your clipboard"
+msgstr ""
+
+#: src/Widgets/FormatArea.vala:65
+msgid "Click to paste a colour if you have one saved up"
+msgstr ""
+
+#: src/Widgets/FormatArea.vala:68
+#, fuzzy
+msgid "Choose your preferred format to display picked colours"
+msgstr "История последних выбранных цветов"
 
 #~ msgid "A simple color picker"
 #~ msgstr "Простая палитра цветов"
@@ -61,9 +80,6 @@ msgstr "Скопировано в буфер обмена"
 
 #~ msgid "Remembers your preferred format"
 #~ msgstr "Запоминание вашего предпочитаемого формата"
-
-#~ msgid "Color history remembers your last picked colors"
-#~ msgstr "История последних выбранных цветов"
 
 #~ msgid "Add command line flag to open directly in color picking mode"
 #~ msgstr ""
