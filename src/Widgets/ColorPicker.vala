@@ -30,6 +30,7 @@ namespace Cherrypick {
                     red = (uint8) (r * 255),
                     green = (uint8) (g * 255),
                     blue = (uint8) (b * 255),
+                    alpha = (double) 1.0
                 };
                 color_controller.last_picked_color = picked_color;
                 color_controller.color_history.append (picked_color);
