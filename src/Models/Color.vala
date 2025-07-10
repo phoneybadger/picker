@@ -17,7 +17,7 @@ namespace Cherrypick {
         }
 
         public string to_rgba_string () {
-            var rgba_string = "rgba(%d, %d, %d, 1)".printf (red, green, blue);
+            var rgba_string = "rgba(%d, %d, %d, %s)".printf (red, green, blue, alpha.to_string ());
 
             return rgba_string;
         }
@@ -50,10 +50,10 @@ namespace Cherrypick {
         }
 
         /* https://github.com/ckruse/ColorMate/blob/3fdc1dd76099c8996d7eec4de7a7127235664c2c/src/Window.vala#L197 */
-        public string to_hsl_string (Rgb rgb, out Hsl hsl) {
-            double r = rgb.r / 255.0;
-            double g = rgb.g / 255.0;
-            double b = rgb.b / 255.0;
+        public string to_hsl_string () {
+            double r = red / 255.0;
+            double g = green / 255.0;
+            double b = blue / 255.0;
 
             // Find greatest and smallest channel values
             var cmin = double.min (double.min (r, g), b);
@@ -91,11 +91,16 @@ namespace Cherrypick {
             s = (s * 100.0).abs();
             l = (l * 100.0).abs();
 
-            var hsl_string = "hsl(%d, %d, %d)".printf ((int)h, s, l);
+            var hsl_string = "hsl(%d, %d, %d)".printf ((int)h, (int)s, (int)l);
 
             return hsl_string;
-
             }
+
+        public string to_hsla_string () {
+            var hsla_string = this.to_hsl_string ().replace (")", "," + ((int)alpha).to_string () + ")");
+
+            return hsla_string;
+        }
 
 
         public void parse (string color_code) {

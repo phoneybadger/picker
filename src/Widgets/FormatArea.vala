@@ -10,8 +10,10 @@ namespace Cherrypick {
         private Gtk.ComboBoxText format_selector;
         private Gtk.Entry format_entry;
 
+        Cherrypick.ColorController color_controller;
+
         public signal void copied ();
-        public signal string pasted (pasted_text);
+        public signal string pasted (string pasted_text);
 
         public FormatArea () {
             Object (
@@ -40,7 +42,7 @@ namespace Cherrypick {
         }
 
         private void sync_ui_with_controller () {
-            var color_controller = ColorController.get_instance ();
+            color_controller = ColorController.get_instance ();
 
             color_controller.notify ["preview-color"].connect (() => {
                 color = color_controller.preview_color;
@@ -66,7 +68,7 @@ namespace Cherrypick {
             }
 
             format_entry.icon_press.connect ((icon_pos) => {
-                if (icon_pos == Gtk.PositionType.PRIMARY) {
+                if (icon_pos == Gtk.EntryIconPosition.PRIMARY) {
                     copy_to_clipboard ();
                 } else {
                     paste_from_clipboard ();
@@ -115,14 +117,29 @@ namespace Cherrypick {
 
         private void paste_from_clipboard () {
             var clipboard = Gdk.Display.get_default ().get_clipboard ();
-            var pasted_text = clipboard.get_text ();
+            clipboard.read_text_async.begin ((null), (obj, res) => {
+                try {
 
-            /* Clean up a bit this mess as the user is likely to have copied unwanted strings with it */
-            foreach (var clutter in [" ","\n",";"]) {
-                pasted_text = pasted_text.strip (clutter);
-            }
+                    var pasted_text = clipboard.read_text_async.end (res);
+                    /* Clean up a bit this mess as the user is likely to have copied unwanted strings with it */
+                    string[] clutter_chars = {" ", "\n", ";"};
+                    foreach (var clutter in clutter_chars) {
+                        pasted_text = pasted_text.replace (clutter, "");
+                    }
 
-            this.pasted (pasted_text);
+                    var picked_color = new Color ();
+                    picked_color.parse (pasted_text);
+                    color_controller.last_picked_color = picked_color;
+                    color_controller.color_history.append (picked_color);
+
+                    this.pasted (pasted_text);
+
+
+                } catch (Error e) {
+                    print ("Cannot access clipboard: " + e.message);
+                }
+
+            });
         }
 
 

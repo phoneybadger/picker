@@ -88,22 +88,6 @@ namespace Cherrypick {
                 toast.send_notification ();
             });
 
-            format_area.pasted.connect ((pasted_text) => {
-
-                try {
-                    var picked_color = new Color ();
-                    picked_color.parse(pasted_text);
-                    color_controller.last_picked_color = picked_color;
-                    color_controller.color_history.append (picked_color);
-
-                } catch (Error e) {
-                    toast.title = _("Failed to parse color: %s").printf (e.message);
-                    toast.send_notification ();
-                }
-
-            });
-
-
             /* We want the color preview area to span the entire height of the
                window, so using a custom grid layout for the entire window
                including the headerbar */

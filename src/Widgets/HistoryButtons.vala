@@ -10,7 +10,7 @@ namespace Cherrypick {
         public HistoryButtons () {
             Object (
                 orientation: Gtk.Orientation.HORIZONTAL,
-                spacing: 6
+                spacing: 8
             );
         }
 
