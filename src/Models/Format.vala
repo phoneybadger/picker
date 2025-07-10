@@ -7,7 +7,8 @@ namespace Cherrypick {
         HEX,
         RGB,
         RGBA,
-        CMYK;
+        CMYK,
+        HSL;
 
         public string to_string () {
             switch (this) {
@@ -19,13 +20,15 @@ namespace Cherrypick {
                     return "RGBA";
                 case CMYK:
                     return "CMYK";
+                case HSL:
+                    return "HSL";
                 default:
                     assert_not_reached ();
             }
         }
 
         public static Format[] all () {
-            return {HEX, RGB, RGBA,CMYK};
+            return {HEX, RGB, RGBA, CMYK, HSL};
         }
     }
 }

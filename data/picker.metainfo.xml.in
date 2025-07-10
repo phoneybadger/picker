@@ -12,7 +12,7 @@
     <p>A modern and trusty color picker</p>
     <p>Features:</p>
     <ul>
-      <li>Choose different output formats (RGB, RGBA, HEX, CMYK)</li>
+      <li>Choose different output formats (RGB, RGBA, HEX, CMYK, HSL)</li>
       <li>Remembers your preferred format</li>
       <li>Color history remembers your last picked colors</li>
     </ul>
@@ -41,6 +41,7 @@
         <ul>
           <li>Port to modern tech (GTK4, Wayland, portals)</li>
           <li>CMYK model available thanks to @DSLitvinov</li>
+          <li>HSL model available thanks to @ckruse's work on ColorMate</li>
         </ul>
       </description>
     </release>

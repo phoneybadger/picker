@@ -85,8 +85,11 @@ namespace Cherrypick {
                 case Format.RGBA:
                     format_entry.text = color.to_rgba_string ();
                     break;
-                 case Format.CMYK:
+                case Format.CMYK:
                     format_entry.text = color.to_cmyk_string ();
+                    break;
+                case Format.HSL:
+                    format_entry.text = color.to_hsl_string ();
                     break;
                 default:
                     format_entry.text = color.to_rgba_string ();

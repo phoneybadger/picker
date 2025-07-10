@@ -49,6 +49,55 @@ namespace Cherrypick {
             return cmyk_string;
         }
 
+        /* https://github.com/ckruse/ColorMate/blob/3fdc1dd76099c8996d7eec4de7a7127235664c2c/src/Window.vala#L197 */
+        public string to_hsl_string (Rgb rgb, out Hsl hsl) {
+            double r = rgb.r / 255.0;
+            double g = rgb.g / 255.0;
+            double b = rgb.b / 255.0;
+
+            // Find greatest and smallest channel values
+            var cmin = double.min (double.min (r, g), b);
+            var cmax = double.max (double.max(r, g), b);
+            var delta = cmax - cmin;
+            double h = 0, s = 0, l = 0;
+
+            // Calculate hue
+            if (delta == 0) {
+                h = 0;
+            }
+            else if (cmax == r) {
+                h = ((g - b) / delta) % 6;
+            }
+            else if (cmax == g) {
+                h = (b - r) / delta + 2;
+            }
+            else {
+                h = (r - g) / delta + 4;
+            }
+
+            h = Math.round (h * 60);
+
+            if (h < 0) {
+                h += 360;
+            }
+
+            // Calculate lightness
+            l = (cmax + cmin) / 2;
+
+            // Calculate saturation
+            s = delta == 0 ? 0 : delta / (1 - (2 * l - 1).abs());
+
+            // Multiply l and s by 100
+            s = (s * 100.0).abs();
+            l = (l * 100.0).abs();
+
+            var hsl_string = "hsl(%d, %d, %d)".printf ((int)h, s, l);
+
+            return hsl_string;
+
+            }
+
+
         public void parse (string color_code) {
             /* Parse a color code to set values. Wraps Gdk.RGBA.parse, so
             supports all formats that supports */
