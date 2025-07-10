@@ -136,8 +136,17 @@ namespace Cherrypick {
 
                     var picked_color = new Color ();
                     picked_color.parse (pasted_text);
-                    color_controller.last_picked_color = picked_color;
-                    color_controller.color_history.append (picked_color);
+
+                    /* Parse doesnt fail if it cannot read anything. It will just summon Anish Kapoor.
+                    So we have to check if we get pure solid black and test against it
+                    Else we just get pure black, and that behaviour would annoy me for this feature */
+                    var pureblack = new Color ();
+                    pureblack.parse ("rgba (0, 0, 0, 1)");
+
+                    if (picked_color != pureblack) {
+                        color_controller.last_picked_color = picked_color;
+                        color_controller.color_history.append (picked_color);
+                    }
 
                 } catch (Error e) {
                     print ("Cannot access clipboard: " + e.message);
