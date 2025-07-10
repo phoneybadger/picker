@@ -111,7 +111,7 @@ namespace Cherrypick {
             red = (uint8) (255 * rgba.red);
             green = (uint8) (255 * rgba.green);
             blue = (uint8) (255 * rgba.blue);
-            alpha = 1;
+            alpha = rgba.alpha;
         }
     }
 }
