@@ -65,8 +65,13 @@ namespace Cherrypick {
                 format_selector.append_text (format.to_string ());
             }
 
-            format_entry.primary_icon_press.connect (copy_to_clipboard);
-            format_entry.secondary_icon_press.connect (paste_from_clipboard);
+            format_entry.icon_press.connect ((icon_pos) => {
+                if (icon_pos == Gtk.PositionType.PRIMARY) {
+                    copy_to_clipboard ();
+                } else {
+                    paste_from_clipboard ();
+                }
+            });
 
             append (format_entry);
             append (format_selector);
