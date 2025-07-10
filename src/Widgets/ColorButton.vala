@@ -17,7 +17,9 @@ namespace Cherrypick {
 
 
         public ColorButton (Color newcolor, string name) {
+
             //var relief = Gtk.ReliefStyle.HALF;
+            tooltip_text = _("Switch preview and colour code to this colour");
 
             css_provider = new Gtk.CssProvider ();
 

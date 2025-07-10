@@ -1,2 +1,3 @@
 src/Widgets/Window.vala
 src/Widgets/FormatArea.vala
+src/Widgets/ColorButton.vala

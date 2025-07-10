@@ -15,6 +15,7 @@ namespace Cherrypick {
         }
 
         construct {
+
             color_controller = ColorController.get_instance ();
             color_buttons = new Gee.ArrayList<ColorButton> ();
 

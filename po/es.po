@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-10 20:30+0200\n"
+"POT-Creation-Date: 2025-07-10 20:38+0200\n"
 "PO-Revision-Date: 2022-05-29 02:15+0530\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -53,4 +53,9 @@ msgstr ""
 
 #: src/Widgets/FormatArea.vala:68
 msgid "Choose your preferred format to display picked colours"
+msgstr ""
+
+#. var relief = Gtk.ReliefStyle.HALF;
+#: src/Widgets/ColorButton.vala:22
+msgid "Switch preview and colour code to this colour"
 msgstr ""
