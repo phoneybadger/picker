@@ -11,6 +11,7 @@ namespace Cherrypick {
         private Gtk.Entry format_entry;
 
         public signal void copied ();
+        public signal string pasted (pasted_text);
 
         public FormatArea () {
             Object (
@@ -55,17 +56,17 @@ namespace Cherrypick {
             format_entry = new Gtk.Entry () {
                 editable = false,
             };
-            format_entry.set_icon_from_icon_name (
-                Gtk.EntryIconPosition.SECONDARY,
-                "edit-copy-symbolic"
-            );
+            format_entry.secondary_icon_name = "edit-copy-symbolic";
+
+            format_entry.primary_icon_name = "edit-paste-symbolic";
 
             format_selector = new Gtk.ComboBoxText ();
             foreach (var format in Format.all ()) {
                 format_selector.append_text (format.to_string ());
             }
 
-            format_entry.icon_press.connect (copy_to_clipboard);
+            format_entry.primary_icon_press.connect (copy_to_clipboard);
+            format_entry.secondary_icon_press.connect (copy_to_clipboard);
 
             append (format_entry);
             append (format_selector);
@@ -104,8 +105,19 @@ namespace Cherrypick {
 
             var clipboard = Gdk.Display.get_default ().get_clipboard ();
             clipboard.set_text (format_entry.text);
-
             this.copied ();
+        }
+
+        private void paste_from_clipboard () {
+            var clipboard = Gdk.Display.get_default ().get_clipboard ();
+            var pasted_text = clipboard.get_text ();
+
+            /* Clean up a bit this mess as the user is likely to have copied unwanted strings with it */
+            foreach (var clutter in [" ","\n",";"]) {
+                pasted_text = pasted_text.strip (clutter);
+            }
+
+            this.pasted (pasted_text);
         }
 
 
