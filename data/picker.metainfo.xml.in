@@ -63,6 +63,7 @@
           <li>HSL model available thanks to @ckruse's work on ColorMate</li>
           <li>Also apparently HSLA is a thing so i added it</li>
           <li>New feature: You can now paste a color from clipboard to preview it</li>
+          <li>New feature: Hover over history buttons to see their code in your preferred format</li>
         </ul>
       </description>
     </release>

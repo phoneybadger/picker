@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-14 00:10+0200\n"
+"POT-Creation-Date: 2025-07-14 00:19+0200\n"
 "PO-Revision-Date: 2022-09-27 20:44+0900\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none\n"
@@ -107,40 +107,46 @@ msgstr ""
 msgid "New feature: You can now paste a color from clipboard to preview it"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:70
+#: data/picker.metainfo.xml.in:66
+msgid ""
+"New feature: Hover over history buttons to see their code in your preferred "
+"format"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:71
 msgid "Add command line flag to open directly in color picking mode"
 msgstr ""
 "Добавлен флаг командной строки для открытия сразу в режиме выбора цвета"
 
-#: data/picker.metainfo.xml.in:77
+#: data/picker.metainfo.xml.in:78
 msgid "Fix layout bug when opening multiple instances"
 msgstr "Исправлен баг интерфейса при открытии нескольких окон"
 
-#: data/picker.metainfo.xml.in:78
+#: data/picker.metainfo.xml.in:79
 msgid "Make pick color button the default focused widget"
 msgstr "Кнопка выбора цвета теперь сфокусирована по умолчанию"
 
-#: data/picker.metainfo.xml.in:79
+#: data/picker.metainfo.xml.in:80
 msgid "Remove payment option from appcenter"
 msgstr "Убрана опция покупки из AppCenter"
 
-#: data/picker.metainfo.xml.in:86
+#: data/picker.metainfo.xml.in:87
 msgid "Update to elementary platform 7"
 msgstr "Обновлено до elementary platform 7"
 
-#: data/picker.metainfo.xml.in:87
+#: data/picker.metainfo.xml.in:88
 msgid "Minor change to app description"
 msgstr "Небольшое изменение описания приложения"
 
-#: data/picker.metainfo.xml.in:93
+#: data/picker.metainfo.xml.in:94
 msgid "Fix inaccuracies in metadata"
 msgstr "Исправлены неаккуратности в метаданных"
 
-#: data/picker.metainfo.xml.in:98
+#: data/picker.metainfo.xml.in:99
 msgid "Add stripe key"
 msgstr "Добавлен ключ Stripe"
 
-#: data/picker.metainfo.xml.in:103
+#: data/picker.metainfo.xml.in:104
 msgid "Initial release"
 msgstr "Начальный релиз"
 
