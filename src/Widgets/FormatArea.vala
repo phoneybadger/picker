@@ -10,7 +10,7 @@ namespace Cherrypick {
         public Cherrypick.Color color {get; set;}
         public Format color_format {get; set;}
 
-        private Gtk.ComboBoxText format_selector;
+        public Gtk.ComboBoxText format_selector;
         private Gtk.Entry format_entry;
 
         Cherrypick.ColorController color_controller;

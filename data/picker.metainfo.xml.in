@@ -12,9 +12,10 @@
     <p>A modern and trusty color picker</p>
     <p>Features:</p>
     <ul>
-      <li>Choose different output formats (RGB, RGBA, HEX, CMYK, HSL)</li>
+      <li>Choose different output formats (RGB, RGBA, HEX, CMYK, HSL, HSLA)</li>
       <li>Remembers your preferred format</li>
-      <li>Color history remembers your last picked colors</li>
+      <li>Color history remembers your last picked colors (hover to check their code)</li>
+      <li>Curious about a color? Copy paste it from your clipboard to preview it</li>
     </ul>
   </description>
 

@@ -44,10 +44,27 @@ namespace Cherrypick {
             }
         }
 
-        private void update_buttons () {
+        public void update_buttons () {
             for (var i = 0; i < color_buttons.size; i++) {
                 var button = color_buttons[i];
                 button.update_color (color_controller.color_history[i]);
+                button.tooltip_text = tooltip_formatted_color (color_controller.color_history[i]);
+            }
+        }
+
+        // TODO: Standardize between this and the one in FormatArea
+        private string tooltip_formatted_color (Color color) {
+            var settings = Settings.get_instance ();
+            var format = settings.get_enum ("color-format");
+
+            switch (format) {
+                case Format.HEX: return color.to_hex_string ();
+                case Format.RGB: return color.to_rgb_string ();
+                case Format.RGBA: return color.to_rgba_string ();
+                case Format.CMYK: return color.to_cmyk_string ();
+                case Format.HSL: return color.to_hsl_string ();
+                case Format.HSLA: return color.to_hsla_string ();
+                default: return color.to_rgba_string ();
             }
         }
     }

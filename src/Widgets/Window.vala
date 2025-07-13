@@ -87,13 +87,6 @@ namespace Cherrypick {
             toast = new Granite.Toast ("");
             overlay.add_overlay (toast);
 
-            format_area.copied.connect ((message) => {
-                if (message != "") {
-                    toast.title = message;
-                    toast.send_notification ();
-                }
-            });
-
             /* We want the color preview area to span the entire height of the
                window, so using a custom grid layout for the entire window
                including the headerbar */
@@ -111,6 +104,20 @@ namespace Cherrypick {
             child = window_handle;
 
             var color_picker = new ColorPicker ();
+
+            // Make sure all the tooltips are up to date
+            history_buttons.update_buttons ();
+
+            format_area.format_selector.changed.connect_after (() => {
+                history_buttons.update_buttons ();
+            });
+
+            format_area.copied.connect ((message) => {
+                if (message != "") {
+                    toast.title = message;
+                    toast.send_notification ();
+                }
+            });
 
             pick_button.clicked.connect (() => {
                 //application.lookup_action (Application.ACTION_START_PICK).activate (null);
