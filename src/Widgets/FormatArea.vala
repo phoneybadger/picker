@@ -12,7 +12,7 @@ namespace Cherrypick {
 
         Cherrypick.ColorController color_controller;
 
-        public signal void copied ();
+        public signal void copied (string message);
 
         public FormatArea () {
             Object (
@@ -28,8 +28,6 @@ namespace Cherrypick {
             handle_active_format ();
 
             notify ["color-format"].connect (save_format_to_gsettings);
-
-            format_entry.icon_press.connect (copy_to_clipboard);
         }
 
         private void handle_active_format () {
@@ -58,11 +56,14 @@ namespace Cherrypick {
                 editable = false,
             };
 
-            format_entry.primary_icon_name = "edit-copy-symbolic";
-            format_entry.primary_icon_tooltip_text = _("Click to copy this colour to your clipboard");
 
-            format_entry.secondary_icon_name = "edit-paste-symbolic";
-            format_entry.secondary_icon_tooltip_text = _("Click to paste a colour if you have one saved up");
+            format_entry.primary_icon_name = "edit-paste-symbolic";
+            format_entry.primary_icon_tooltip_text = _("Click to paste a colour if you have one saved up");
+
+            format_entry.secondary_icon_name = "edit-copy-symbolic";
+            format_entry.secondary_icon_tooltip_text = _("Click to copy this colour to your clipboard");
+
+
 
             format_selector = new Gtk.ComboBoxText () {
                 tooltip_text = _("Choose your preferred format to display picked colours")
@@ -73,9 +74,9 @@ namespace Cherrypick {
 
             format_entry.icon_press.connect ((icon_pos) => {
                 if (icon_pos == Gtk.EntryIconPosition.PRIMARY) {
-                    copy_to_clipboard ();
-                } else {
                     paste_from_clipboard ();
+                } else {
+                    copy_to_clipboard ();
                 }
             });
 
@@ -113,13 +114,9 @@ namespace Cherrypick {
         }
 
         private void copy_to_clipboard () {
-            /* send a toast notification to give visual feedback to user */
-            //var toast_overlay = ToastOverlay.get_instance ();
-            //toast_overlay.show_toast (_("Copied to clipboard"));
-
             var clipboard = Gdk.Display.get_default ().get_clipboard ();
             clipboard.set_text (format_entry.text);
-            this.copied ();
+            this.copied ( _("Copied to clipboard!"));
         }
 
         private void paste_from_clipboard () {
@@ -137,21 +134,24 @@ namespace Cherrypick {
                     var picked_color = new Color ();
                     picked_color.parse (pasted_text);
 
+
                     /* Parse doesnt fail if it cannot read anything. It will just summon Anish Kapoor.
                     So we have to check if we get pure solid black and test against it
                     Else we just get pure black, and that behaviour would annoy me for this feature */
-                    var pureblack = new Color ();
-                    pureblack.parse ("rgba (0, 0, 0, 1)");
+                    // Get the string and strip it from spaces just in case
+                    var shortform = picked_color.to_rgba_string ().replace (" ", "");
 
-                    if (picked_color != pureblack) {
+                    if ( shortform != "rgba(0,0,0,0)") {
                         color_controller.last_picked_color = picked_color;
                         color_controller.color_history.append (picked_color);
+
+                    } else {
+                        this.copied ( _("Cannot detect colour!"));
                     }
 
                 } catch (Error e) {
                     print ("Cannot access clipboard: " + e.message);
                 }
-
             });
         }
 

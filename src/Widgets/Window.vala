@@ -84,9 +84,11 @@ namespace Cherrypick {
             toast = new Granite.Toast ("");
             overlay.add_overlay (toast);
 
-            format_area.copied.connect (() => {
-                toast.title = _("Copied to clipboard!");
-                toast.send_notification ();
+            format_area.copied.connect ((message) => {
+                if (message != "") {
+                    toast.title = message;
+                    toast.send_notification ();
+                }
             });
 
             /* We want the color preview area to span the entire height of the
