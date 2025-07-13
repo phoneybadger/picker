@@ -20,6 +20,23 @@
 
   <launchable type="desktop-id">io.github.ellie_commons.cherrypick.desktop</launchable>
 
+    <content_rating type="oars-1.1"/>
+    <translation type="gettext" source_locale="en_GB">io.github.ellie_commons.cherrypick</translation>
+    <recommends>
+      <control>pointing</control>
+      <control>touch</control>
+    </recommends>
+
+    <launchable type="desktop-id">io.github.ellie_commons.reminduck.desktop</launchable>
+    <developer id="io.github.ellie-commons">
+        <name>PhoneyBadger + Stella</name>
+    </developer>
+    <project_group>ellie-commons</project_group>
+    <url type="homepage">https://github.com/ellie-commons/cherrypick</url>
+    <url type="bugtracker">https://github.com/ellie-commons/cherrypick/issues</url>
+    <url type="help">https://github.com/ellie-commons/cherrypick/issues</url>
+    <url type="donation">https://ko-fi.com/teamcons</url>
+
   <screenshots>
     <screenshot type="default">
       <caption>Cherrypick's main window</caption>
@@ -87,22 +104,4 @@
     </release>
   </releases>
 
-    <content_rating type="oars-1.1"/>
-    <translation type="gettext" source_locale="en_GB">io.github.ellie_commons.cherrypick</translation>
-    <recommends>
-      <control>pointing</control>
-      <control>touch</control>
-    </recommends>
-
-    <launchable type="desktop-id">io.github.ellie_commons.reminduck.desktop</launchable>
-    <developer id="io.github.ellie-commons">
-        <name>PhoneyBadger + Stella</name>
-    </developer>
-    <project_group>ellie-commons</project_group>
-    <url type="homepage">https://github.com/ellie-commons/cherrypick</url>
-    <url type="bugtracker">https://github.com/ellie-commons/cherrypick/issues</url>
-    <url type="help">https://github.com/ellie-commons/cherrypick/issues</url>
-    <url type="donation">https://ko-fi.com/teamcons</url>
-
-  <content_rating type="oars-1.1" />
 </component>
