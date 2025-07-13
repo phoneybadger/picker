@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-10 20:36+0200\n"
+"POT-Creation-Date: 2025-07-14 00:10+0200\n"
 "PO-Revision-Date: 2022-09-27 20:44+0900\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none\n"
@@ -47,7 +47,7 @@ msgstr "Функции:"
 
 #: data/picker.metainfo.xml.in:15
 #, fuzzy
-msgid "Choose different output formats (RGB, RGBA, HEX, CMYK, HSL)"
+msgid "Choose different output formats (RGB, RGBA, HEX, CMYK, HSL, HSLA)"
 msgstr "Выбор различные форматы цветов (RGB, RGBA, HEX)"
 
 #: data/picker.metainfo.xml.in:16
@@ -55,88 +55,94 @@ msgid "Remembers your preferred format"
 msgstr "Запоминание вашего предпочитаемого формата"
 
 #: data/picker.metainfo.xml.in:17
-msgid "Color history remembers your last picked colors"
+#, fuzzy
+msgid ""
+"Color history remembers your last picked colors (hover to check their code)"
 msgstr "История последних выбранных цветов"
 
-#: data/picker.metainfo.xml.in:25
+#: data/picker.metainfo.xml.in:18
+msgid "Curious about a color? Copy paste it from your clipboard to preview it"
+msgstr ""
+
+#: data/picker.metainfo.xml.in:33
+#, fuzzy
+msgid "PhoneyBadger + Stella"
+msgstr "Phoney Badger"
+
+#: data/picker.metainfo.xml.in:43
 msgid "Cherrypick's main window"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:31
+#: data/picker.metainfo.xml.in:49
 msgid "Cherrypick with dark theme"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:40
+#: data/picker.metainfo.xml.in:58
 msgid "2.0.0: The revival!"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:42
+#: data/picker.metainfo.xml.in:60
 msgid ""
 "Port to modern tech (GTK4, Wayland, portals, elementary 8). Not broken "
 "anymore!"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:43
+#: data/picker.metainfo.xml.in:61
 msgid "A new name, Cherrypick! And a new icon by the lovely @"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:44
+#: data/picker.metainfo.xml.in:62
 msgid "CMYK model available thanks to @DSLitvinov"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:45
+#: data/picker.metainfo.xml.in:63
 msgid "HSL model available thanks to @ckruse's work on ColorMate"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:46
+#: data/picker.metainfo.xml.in:64
 msgid "Also apparently HSLA is a thing so i added it"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:47
+#: data/picker.metainfo.xml.in:65
 msgid "New feature: You can now paste a color from clipboard to preview it"
 msgstr ""
 
-#: data/picker.metainfo.xml.in:52
+#: data/picker.metainfo.xml.in:70
 msgid "Add command line flag to open directly in color picking mode"
 msgstr ""
 "Добавлен флаг командной строки для открытия сразу в режиме выбора цвета"
 
-#: data/picker.metainfo.xml.in:59
+#: data/picker.metainfo.xml.in:77
 msgid "Fix layout bug when opening multiple instances"
 msgstr "Исправлен баг интерфейса при открытии нескольких окон"
 
-#: data/picker.metainfo.xml.in:60
+#: data/picker.metainfo.xml.in:78
 msgid "Make pick color button the default focused widget"
 msgstr "Кнопка выбора цвета теперь сфокусирована по умолчанию"
 
-#: data/picker.metainfo.xml.in:61
+#: data/picker.metainfo.xml.in:79
 msgid "Remove payment option from appcenter"
 msgstr "Убрана опция покупки из AppCenter"
 
-#: data/picker.metainfo.xml.in:68
+#: data/picker.metainfo.xml.in:86
 msgid "Update to elementary platform 7"
 msgstr "Обновлено до elementary platform 7"
 
-#: data/picker.metainfo.xml.in:69
+#: data/picker.metainfo.xml.in:87
 msgid "Minor change to app description"
 msgstr "Небольшое изменение описания приложения"
 
-#: data/picker.metainfo.xml.in:75
+#: data/picker.metainfo.xml.in:93
 msgid "Fix inaccuracies in metadata"
 msgstr "Исправлены неаккуратности в метаданных"
 
-#: data/picker.metainfo.xml.in:80
+#: data/picker.metainfo.xml.in:98
 msgid "Add stripe key"
 msgstr "Добавлен ключ Stripe"
 
-#: data/picker.metainfo.xml.in:85
+#: data/picker.metainfo.xml.in:103
 msgid "Initial release"
 msgstr "Начальный релиз"
-
-#: data/picker.metainfo.xml.in:99
-#, fuzzy
-msgid "PhoneyBadger + Stella"
-msgstr "Phoney Badger"
 
 #~ msgid ""
 #~ "A minimal color picker that lets you pick colors from anywhere on your "

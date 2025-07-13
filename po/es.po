@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-10 20:38+0200\n"
+"POT-Creation-Date: 2025-07-14 00:10+0200\n"
 "PO-Revision-Date: 2022-05-29 02:15+0530\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,45 +17,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Widgets/Window.vala:13 src/Widgets/Window.vala:31
+#: src/Widgets/Window.vala:16 src/Widgets/Window.vala:34
 msgid "Cherrypick"
 msgstr ""
 
-#: src/Widgets/Window.vala:43
+#: src/Widgets/Window.vala:46
 msgid "Format"
 msgstr ""
 
-#: src/Widgets/Window.vala:52
+#: src/Widgets/Window.vala:55
 msgid "History"
 msgstr ""
 
-#: src/Widgets/Window.vala:61
+#: src/Widgets/Window.vala:64
 msgid "Pick Color"
 msgstr ""
 
-#: src/Widgets/Window.vala:63
+#: src/Widgets/Window.vala:66
 msgid ""
 "Allows you to click on a colour on the screen to get its code in the "
 "preferred format"
 msgstr ""
 
-#: src/Widgets/Window.vala:88
-msgid "Copied to clipboard!"
-msgstr ""
-
-#: src/Widgets/FormatArea.vala:62
-msgid "Click to copy this colour to your clipboard"
-msgstr ""
-
-#: src/Widgets/FormatArea.vala:65
+#: src/Widgets/FormatArea.vala:64
 msgid "Click to paste a colour if you have one saved up"
 msgstr ""
 
-#: src/Widgets/FormatArea.vala:68
+#: src/Widgets/FormatArea.vala:67
+msgid "Click to copy this colour to your clipboard"
+msgstr ""
+
+#: src/Widgets/FormatArea.vala:72
 msgid "Choose your preferred format to display picked colours"
 msgstr ""
 
-#. var relief = Gtk.ReliefStyle.HALF;
-#: src/Widgets/ColorButton.vala:22
-msgid "Switch preview and colour code to this colour"
+#: src/Widgets/FormatArea.vala:122
+msgid "Copied to clipboard!"
+msgstr ""
+
+#: src/Widgets/FormatArea.vala:152
+msgid "Cannot detect colour!"
 msgstr ""
