@@ -108,11 +108,6 @@ namespace Cherrypick {
                 child = window_grid
             };
 
-            /* when the app is opened the user probably wants to pick the color
-               straight away. So setting the pick button as focused default
-               action so that pressing Return or Space starts the pick */
-            set_focus (pick_button);
-
             child = window_handle;
 
             var color_picker = new ColorPicker ();
@@ -121,6 +116,11 @@ namespace Cherrypick {
                 //application.lookup_action (Application.ACTION_START_PICK).activate (null);
                 color_picker.pick.begin ();
             });
+
+            /* when the app is opened the user probably wants to pick the color
+               straight away. So setting the pick button as focused default
+               action so that pressing Return or Space starts the pick */
+            set_focus (pick_button);
         }
     }
 }
