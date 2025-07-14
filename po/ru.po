@@ -1,13 +1,13 @@
-# Russian translation for com.github.phoneybadger.picker
-# Copyright (C) 2022 THE com.github.phoneybadger.picker'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the com.github.phoneybadger.picker package.
+# Russian translation for io.github.ellie_commons.cherrypick
+# Copyright (C) 2022 THE io.github.ellie_commons.cherrypick'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.github.ellie_commons.cherrypick package.
 # lenemter <lenemter@gmail.com>, 2022.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: com.github.phoneybadger.picker\n"
+"Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-28 22:58+0900\n"
+"POT-Creation-Date: 2025-07-14 00:19+0200\n"
 "PO-Revision-Date: 2022-09-27 20:44+0900\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none\n"
@@ -18,95 +18,100 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: src/Widgets/Window.vala:43 data/picker.desktop.in:6
-#: data/picker.metainfo.xml.in:5
-msgid "Picker"
-msgstr "Picker"
+#: src/Widgets/Window.vala:16 src/Widgets/Window.vala:34
+msgid "Cherrypick"
+msgstr "Cherrypick"
 
-#: src/Widgets/Window.vala:48
-msgid "Pick Color"
-msgstr "Выбрать цвет"
-
-#: src/Widgets/Window.vala:53
+#: src/Widgets/Window.vala:46
 msgid "Format"
 msgstr "Формат"
 
-#: src/Widgets/Window.vala:60
+#: src/Widgets/Window.vala:55
 msgid "History"
 msgstr "История"
 
-#: src/Widgets/FormatArea.vala:93
-msgid "Copied to clipboard"
-msgstr "Скопировано в буфер обмена"
+#: src/Widgets/Window.vala:64
+msgid "Pick Color"
+msgstr "Выбрать цвет"
 
-#: data/picker.desktop.in:7 data/picker.metainfo.xml.in:6
-msgid "A simple color picker"
-msgstr "Простая палитра цветов"
-
-#: data/picker.desktop.in:13
-msgid "Color;Pick;Eyedropper;Picker;"
-msgstr "Цвет;Выбрать;Пипетка;Выбор"
-
-#: data/picker.metainfo.xml.in:12
+#: src/Widgets/Window.vala:66
 msgid ""
-"A minimal color picker that lets you pick colors from anywhere on your screen"
+"Allows you to click on a colour on the screen to get its code in the "
+"preferred format"
 msgstr ""
-"Минималистичная палитра, которая позволяет вам выбирать цвет с любой точки "
-"вашего экрана"
 
-#: data/picker.metainfo.xml.in:13
-msgid "Features:"
-msgstr "Функции:"
+#: src/Widgets/FormatArea.vala:64
+msgid "Click to paste a colour if you have one saved up"
+msgstr ""
 
-#: data/picker.metainfo.xml.in:15
-msgid "Choose different output formats (RGB, RGBA, HEX)"
-msgstr "Выбор различные форматы цветов (RGB, RGBA, HEX)"
+#: src/Widgets/FormatArea.vala:67
+msgid "Click to copy this colour to your clipboard"
+msgstr ""
 
-#: data/picker.metainfo.xml.in:16
-msgid "Remembers your preferred format"
-msgstr "Запоминание вашего предпочитаемого формата"
-
-#: data/picker.metainfo.xml.in:17
-msgid "Color history remembers your last picked colors"
+#: src/Widgets/FormatArea.vala:72
+#, fuzzy
+msgid "Choose your preferred format to display picked colours"
 msgstr "История последних выбранных цветов"
 
-#: data/picker.metainfo.xml.in:38
-msgid "Add command line flag to open directly in color picking mode"
+#: src/Widgets/FormatArea.vala:122
+#, fuzzy
+msgid "Copied to clipboard!"
+msgstr "Скопировано в буфер обмена"
+
+#: src/Widgets/FormatArea.vala:152
+msgid "Cannot detect colour!"
 msgstr ""
-"Добавлен флаг командной строки для открытия сразу в режиме выбора цвета"
 
-#: data/picker.metainfo.xml.in:45
-msgid "Fix layout bug when opening multiple instances"
-msgstr "Исправлен баг интерфейса при открытии нескольких окон"
+#~ msgid "A simple color picker"
+#~ msgstr "Простая палитра цветов"
 
-#: data/picker.metainfo.xml.in:46
-msgid "Make pick color button the default focused widget"
-msgstr "Кнопка выбора цвета теперь сфокусирована по умолчанию"
+#~ msgid "Color;Pick;Eyedropper;Cherrypick;"
+#~ msgstr "Цвет;Выбрать;Пипетка;Выбор"
 
-#: data/picker.metainfo.xml.in:47
-msgid "Remove payment option from appcenter"
-msgstr "Убрана опция покупки из AppCenter"
+#~ msgid ""
+#~ "A minimal color picker that lets you pick colors from anywhere on your "
+#~ "screen"
+#~ msgstr ""
+#~ "Минималистичная палитра, которая позволяет вам выбирать цвет с любой "
+#~ "точки вашего экрана"
 
-#: data/picker.metainfo.xml.in:54
-msgid "Update to elementary platform 7"
-msgstr "Обновлено до elementary platform 7"
+#~ msgid "Features:"
+#~ msgstr "Функции:"
 
-#: data/picker.metainfo.xml.in:55
-msgid "Minor change to app description"
-msgstr "Небольшое изменение описания приложения"
+#, fuzzy
+#~ msgid "Choose different output formats (RGB, RGBA, HEX, CMYK)"
+#~ msgstr "Выбор различные форматы цветов (RGB, RGBA, HEX)"
 
-#: data/picker.metainfo.xml.in:61
-msgid "Fix inaccuracies in metadata"
-msgstr "Исправлены неаккуратности в метаданных"
+#~ msgid "Remembers your preferred format"
+#~ msgstr "Запоминание вашего предпочитаемого формата"
 
-#: data/picker.metainfo.xml.in:66
-msgid "Add stripe key"
-msgstr "Добавлен ключ Stripe"
+#~ msgid "Add command line flag to open directly in color picking mode"
+#~ msgstr ""
+#~ "Добавлен флаг командной строки для открытия сразу в режиме выбора цвета"
 
-#: data/picker.metainfo.xml.in:71
-msgid "Initial release"
-msgstr "Начальный релиз"
+#~ msgid "Fix layout bug when opening multiple instances"
+#~ msgstr "Исправлен баг интерфейса при открытии нескольких окон"
 
-#: data/picker.metainfo.xml.in:81
-msgid "Phoney Badger"
-msgstr "Phoney Badger"
+#~ msgid "Make pick color button the default focused widget"
+#~ msgstr "Кнопка выбора цвета теперь сфокусирована по умолчанию"
+
+#~ msgid "Remove payment option from appcenter"
+#~ msgstr "Убрана опция покупки из AppCenter"
+
+#~ msgid "Update to elementary platform 7"
+#~ msgstr "Обновлено до elementary platform 7"
+
+#~ msgid "Minor change to app description"
+#~ msgstr "Небольшое изменение описания приложения"
+
+#~ msgid "Fix inaccuracies in metadata"
+#~ msgstr "Исправлены неаккуратности в метаданных"
+
+#~ msgid "Add stripe key"
+#~ msgstr "Добавлен ключ Stripe"
+
+#~ msgid "Initial release"
+#~ msgstr "Начальный релиз"
+
+#~ msgid "Phoney Badger"
+#~ msgstr "Phoney Badger"

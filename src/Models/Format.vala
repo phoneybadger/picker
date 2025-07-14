@@ -1,12 +1,18 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
+ * SPDX-FileCopyrightText:  2022 Adithyan K V <adithyankv@protonmail.com>
+ *                          2025 Stella & Charlie (teamcons.carrd.co)
+ *                          2025 Contributions from the ellie_Commons community (github.com/ellie-commons/)
  */
-namespace Picker {
+
+namespace Cherrypick {
     public enum Format {
         HEX,
         RGB,
-        RGBA;
+        RGBA,
+        CMYK,
+        HSL,
+        HSLA;
 
         public string to_string () {
             switch (this) {
@@ -16,13 +22,19 @@ namespace Picker {
                     return "RGB";
                 case RGBA:
                     return "RGBA";
+                case CMYK:
+                    return "CMYK";
+                case HSL:
+                    return "HSL";
+                case HSLA:
+                    return "HSLA";
                 default:
                     assert_not_reached ();
             }
         }
 
         public static Format[] all () {
-            return {HEX, RGB, RGBA};
+            return {HEX, RGB, RGBA, CMYK, HSL, HSLA};
         }
     }
 }

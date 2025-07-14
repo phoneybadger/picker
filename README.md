@@ -2,11 +2,11 @@
   <div align="center">
     <img src="data/icons/png/64.png" width="64">
   </div>
-  <h1 align="center">Picker</h1>
+  <h1 align="center">Cherrypick</h1>
   <p align="center">
     A simple color picker for elementary OS
   </p>
-  <a href="https://appcenter.elementary.io/com.github.phoneybadger.picker">
+  <a href="https://appcenter.elementary.io/io.github.ellie_commons.cherrypick">
     <img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter"/>
   </a>
 </div>
@@ -21,13 +21,13 @@
 ## Installation
 
 ### On elementary OS
-On elementary OS you can get Picker from the app center.
+On elementary OS you can get Cherrypick from the app center.
 
 ### On other distros
-Picker has been designed for and tested on elementary OS. However you can always
-install Picker as a flatpak on any distro with flatpak support from the elementary flatpak repository
+Cherrypick has been designed for and tested on elementary OS. However you can always
+install Cherrypick as a flatpak on any distro with flatpak support from the elementary flatpak repository
 ```
-flatpak install https://flatpak.elementary.io/repo/appstream/com.github.phoneybadger.picker.flatpakref
+flatpak install https://flatpak.elementary.io/repo/appstream/io.github.ellie_commons.cherrypick.flatpakref
 ```
 Flatpak is the recommended method of installation, however if you don't want
 to use flatpak you can always build from source using the build instructions.
@@ -35,12 +35,12 @@ to use flatpak you can always build from source using the build instructions.
 ## Usage
 If installed as flatpak the program can be launched using
 ```
-flatpak run com.github.phoneybadger.picker
+flatpak run io.github.ellie_commons.cherrypick
 ```
 the app can be launched directly in color picking mode using the command line
 option `--pick-color`. This could be perhaps be used to set up a keybinding.
 ```
-flatpak run com.github.phoneybadger.picker --pick-color
+flatpak run io.github.ellie_commons.cherrypick --pick-color
 ```
 and the program should also be visible in your launcher/application menu
 
@@ -54,7 +54,7 @@ cd picker
 
 Run `flatpak-builder` to build and install as flatpak for the current user
 ```
-flatpak-builder build com.github.phoneybadger.picker.yml --user --install --force-clean
+flatpak-builder build io.github.ellie_commons.cherrypick.yml --user --install --force-clean
 ```
 the program should now be installed and can be run using
 ```
@@ -75,10 +75,10 @@ run `meson` to set up the build environment and then use `ninja` to build
 meson build --prefix=/usr
 ninja -C build
 ```
-to install use `ninja install`, execute with `com.github.phoneybadger.picker`
+to install use `ninja install`, execute with `io.github.ellie_commons.cherrypick`
 ```
 ninja install
-com.github.phoneybadger.picker
+io.github.ellie_commons.cherrypick
 ```
 
 ## Support Me

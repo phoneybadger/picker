@@ -1,4 +1,2 @@
 src/Widgets/Window.vala
 src/Widgets/FormatArea.vala
-data/picker.desktop.in
-data/picker.metainfo.xml.in

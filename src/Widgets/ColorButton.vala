@@ -1,64 +1,57 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
+ * SPDX-FileCopyrightText:  2022 Adithyan K V <adithyankv@protonmail.com>
+ *                          2025 Stella & Charlie (teamcons.carrd.co)
+ *                          2025 Contributions from the ellie_Commons community (github.com/ellie-commons/)
  */
-namespace Picker {
-    class ColorButton: Gtk.Button {
-        public Color color {get; set construct;}
-        public string css_name {get; set construct;}
+
+namespace Cherrypick {
+    class ColorButton: Gtk.Box {
+        public Cherrypick.Color color;
+        public Gtk.Button button;
+        new string css_name;
         private Gtk.CssProvider css_provider;
 
         private const string BUTTON_CSS = """
-            .%s {
+            .%s * {
                 background-color: %s;
             }
         """;
 
-        public ColorButton (Color color, string name) {
-            Object (
-                css_name: name,
-                color: color
-            );
-        }
 
-        construct {
-            relief = Gtk.ReliefStyle.HALF;
+        public ColorButton (Color newcolor, string name) {
+
+            //var relief = Gtk.ReliefStyle.HALF;
+            //tooltip_text = _("Switch preview and colour code to this colour");
+
             css_provider = new Gtk.CssProvider ();
-            get_style_context ().add_class (css_name);
 
-            var color_controller = ColorController.get_instance ();
+            this.color = newcolor;
+            css_name = name;
+            add_css_class (name);
 
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (),
-                css_provider,
-                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-            );
+            button = new Gtk.Button () {
+                width_request = 50
+            };
 
-            notify ["color"].connect (() => {
-                if (color != null) {
-                    update_color ();
-                }
-            });
+            update_color (newcolor);
+            append (button);
 
-            clicked.connect (() => {
-                color_controller.preview_color = color;
-            });
         }
 
-        private void update_color () {
-            try {
-                var css = BUTTON_CSS.printf (css_name, color.to_hex_string ());
-                css_provider.load_from_data (css, css.length);
+        public void update_color (Color newcolor) {
+                remove_css_class (css_name);
+                color = newcolor;
+                var css = BUTTON_CSS.printf (css_name, newcolor.to_hex_string ());
+                css_provider.load_from_string (css);
 
-                Gtk.StyleContext.add_provider_for_screen (
-                    Gdk.Screen.get_default (),
+                Gtk.StyleContext.add_provider_for_display (
+                    Gdk.Display.get_default (),
                     css_provider,
                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
                 );
-            } catch (Error e) {
-                debug (e.message);
-                return;
-            }
+                add_css_class (css_name);
+
         }
     }
 }

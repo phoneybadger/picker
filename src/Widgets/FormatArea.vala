@@ -1,14 +1,21 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
+ * SPDX-FileCopyrightText:  2022 Adithyan K V <adithyankv@protonmail.com>
+ *                          2025 Stella & Charlie (teamcons.carrd.co)
+ *                          2025 Contributions from the ellie_Commons community (github.com/ellie-commons/)
  */
-namespace Picker {
+
+namespace Cherrypick {
     public class FormatArea : Gtk.Box {
-        public Picker.Color color {get; set;}
+        public Cherrypick.Color color {get; set;}
         public Format color_format {get; set;}
 
-        private Gtk.ComboBoxText format_selector;
+        public Gtk.ComboBoxText format_selector;
         private Gtk.Entry format_entry;
+
+        Cherrypick.ColorController color_controller;
+
+        public signal void copied (string message);
 
         public FormatArea () {
             Object (
@@ -24,8 +31,6 @@ namespace Picker {
             handle_active_format ();
 
             notify ["color-format"].connect (save_format_to_gsettings);
-
-            format_entry.icon_press.connect (copy_to_clipboard);
         }
 
         private void handle_active_format () {
@@ -37,7 +42,7 @@ namespace Picker {
         }
 
         private void sync_ui_with_controller () {
-            var color_controller = ColorController.get_instance ();
+            color_controller = ColorController.get_instance ();
 
             color_controller.notify ["preview-color"].connect (() => {
                 color = color_controller.preview_color;
@@ -53,18 +58,33 @@ namespace Picker {
             format_entry = new Gtk.Entry () {
                 editable = false,
             };
-            format_entry.set_icon_from_icon_name (
-                Gtk.EntryIconPosition.SECONDARY,
-                "edit-copy-symbolic"
-            );
 
-            format_selector = new Gtk.ComboBoxText ();
+
+            format_entry.primary_icon_name = "edit-paste-symbolic";
+            format_entry.primary_icon_tooltip_text = _("Click to paste a colour if you have one saved up");
+
+            format_entry.secondary_icon_name = "edit-copy-symbolic";
+            format_entry.secondary_icon_tooltip_text = _("Click to copy this colour to your clipboard");
+
+
+
+            format_selector = new Gtk.ComboBoxText () {
+                tooltip_text = _("Choose your preferred format to display picked colours")
+            };
             foreach (var format in Format.all ()) {
                 format_selector.append_text (format.to_string ());
             }
 
-            pack_start (format_entry);
-            pack_start (format_selector);
+            format_entry.icon_press.connect ((icon_pos) => {
+                if (icon_pos == Gtk.EntryIconPosition.PRIMARY) {
+                    paste_from_clipboard ();
+                } else {
+                    copy_to_clipboard ();
+                }
+            });
+
+            append (format_entry);
+            append (format_selector);
         }
 
         private void update_entry () {
@@ -81,6 +101,15 @@ namespace Picker {
                 case Format.RGBA:
                     format_entry.text = color.to_rgba_string ();
                     break;
+                case Format.CMYK:
+                    format_entry.text = color.to_cmyk_string ();
+                    break;
+                case Format.HSL:
+                    format_entry.text = color.to_hsl_string ();
+                    break;
+                case Format.HSLA:
+                    format_entry.text = color.to_hsla_string ();
+                    break;
                 default:
                     format_entry.text = color.to_rgba_string ();
                     break;
@@ -88,13 +117,47 @@ namespace Picker {
         }
 
         private void copy_to_clipboard () {
-            /* send a toast notification to give visual feedback to user */
-            var toast_overlay = ToastOverlay.get_instance ();
-            toast_overlay.show_toast (_("Copied to clipboard"));
-
-            var clipboard = Gtk.Clipboard.get_default (this.get_display ());
-            clipboard.set_text (format_entry.text, -1);
+            var clipboard = Gdk.Display.get_default ().get_clipboard ();
+            clipboard.set_text (format_entry.text);
+            this.copied ( _("Copied to clipboard!"));
         }
+
+        private void paste_from_clipboard () {
+            var clipboard = Gdk.Display.get_default ().get_clipboard ();
+            clipboard.read_text_async.begin ((null), (obj, res) => {
+                try {
+
+                    var pasted_text = clipboard.read_text_async.end (res);
+                    /* Clean up a bit this mess as the user is likely to have copied unwanted strings with it */
+                    string[] clutter_chars = {" ", "\n", ";"};
+                    foreach (var clutter in clutter_chars) {
+                        pasted_text = pasted_text.replace (clutter, "");
+                    }
+
+                    var picked_color = new Color ();
+                    picked_color.parse (pasted_text);
+
+
+                    /* Parse doesnt fail if it cannot read anything. It will just summon Anish Kapoor.
+                    So we have to check if we get pure solid black and test against it
+                    Else we just get pure black, and that behaviour would annoy me for this feature */
+                    // Get the string and strip it from spaces just in case
+                    var shortform = picked_color.to_rgba_string ().replace (" ", "");
+
+                    if ( shortform != "rgba(0,0,0,0)") {
+                        color_controller.last_picked_color = picked_color;
+                        color_controller.color_history.append (picked_color);
+
+                    } else {
+                        this.copied ( _("Cannot detect colour!"));
+                    }
+
+                } catch (Error e) {
+                    print ("Cannot access clipboard: " + e.message);
+                }
+            });
+        }
+
 
         public void load_format_from_gsettings () {
             var settings = Settings.get_instance ();

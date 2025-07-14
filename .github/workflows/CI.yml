@@ -46,8 +46,8 @@ jobs:
       uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
       with:
         # This is the name of the Bundle file we're building
-        bundle: Picker.flatpak
-        manifest-path: com.github.phoneybadger.picker.yml
+        bundle: Cherrypick.flatpak
+        manifest-path: io.github.ellie_commons.cherrypick.yml
 
         run-tests: false
 

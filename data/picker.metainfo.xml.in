@@ -1,39 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>com.github.phoneybadger.picker</id>
+  <id>io.github.ellie_commons.cherrypick</id>
 
-  <name>Picker</name>
-  <summary>A simple color picker</summary>
+  <name>Cherrypick</name>
+  <summary>Cherry pick pixel colors on your screen</summary>
 
   <metadata_license>CC-BY-4.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
 
   <description>
-    <p>A minimal color picker that lets you pick colors from anywhere on your screen</p>
+    <p>A modern and trusty color picker</p>
     <p>Features:</p>
     <ul>
-      <li>Choose different output formats (RGB, RGBA, HEX)</li>
+      <li>Choose different output formats (RGB, RGBA, HEX, CMYK, HSL, HSLA)</li>
       <li>Remembers your preferred format</li>
-      <li>Color history remembers your last picked colors</li>
+      <li>Color history remembers your last picked colors (hover to check their code)</li>
+      <li>Curious about a color? Copy paste it from your clipboard to preview it</li>
     </ul>
   </description>
 
-  <launchable type="desktop-id">com.github.phoneybadger.picker.desktop</launchable>
+  <launchable type="desktop-id">io.github.ellie_commons.cherrypick.desktop</launchable>
+
+    <content_rating type="oars-1.1"/>
+    <translation type="gettext" source_locale="en_GB">io.github.ellie_commons.cherrypick</translation>
+    <recommends>
+      <control>pointing</control>
+      <control>touch</control>
+    </recommends>
+
+    <launchable type="desktop-id">io.github.ellie_commons.reminduck.desktop</launchable>
+    <developer id="io.github.ellie-commons">
+        <name>PhoneyBadger + Stella</name>
+    </developer>
+    <project_group>ellie-commons</project_group>
+    <url type="homepage">https://github.com/ellie-commons/cherrypick</url>
+    <url type="bugtracker">https://github.com/ellie-commons/cherrypick/issues</url>
+    <url type="help">https://github.com/ellie-commons/cherrypick/issues</url>
+    <url type="donation">https://ko-fi.com/teamcons</url>
 
   <screenshots>
     <screenshot type="default">
+      <caption>Cherrypick's main window</caption>
       <image>
-        https://github.com/phoneybadger/picker/blob/main/data/screenshots/window-dark.png?raw=true
+        https://github.com/ellie-commons/cherrypick/blob/main/data/screenshots/window-dark.png?raw=true
       </image>
     </screenshot>
     <screenshot>
+      <caption>Cherrypick with dark theme</caption>
       <image>
-        https://github.com/phoneybadger/picker/blob/main/data/screenshots/window-light.png?raw=true
+        https://github.com/ellie-commons/cherrypick/blob/main/data/screenshots/window-light.png?raw=true
       </image>
     </screenshot>
   </screenshots>
-
   <releases>
+    <release date="2025-07-03" version="2.0.0">
+      <description>
+        <p>2.0.0: The revival!</p>
+        <ul>
+          <li>Port to modern tech (GTK4, Wayland, portals, elementary 8). Not broken anymore!</li>
+          <li>A new name, Cherrypick! And a new icon by the lovely @</li>
+          <li>CMYK model available thanks to @DSLitvinov</li>
+          <li>HSL model available thanks to @ckruse's work on ColorMate</li>
+          <li>Also apparently HSLA is a thing so i added it</li>
+          <li>New feature: You can now paste a color from clipboard to preview it</li>
+          <li>New feature: Hover over history buttons to see their code in your preferred format</li>
+        </ul>
+      </description>
+    </release>
     <release date="2022-07-03" version="1.1.0">
       <description>
         Add command line flag to open directly in color picking mode
@@ -73,15 +106,4 @@
     </release>
   </releases>
 
-  <custom>
-    <value key="x-appcenter-color-primary">#FAFAFA</value>
-    <value key="x-appcenter-color-primary-text">#333333</value>
-  </custom>
-
-  <developer_name>Phoney Badger</developer_name>
-  <url type="homepage">https://github.com/phoneybadger/picker</url>
-  <url type="bugtracker">https://github.com/phoneybadger/picker/issues</url>
-  <url type="help">https://github.com/phoneybadger/picker/issues</url>
-
-  <content_rating type="oars-1.1" />
 </component>

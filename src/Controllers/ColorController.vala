@@ -1,8 +1,11 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
+ * SPDX-FileCopyrightText:  2022 Adithyan K V <adithyankv@protonmail.com>
+ *                          2025 Stella & Charlie (teamcons.carrd.co)
+ *                          2025 Contributions from the ellie_Commons community (github.com/ellie-commons/)
  */
-namespace Picker {
+
+namespace Cherrypick {
     public class ColorController : Object {
         /* Controlls the state of the color picker. UI elements derive their
            state from the controller. Implemented as a singleton for ease
@@ -10,9 +13,9 @@ namespace Picker {
 
         private static ColorController? instance;
 
-        public Picker.Color preview_color {get; set;}
-        public Picker.Color last_picked_color {get; set;}
-        public Picker.ColorHistory color_history {get; set;}
+        public Cherrypick.Color preview_color {get; set;}
+        public Cherrypick.Color last_picked_color {get; set;}
+        public Cherrypick.ColorHistory color_history {get; set;}
 
         private const int HISTORY_SIZE = 5;
 

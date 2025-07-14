@@ -1,10 +1,29 @@
 /*
- * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2022 Adithyan K V <adithyankv@protonmail.com>
- */
-namespace Picker {
+* Copyright (c) 2022 Adithyan K V <adithyankv@protonmail.com>
+* Copyright (c) 2025 Stella, Charlie, (teamcons on GitHub) and the Ellie_Commons community
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or(at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* General Public License for more details.
+*
+* You should have received a copy of the GNU General Public
+* License along with this program; if not, write to the
+* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301 USA
+*
+* Authored by: Matheus Fantinel <matfantinel@gmail.com>
+*/
+
+namespace Cherrypick {
     public class Application : Gtk.Application {
         private Window? window;
+        private Xdp.Portal portal;
 
         public const string ACTION_PREFIX = "app.";
         public const string ACTION_START_PICK = "action-start-pick";
@@ -19,12 +38,18 @@ namespace Picker {
 
         public Application () {
             Object (
-                application_id: "com.github.phoneybadger.picker",
+                application_id: "io.github.ellie_commons.cherrypick",
                 flags: ApplicationFlags.HANDLES_COMMAND_LINE
             );
         }
 
         construct {
+
+            var quit_action = new SimpleAction ("quit", null);
+            add_action (quit_action);
+            set_accels_for_action ("app.quit", {"<Control>q"});
+            quit_action.activate.connect (quit);
+
             add_main_option_entries (CMD_OPTION_ENTRIES);
         }
 
@@ -38,8 +63,17 @@ namespace Picker {
                the state is global and would be shared between multiple
                instances anyway. */
             if (window == null) {
-                window = new Picker.Window (this);
-                window.show_all ();
+                window = new Cherrypick.Window (this);
+
+                var provider = new Gtk.CssProvider ();
+                provider.load_from_resource ("/io/github/ellie_commons/cherrypick/Application.css");
+                Gtk.StyleContext.add_provider_for_display (
+                    Gdk.Display.get_default (),
+                    provider,
+                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+                );
+
+                window.show ();
             } else {
                 window.present ();
             }
@@ -59,7 +93,8 @@ namespace Picker {
         }
 
         private void action_start_pick () {
-            window.color_picker.start_picking ();
+            portal = new Xdp.Portal ();
+            portal.pick_color.begin (null, null);
         }
 
         private void set_prefered_color_scheme () {
