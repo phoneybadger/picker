@@ -49,7 +49,12 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release date="2025-07-03" version="2.0.0">
+    <release date="2022-07-14" version="2.0.1">
+      <description>
+        Remove minor artifacts
+      </description>
+    </release>
+    <release date="2025-07-14" version="2.0.0">
       <description>
         <p>2.0.0: The revival!</p>
         <ul>
