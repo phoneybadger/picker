@@ -1,71 +1,32 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  pull_request:
+    branches: [ main ]
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 jobs:
-  # try building the app
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    container:
-      image: elementary/docker:stable
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Install dependencies
-        env:
-          dependency_packages: libvala-dev valac meson libgtk-3-dev libgranite-dev appstream
-        run: apt update && apt -y install ${dependency_packages}
-
-      - name: Build
-        run: |
-          meson build
-          ninja -C build
-          ninja -C build install
-
-  # build a flatpak
   flatpak:
     name: Flatpak
     runs-on: ubuntu-latest
-    # no point in running flatpak packaging if normal build has failed
-    needs: build
 
-    # This job runs in a special container designed for building Flatpaks for AppCenter
     container:
-      image: ghcr.io/elementary/flatpak-platform/runtime:7
+      image: ghcr.io/elementary/flatpak-platform/runtime:8
       options: --privileged
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-      # Builds flatpak manifest using the Flatpak Builder action
-    - name: Flatpak
-      uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
-      with:
-        # This is the name of the Bundle file we're building
-        bundle: Cherrypick.flatpak
-        manifest-path: io.github.ellie_commons.cherrypick.yml
-
-        run-tests: false
-
-        # These lines specify the location of the elementary Runtime and Sdk
-        repository-name: appcenter
-        repository-url: https://flatpak.elementary.io/repo.flatpakrepo
-        cache-key: "flatpak-builder-${{ github.sha }}"
-
-  # check for code style errors
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    container:
-      image: valalang/lint
-
-    steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Lint
-        run: io.elementary.vala-lint -d .
+      - name: Build
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: cherrypick.flatpak
+          manifest-path: io.github.ellie_commons.cherrypick.yml
+          run-tests: true
+          repository-name: appcenter
+          repository-url: https://flatpak.elementary.io/repo.flatpakrepo
+          cache-key: "flatpak-builder-${{ github.sha }}"
