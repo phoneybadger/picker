@@ -21,6 +21,7 @@ namespace Cherrypick {
         }
 
         construct {
+            Intl.setlocale ();
 
             // We need to hide the title area for the split headerbar
             var null_title = new Gtk.Grid () {
