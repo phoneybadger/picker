@@ -1,13 +1,8 @@
-# Russian translation for io.github.ellie_commons.cherrypick
-# Copyright (C) 2022 THE io.github.ellie_commons.cherrypick'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the io.github.ellie_commons.cherrypick package.
-# lenemter <lenemter@gmail.com>, 2022.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-14 20:52+0200\n"
+"POT-Creation-Date: 2025-07-14 21:10+0200\n"
 "PO-Revision-Date: 2022-09-27 20:44+0900\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none\n"
@@ -18,35 +13,38 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: src/Widgets/Window.vala:16 src/Widgets/Window.vala:34
+#. /TRANSLATORS: Do not translate app name
+#: src/Widgets/Window.vala:17 src/Widgets/Window.vala:36
 msgid "Cherrypick"
 msgstr "Cherrypick"
 
-#: src/Widgets/Window.vala:46
+#: src/Widgets/Window.vala:48
 msgid "Format"
 msgstr "Формат"
 
-#: src/Widgets/Window.vala:55
+#: src/Widgets/Window.vala:57
 msgid "History"
 msgstr "История"
 
-#: src/Widgets/Window.vala:64
+#: src/Widgets/Window.vala:66
 msgid "Pick Color"
 msgstr "Выбрать цвет"
 
-#: src/Widgets/Window.vala:66
+#: src/Widgets/Window.vala:68
 msgid ""
 "Allows you to click on a colour on the screen to get its code in the "
 "preferred format"
 msgstr ""
+"Позволяет щелкнуть по цвету на экране, чтобы получить его код в "
+"предпочтительном формате"
 
 #: src/Widgets/FormatArea.vala:64
 msgid "Click to paste a colour if you have one saved up"
-msgstr ""
+msgstr "Нажмите, чтобы вставить цвет, если он у вас сохранен."
 
 #: src/Widgets/FormatArea.vala:67
 msgid "Click to copy this colour to your clipboard"
-msgstr ""
+msgstr "Нажмите, чтобы скопировать этот цвет в буфер обмена"
 
 #: src/Widgets/FormatArea.vala:72
 #, fuzzy
@@ -60,7 +58,7 @@ msgstr "Скопировано в буфер обмена"
 
 #: src/Widgets/FormatArea.vala:152
 msgid "Cannot detect colour!"
-msgstr ""
+msgstr "Невозможно определить цвет!"
 
 #~ msgid "A simple color picker"
 #~ msgstr "Простая палитра цветов"

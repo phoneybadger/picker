@@ -1,144 +1,134 @@
-# Spanish translations for io.github.ellie_commons.cherrypick package.
-# Copyright (C) 2022 THE io.github.ellie_commons.cherrypick'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the io.github.ellie_commons.cherrypick package.
-# Automatically generated, 2022.
-#
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+"Language-Team: none\n"
+"Last-Translator: Automatically generated\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2022-05-29 02:15+0530\n"
+"POT-Creation-Date: 2025-07-14 20:52+0200\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: io.github.ellie_commons.cherrypick\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-14 20:52+0200\n"
-"PO-Revision-Date: 2022-05-29 02:15+0530\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: es\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/picker.desktop.in:6 data/picker.metainfo.xml.in:4
+#: data/picker.desktop.in:6
+#: data/picker.metainfo.xml.in:4
 msgid "Cherrypick"
-msgstr ""
+msgstr "Cherrypick"
 
 #: data/picker.desktop.in:7
 msgid "Pick any color"
-msgstr ""
+msgstr "Elige cualquier color"
 
 #: data/picker.desktop.in:13
 msgid "Color;Pick;Eyedropper;Picker;"
-msgstr ""
+msgstr "Color;Pick;Cuentagotas;Picker;"
 
 #: data/picker.metainfo.xml.in:5
 msgid "Cherry pick pixel colors on your screen"
-msgstr ""
+msgstr "Elige los colores de los píxeles de tu pantalla"
 
 #: data/picker.metainfo.xml.in:11
 msgid "A modern and trusty color picker"
-msgstr ""
+msgstr "Un selector de color moderno y fiable"
 
 #: data/picker.metainfo.xml.in:12
 msgid "Features:"
-msgstr ""
+msgstr "Características:"
 
 #: data/picker.metainfo.xml.in:14
 msgid "Choose different output formats (RGB, RGBA, HEX, CMYK, HSL, HSLA)"
-msgstr ""
+msgstr "Elija diferentes formatos de salida (RGB, RGBA, HEX, CMYK, HSL, HSLA)"
 
 #: data/picker.metainfo.xml.in:15
 msgid "Remembers your preferred format"
-msgstr ""
+msgstr "Recuerda tu formato preferido"
 
 #: data/picker.metainfo.xml.in:16
-msgid ""
-"Color history remembers your last picked colors (hover to check their code)"
-msgstr ""
+msgid "Color history remembers your last picked colors (hover to check their code)"
+msgstr "El historial de colores recuerda los últimos colores elegidos (pasa el ratón por encima para comprobar su código)"
 
 #: data/picker.metainfo.xml.in:17
 msgid "Curious about a color? Copy paste it from your clipboard to preview it"
-msgstr ""
+msgstr "¿Tienes curiosidad por un color? Cópielo y péguelo desde el portapapeles para obtener una vista previa."
 
 #: data/picker.metainfo.xml.in:29
 msgid "PhoneyBadger + Stella"
-msgstr ""
+msgstr "PhoneyBadger + Stella"
 
 #: data/picker.metainfo.xml.in:39
 msgid "Cherrypick's main window"
-msgstr ""
+msgstr "Ventana principal de Cherrypick"
 
 #: data/picker.metainfo.xml.in:45
 msgid "Main window with dark theme"
-msgstr ""
+msgstr "Ventana principal con tema oscuro"
 
 #: data/picker.metainfo.xml.in:54
 msgid "2.0.0: The revival!"
-msgstr ""
+msgstr "2.0.0: ¡El renacimiento!"
 
 #: data/picker.metainfo.xml.in:56
-msgid ""
-"A new name, Cherrypick! Blessed by @adithyankv, the OG author. Thank you!"
-msgstr ""
+msgid "A new name, Cherrypick! Blessed by @adithyankv, the OG author. Thank you!"
+msgstr "Un nuevo nombre, ¡Cherrypick! Bendecido por @adithyankv, el autor OG. Gracias."
 
 #: data/picker.metainfo.xml.in:57
-msgid ""
-"Port to modern tech (GTK4, Wayland, portals, elementary 8). Not broken "
-"anymore!"
-msgstr ""
+msgid "Port to modern tech (GTK4, Wayland, portals, elementary 8). Not broken anymore!"
+msgstr "Adaptación a la tecnología moderna (GTK4, Wayland, portales, elementary 8). ¡Ya no está roto!"
 
 #: data/picker.metainfo.xml.in:58
 msgid "CMYK model available thanks to @DSLitvinov"
-msgstr ""
+msgstr "Modelo CMYK disponible gracias a @DSLitvinov"
 
 #: data/picker.metainfo.xml.in:59
 msgid "HSL model available thanks to @ckruse's work on ColorMate"
-msgstr ""
+msgstr "Modelo HSL disponible gracias al trabajo de @ckruse en ColorMate"
 
 #: data/picker.metainfo.xml.in:60
 msgid "Also apparently HSLA is a thing so i added it"
-msgstr ""
+msgstr "También al parecer HSLA es una cosa así que lo añadí"
 
 #: data/picker.metainfo.xml.in:61
 msgid "New feature: You can now paste a color from clipboard to preview it"
-msgstr ""
+msgstr "Nueva función: Ahora puedes pegar un color desde el portapapeles para previsualizarlo"
 
 #: data/picker.metainfo.xml.in:62
-msgid ""
-"New feature: Hover over history buttons to see their code in your preferred "
-"format"
-msgstr ""
+msgid "New feature: Hover over history buttons to see their code in your preferred format"
+msgstr "Nueva función: Pasa el ratón por encima de los botones del historial para ver su código en el formato que prefieras."
 
 #: data/picker.metainfo.xml.in:67
 msgid "Add command line flag to open directly in color picking mode"
-msgstr ""
+msgstr "Añadir indicador de línea de comandos para abrir directamente en modo de selección de color"
 
 #: data/picker.metainfo.xml.in:74
 msgid "Fix layout bug when opening multiple instances"
-msgstr ""
+msgstr "Corrección de un error de diseño al abrir varias instancias"
 
 #: data/picker.metainfo.xml.in:75
 msgid "Make pick color button the default focused widget"
-msgstr ""
+msgstr "Hacer que el botón de selección de color sea el widget enfocado por defecto"
 
 #: data/picker.metainfo.xml.in:76
 msgid "Remove payment option from appcenter"
-msgstr ""
+msgstr "Eliminar la opción de pago de appcenter"
 
 #: data/picker.metainfo.xml.in:83
 msgid "Update to elementary platform 7"
-msgstr ""
+msgstr "Actualización a la plataforma elemental 7"
 
 #: data/picker.metainfo.xml.in:84
 msgid "Minor change to app description"
-msgstr ""
+msgstr "Cambio menor en la descripción de la aplicación"
 
 #: data/picker.metainfo.xml.in:90
 msgid "Fix inaccuracies in metadata"
-msgstr ""
+msgstr "Corrección de imprecisiones en los metadatos"
 
 #: data/picker.metainfo.xml.in:95
 msgid "Add stripe key"
-msgstr ""
+msgstr "Añadir clave de banda"
 
 #: data/picker.metainfo.xml.in:100
 msgid "Initial release"
-msgstr ""
+msgstr "Lanzamiento inicial"

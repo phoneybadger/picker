@@ -13,6 +13,7 @@ namespace Cherrypick {
         public Window (Gtk.Application app) {
             Object (
                 application: app,
+                ///TRANSLATORS: Do not translate app name
                 title: _("Cherrypick"),
                 default_width: 480,
                 default_height: 240,
