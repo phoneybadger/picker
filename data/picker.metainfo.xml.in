@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>io.github.ellie_commons.cherrypick</id>
-
   <name>Cherrypick</name>
   <summary>Cherry pick pixel colors on your screen</summary>
-
+  <launchable type="desktop-id">io.github.ellie_commons.cherrypick.desktop</launchable>
   <metadata_license>CC-BY-4.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
 
@@ -19,20 +18,17 @@
     </ul>
   </description>
 
-  <launchable type="desktop-id">io.github.ellie_commons.cherrypick.desktop</launchable>
+  <content_rating type="oars-1.1"/>
+  <translation type="gettext" source_locale="en_GB">io.github.ellie_commons.cherrypick</translation>
+  <recommends>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
 
-    <content_rating type="oars-1.1"/>
-    <translation type="gettext" source_locale="en_GB">io.github.ellie_commons.cherrypick</translation>
-    <recommends>
-      <control>pointing</control>
-      <control>touch</control>
-    </recommends>
-
-    <launchable type="desktop-id">io.github.ellie_commons.reminduck.desktop</launchable>
-    <developer id="io.github.ellie-commons">
-        <name>PhoneyBadger + Stella</name>
-    </developer>
-    <project_group>ellie-commons</project_group>
+  <developer id="io.github.ellie-commons">
+    <name>PhoneyBadger + Stella</name>
+  </developer>
+  <project_group>ellie-commons</project_group>
     <url type="homepage">https://github.com/ellie-commons/cherrypick</url>
     <url type="bugtracker">https://github.com/ellie-commons/cherrypick/issues</url>
     <url type="help">https://github.com/ellie-commons/cherrypick/issues</url>
@@ -42,13 +38,13 @@
     <screenshot type="default">
       <caption>Cherrypick's main window</caption>
       <image>
-        https://github.com/ellie-commons/cherrypick/blob/main/data/screenshots/window-dark.png?raw=true
+        https://github.com/ellie-commons/cherrypick/blob/main/data/screenshots/window-light.png?raw=true
       </image>
     </screenshot>
     <screenshot>
-      <caption>Cherrypick with dark theme</caption>
+      <caption>Main window with dark theme</caption>
       <image>
-        https://github.com/ellie-commons/cherrypick/blob/main/data/screenshots/window-light.png?raw=true
+        https://github.com/ellie-commons/cherrypick/blob/main/data/screenshots/window-dark.png?raw=true
       </image>
     </screenshot>
   </screenshots>
@@ -57,8 +53,8 @@
       <description>
         <p>2.0.0: The revival!</p>
         <ul>
+          <li>A new name, Cherrypick! Blessed by @adithyankv, the OG author. Thank you!</li>
           <li>Port to modern tech (GTK4, Wayland, portals, elementary 8). Not broken anymore!</li>
-          <li>A new name, Cherrypick! And a new icon by the lovely @</li>
           <li>CMYK model available thanks to @DSLitvinov</li>
           <li>HSL model available thanks to @ckruse's work on ColorMate</li>
           <li>Also apparently HSLA is a thing so i added it</li>
