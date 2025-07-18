@@ -165,7 +165,6 @@ namespace Cherrypick {
                 } catch (Error e) {
                     critical (e.message);
                 }
-                quit ();
         }
     }
 }
