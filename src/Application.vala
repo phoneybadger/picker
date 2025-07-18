@@ -121,7 +121,6 @@ namespace Cherrypick {
             portal.pick_color.begin (null, null);
         }
 
-/*
         private void immediate_pick () {
             var color_picker = new ColorPicker ();
             color_picker.pick ();
@@ -139,11 +138,6 @@ namespace Cherrypick {
             notification.set_body (body);
             notification.set_priority (GLib.NotificationPriority.NORMAL);
             this.send_notification ("notify.app", notification);
-
-            quit ();
         }
-
-*/
-
     }
 }
