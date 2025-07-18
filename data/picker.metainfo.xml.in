@@ -15,6 +15,7 @@
       <li>Remembers your preferred format</li>
       <li>Color history remembers your last picked colors (hover to check their code)</li>
       <li>Curious about a color? Copy paste it from your clipboard to preview it</li>
+      <li>You can set a keybind to immediately pick and copy to clipboard!</li>
     </ul>
   </description>
 
@@ -49,6 +50,15 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release date="2025-07-14" version="2.1.0">
+      <description>
+        <ul>
+          <li>Add the ability to immediately pick and copy to clipboard, no UI needed</li>
+          <li>You can right-click on app icon and choose "Immediately pick"</li>
+          <li>Or set a keybind to "flatpak run io.ellie_commons.cherrypick --immediately-pick"</li>
+        </ul>
+      </description>
+    </release>
     <release date="2025-07-14" version="2.0.1">
       <description>
         Remove minor artifacts
