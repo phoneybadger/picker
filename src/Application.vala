@@ -115,9 +115,46 @@ namespace Cherrypick {
             return 0;
         }
 
+        /* wtf is this this gonna need correction */
         private void action_start_pick () {
             portal = new Xdp.Portal ();
             portal.pick_color.begin (null, null);
         }
+
+/*
+        private void immediate_pick () {
+            var color_picker = new ColorPicker ();
+            color_picker.pick ();
+
+            color_controller = ColorController.get_instance ();
+            picked = color_controller.last_picked_color;
+
+            var settings = Settings.get_instance ();
+            var format = settings.get_enum ("color-format");
+            var picked_formatted = "";
+
+            switch (format) {
+                case Format.HEX: picked_formatted = picked.to_hex_string (); break;
+                case Format.RGB: picked_formatted = picked.to_rgb_string (); break;
+                case Format.RGBA: picked_formatted = picked.to_rgba_string (); break;
+                case Format.CMYK: picked_formatted = picked.to_cmyk_string (); break;
+                case Format.HSL: picked_formatted = picked.to_hsl_string (); break;
+                case Format.HSLA: picked_formatted = picked.to_hsla_string (); break;
+                default: picked_formatted = picked.to_rgba_string (); break;
+
+            var clipboard = Gdk.Display.get_default ().get_clipboard ();
+            clipboard.set_text (picked_formatted);
+
+            var notification = new Notification (_("Copied to clipboard!"));
+            // TRANSLATORS: "%s%%" is replaced by a colour code 
+            var body = _("The picked colour (%s%%) has been copied to your clipboard").printf (picked_formatted);
+            notification.set_body (body);
+            notification.set_priority (GLib.NotificationPriority.NORMAL);
+            this.send_notification ("notify.app", notification);
+
+        }
+
+*/
+
     }
 }
