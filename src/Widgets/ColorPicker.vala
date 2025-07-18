@@ -8,7 +8,7 @@
 namespace Cherrypick {
     public class ColorPicker : Object {
         private Xdp.Portal portal;
-        private ColorController color_controller;
+        public ColorController color_controller;
 
         construct {
             color_controller = ColorController.get_instance ();

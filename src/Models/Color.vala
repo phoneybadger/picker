@@ -119,7 +119,7 @@ namespace Cherrypick {
             alpha = rgba.alpha;
         }
 
-	public string to_preferred_string () {
+	    public string to_preferred_string () {
             var settings = Settings.get_instance ();
             var format = settings.get_enum ("color-format");
             switch (format) {
@@ -130,6 +130,7 @@ namespace Cherrypick {
                 case Format.HSL: return this.to_hsl_string ();
                 case Format.HSLA: return this.to_hsla_string ();
                 default: return this.to_rgba_string ();
-	}
+            }
+	    }
     }
 }
