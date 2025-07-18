@@ -128,19 +128,7 @@ namespace Cherrypick {
 
             color_controller = ColorController.get_instance ();
             picked = color_controller.last_picked_color;
-
-            var settings = Settings.get_instance ();
-            var format = settings.get_enum ("color-format");
-            var picked_formatted = "";
-
-            switch (format) {
-                case Format.HEX: picked_formatted = picked.to_hex_string (); break;
-                case Format.RGB: picked_formatted = picked.to_rgb_string (); break;
-                case Format.RGBA: picked_formatted = picked.to_rgba_string (); break;
-                case Format.CMYK: picked_formatted = picked.to_cmyk_string (); break;
-                case Format.HSL: picked_formatted = picked.to_hsl_string (); break;
-                case Format.HSLA: picked_formatted = picked.to_hsla_string (); break;
-                default: picked_formatted = picked.to_rgba_string (); break;
+            var picked_formatted = picked.to_preferred_string ();
 
             var clipboard = Gdk.Display.get_default ().get_clipboard ();
             clipboard.set_text (picked_formatted);
