@@ -1,3 +1,5 @@
 # Ignore build files
 build
 .flatpak-builder
+builddir
+.potrans
