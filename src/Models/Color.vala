@@ -118,5 +118,18 @@ namespace Cherrypick {
             blue = (uint8) (255 * rgba.blue);
             alpha = rgba.alpha;
         }
+
+	public string to_preferred_string () {
+            var settings = Settings.get_instance ();
+            var format = settings.get_enum ("color-format");
+            switch (format) {
+                case Format.HEX: return this.to_hex_string ();
+                case Format.RGB: return this.to_rgb_string ();
+                case Format.RGBA: return this.to_rgba_string ();
+                case Format.CMYK: return this.to_cmyk_string ();
+                case Format.HSL: return this.to_hsl_string ();
+                case Format.HSLA: return this.to_hsla_string ();
+                default: return this.to_rgba_string ();
+	}
     }
 }
