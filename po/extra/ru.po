@@ -45,9 +45,8 @@ msgid "Features:"
 msgstr "Функции:"
 
 #: data/picker.metainfo.xml.in:14
-#, fuzzy
 msgid "Choose different output formats (RGB, RGBA, HEX, CMYK, HSL, HSLA)"
-msgstr "Выбор различные форматы цветов (RGB, RGBA, HEX)"
+msgstr "Выбор различные форматы цветов (RGB, RGBA, HEX, CMYK, HSL, HSLA)"
 
 #: data/picker.metainfo.xml.in:15
 msgid "Remembers your preferred format"
