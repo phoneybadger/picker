@@ -32,7 +32,7 @@ namespace Cherrypick {
         };
 
         private const OptionEntry[] CMD_OPTION_ENTRIES = {
-            {"pick-color", 'p', OptionFlags.NONE, OptionArg.NONE, null, N_("Pick color"), null}
+            {"immediately-pick", 'p', OptionFlags.NONE, OptionArg.NONE, null, N_("Immediately pick a colour and copy it to clipboard"), null}
         };
 
         public Application () {
@@ -109,8 +109,8 @@ namespace Cherrypick {
                flag is passed when launching from the command line. This could
                be helpful for the user to set up keybindings and stuff */
             var options = command.get_options_dict ();
-            if (options.contains ("pick-color")) {
-                lookup_action (ACTION_START_PICK).activate (null);
+            if (options.contains ("immediately-pick")) {
+                immediately_pick ();
             }
             return 0;
         }
@@ -140,6 +140,7 @@ namespace Cherrypick {
             notification.set_priority (GLib.NotificationPriority.NORMAL);
             this.send_notification ("notify.app", notification);
 
+            quit ();
         }
 
 */
