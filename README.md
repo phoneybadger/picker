@@ -47,8 +47,8 @@ and the program should also be visible in your launcher/application menu
 ## Building and running
 Download or clone the repo
 ```
-git clone https://github.com/phoneybadger/picker.git
-cd picker
+git clone https://github.com/ellie-commons/cherrypick.git
+cd cherrypick
 ```
 ### Build with Flatpak
 
