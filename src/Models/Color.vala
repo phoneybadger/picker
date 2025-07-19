@@ -101,7 +101,7 @@ namespace Cherrypick {
 
         public string to_hsla_string () {
             var hsla_string = this.to_hsl_string ();
-            hsla_string = hsla_string.replace (")", "," + ((int)alpha).to_string () + ")");
+            hsla_string = hsla_string.replace (")", ", " + ((int)alpha).to_string () + ")");
             hsla_string = hsla_string.replace ("hsl", "hsla");
 
             return hsla_string;
